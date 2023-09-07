@@ -1,0 +1,47 @@
+.customer-card{
+    width: 100%;
+    height: 100%;
+    padding: 0.61rem 0.83rem;
+    border-radius: 0.66531rem;
+    background: #FFF;
+}
+.customer-card-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+.customer-card-top p{
+    color: var(--black-10, #BEC0CA);
+    font-family: "Inter";
+    font-size: 0.66531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.customer-card-icon{
+    width: 31.936px;
+    height: 31.936px;
+    color: #1C1D22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7.097px;
+    background: rgba(255, 204, 145, 0.16);
+}
+.customer-data p{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.customer-data h2{
+    margin-top: 7.1px;
+    color: var(--black-60, #45464E);
+    font-family: "Poppins";
+    font-size: 1.10888rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

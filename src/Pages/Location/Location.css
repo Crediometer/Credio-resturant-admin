@@ -1,0 +1,88 @@
+.location{
+    width: 100%;
+    background-color: white;
+    min-height: 82vh;
+    height: 100%;
+    border-radius: 8px;
+    padding: 1.25rem 1.88rem;
+}
+.add-store{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.add-store button{
+    border: none;
+    padding: 0.62rem 1rem;
+    border-radius: 4px;
+    background-color:  var(--primary-primary-500, #1570EF);
+    color: #FFF;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+}
+.location-body-2{
+    margin-top: 24px;
+    width: 100%;
+}
+.location-ind{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.location-image{
+    width: 25%;
+    height: 100%;
+    border-radius: 6px 0px 0px 6px;
+    background: var(--grey-grey-50, #F0F1F3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.location-image p{
+    text-align: center;
+    color: var(--grey-grey-700, #48505E);
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+.location-details{
+    width: 75%;
+    height: 100%;
+    border-radius: 0px 6px 6px 0px;
+    border: 1px solid var(--grey-grey-50, #F0F1F3);
+    padding: 0.94rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+}
+.location-name{
+    color: var(--grey-grey-600, #5D6679);
+    font-family:"Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    
+}
+.location-address-inner{
+    margin-top: 18px;
+    color: var(--grey-grey-400, #858D9D);
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+.location-edit button{
+    border: 1px solid var(--primary-primary-50, #E8F1FD);
+    background-color: white;
+    padding: 0.62rem 2rem;
+    color: var(--primary-primary-600, #1366D9);
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 142.857% */
+}

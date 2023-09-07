@@ -1,0 +1,117 @@
+.order-modal-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-number{
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 1.09706rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.order-number span{
+    margin-left: 8px;
+    font-size: 0.90444rem;
+}
+.modal-close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28.085px;
+    height: 28.085px;   
+    border-radius: 7.021px;
+    background: var(--secondary-30, #FFF2E2);
+}
+.modal-close svg{
+    font-size: 0.65825rem;
+}
+.order-modal-body{
+    margin-top: 25px;
+    display: flex;
+    gap: 45px;
+}
+.order-modal-left{
+    width: 55%;
+}
+.order-modal-right{
+    width: 45%;
+}
+.order-title{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 14.043px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.order-form-1{
+    margin-top: 23px;
+    width: 100%;
+}
+.order-form-2{
+    margin-top: 23px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10.5px;
+}
+.order-form-1 input, .order-form-2 input{
+    width: 100%;
+    padding: 0.54rem 0.87769rem;
+    border: none;
+    border-radius: 7.021px;
+    background: var(--input-default-background, rgba(239, 241, 249, 0.60));
+    color: var(--black-2, #ABAFB1);
+    font-family: "Inter";
+    font-size: 0.87769rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.order-form-1 input::placeholder, .order-form-2 input::placeholder{
+    color: var(--black-2, #ABAFB1);
+}
+.order-modal-right img{
+    width: 100%;
+    height: 237.595px;
+    border-radius: 10.633px;
+    border: 0.886px solid var(--Grey, #E1E2E9);
+}
+.order-modal-button{
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+.order-cancle, .order-share{
+    padding: 0.9325rem 2rem;
+    background-color: transparent;
+    border-radius: 10.532px;
+    border: 1.755px solid var(--Primary, #5570F1);
+    color: var(--Primary, #5570F1);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 1.09706rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.order-ok{
+    padding: 0.9325rem 3rem;
+    border: none;
+    border-radius: 0.65825rem;
+    background: var(--Primary, #5570F1);
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 1.09706rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

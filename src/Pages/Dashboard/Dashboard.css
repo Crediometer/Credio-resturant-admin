@@ -1,0 +1,286 @@
+::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+.dashboard-card{
+    width: 100%;
+    overflow-x: scroll;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 315.412px;
+    /* display: flex;
+    align-items: center; */
+    grid-gap: 15px;
+}
+.dashboard-body{
+    margin-top: 24px;
+}
+.dashboard-body-inner{
+    display: flex;
+    align-items: center;
+    height: 373px;
+    justify-content: space-between;
+    gap: 24px;
+}
+.dashboard-graph{
+    width: 63%;
+    height: 100%;
+    padding: 1.17rem 1.04rem;
+    border-radius: 12px;
+    background-color: white;
+}
+.graph-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.graph-header{
+    color: var(--grey-grey-800, #383E49);
+    font-family: "Inter";
+    font-size: 1.29519rem;
+    font-style: normal;
+    font-weight: 500;
+}
+.graph-filter{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.filter-outer{
+    position: relative;
+}
+.filter{
+    display: flex;
+    align-items: center;
+    gap: 8.29px;
+    padding: 0.38rem 1.04rem;
+    border-radius: 0.25906rem;
+    border: 1.036px solid var(--primary-primary-50, #E8F1FD);
+    background: var(--White, #FFF);
+}
+.filter svg{
+    font-size: 1.29519rem;
+    color: #5D6679;
+}
+.filter p{
+    color: var(--grey-grey-600, #5D6679);
+    font-family: "Inter";
+    font-size: 0.90663rem;
+    font-style: normal;
+    font-weight: 500;
+}
+.filter-dropdown{
+    z-index: 5;
+    position: absolute;
+    top: 30px;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0px 4px 32px 0px rgba(61, 70, 112, 0.08);
+    border-radius: 12px;
+}
+.filter-dropdown p{
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--grey-grey-300, #989FAD);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 0.2px solid var(--grey-grey-50, #F0F1F3);
+}
+.dashboard-orders{
+    border-radius: 12px;
+    width: 37%;
+    padding: 1.25rem;
+    background-color: white;
+    height: 100%;
+    position: relative;
+}
+.dash-order-header{
+    color: var(--black-60, #45464E);
+    /* Paragraph 1/Medium */
+    font-family:"Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.dash-order-body{
+    margin-top: 20px;
+}
+.recent-order{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--Stroke, #F1F3F9);
+}
+.recent-left{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.recent-image img{
+    width: 49px;
+    height: 49px;
+    border-radius: 8px;
+}
+.recent-food-name{
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.recent-food-detail{
+    margin-top: 12px;
+    color: var(--black-80, #33343A);
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.recent-date{
+    color: var(--black-20, #A6A8B1);
+    font-family: "Inter";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.recent-status-inner{
+    margin-top: 12px;
+    border-radius: 8px;
+    padding: 0.45rem 0.94rem;
+}
+.outgoing{
+    background: rgba(245, 126, 119, 0.12);  
+}
+.outgoing p{
+    text-align: center;
+    color: var(--action-red, #CC5F5F);
+    font-family: "Inter";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.button-con{
+    position: absolute;
+    bottom: 3px;
+    width: 90%;
+}
+.see-more{
+    width: 100%;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.dashboard-sales{
+    background-color: white;
+    padding: 1rem;
+    margin-top: 23px;
+    border-radius: 12px;
+}
+.dash-sales-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dash-sales-top button{
+    border: none;
+    background-color: transparent;
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.dash-sales-body{
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.sales-food{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.sales-food img{
+    width: 49px;
+    height: 49px;
+    border-radius: 8px;
+}
+.sales-food-name{
+    color: var(--grey-grey-800, #383E49);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+}
+.sales-food-revenue{
+    display: flex;
+    align-items: center;
+    font-family: "Poppins";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.17px;
+}
+.red{
+    color: var(--default-red-600, #DC2626);
+}
+.green{
+    color: #059669;
+}
+@media (max-width: 1330px) {
+    .graph-header{
+        font-size: 1rem;
+    }
+    .filter p{
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 1220px) {
+    .graph-header{
+        font-size: 0.7rem;
+    }
+    .filter p{
+        font-size: 0.5rem;
+    }
+    .recent-food-name{
+        font-size: 12px;
+    }
+    .recent-food-detail{
+        font-size: 12px;
+    }
+    .recent-date{
+        color: var(--black-20, #A6A8B1);
+        font-family: "Inter";
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .recent-status-inner{
+        margin-top: 10px;
+        border-radius: 8px;
+        padding: 0.25rem 0.74rem;
+    }
+}

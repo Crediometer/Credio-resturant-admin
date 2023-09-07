@@ -1,0 +1,73 @@
+.card{
+    /* width: 500px; */
+    background-color: white;
+    border-radius: 8px;
+    padding: 0.69rem 0.94rem;
+
+}
+.card-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-icon{
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(85, 112, 241, 0.08);
+}
+.card-icon svg{
+
+}
+.card-filter{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.card-filter p{
+    color: var(--black-10, #BEC0CA);
+    /* Label 1/Regular */
+    font-family: "Inter";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.card-filter svg{
+    font-size: 1rem;
+    color: #BEC0CA;
+}
+
+.card-body{
+    margin-top: 25px;
+}
+.card-title{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.card-number{
+    margin-top: 8px;
+    color: var(--black-60, #45464E);
+    /* subHeading 3/Medium */
+    font-family: "Poppins";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.card-body span{
+    margin-left: 6px;
+    color: var(--action-green, #519C66);
+    font-family: "Inter";
+    font-size: 0.66188rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

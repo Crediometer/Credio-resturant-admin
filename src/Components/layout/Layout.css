@@ -1,0 +1,17 @@
+.layout{
+    display: flex;
+    width: 100%;
+}
+/* .layout-left{
+    width: 280px;
+} */
+.layout-right{
+}
+.layout-main{
+    margin-top: 100px;
+    background-color: #F0F1F3;
+    padding: 1rem 2.13rem;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    max-height: 100%;
+}

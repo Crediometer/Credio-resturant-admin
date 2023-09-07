@@ -1,0 +1,95 @@
+.categories-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.categories-head p{
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 0.88713rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.categories-head button{
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0.89rem 1rem;
+    border-radius: 0.66531rem;
+    background: var(--primary-primary-500, #1570EF);
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.77625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.categories-head button svg{
+    font-size: 1.33069rem;
+    font-weight: 500;
+}
+.categories-top{
+    margin-top: 24px;
+    height: 128.631px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16.86px;
+}
+.categories-order, .categories-customer{
+    width: 50%;
+}
+.categories-body{
+    margin-top: 24px;
+    padding: 1.22rem 1.16rem;
+    border-radius: 10.645px;
+    background: #FFF;
+}
+.table-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.table-top p{
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size:  0.88713rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.table-filters{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.table-search{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0.44rem;
+    border-radius: 0.22175rem;
+    border: 0.887px solid var(--black-1, #CFD3D4);
+}
+.table-search input{
+    background-color: transparent;
+    border: none;
+    color: var(--black-2, #ABAFB1);
+    font-family: "Inter";
+    font-size: 0.66531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.table-filter{
+    display: flex;
+    align-items: center;
+    gap: 7.1px;
+    padding: 0.4rem;
+    border-radius: 3.548px;
+    border: 0.887px solid var(--black-50, #53545C);
+}
+
+

@@ -1,0 +1,182 @@
+.viewproduct-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.viewproduct-name{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.viewproduct-title, .viewproduct-date{
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 1.01663rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.viewproduct-date span{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 1.01663rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.viewproduct-button{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.draft{
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 12.2px;
+    background: var(--black-100, #1C1D22);
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.88956rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.live{
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 12.2px;
+    background: var(--primary-primary-500, #1570EF);
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.88956rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.viewproduct-top{
+    margin-top: 18px;
+    width: 100%;
+    /* height: 128.299px; */
+    display: grid;
+    overflow-x: scroll;
+    grid-template-columns: 164.577px 290.221px 362.776px 291.991px ;
+    grid-template-rows: 128.299px;
+    grid-gap: 16.81px;
+}
+.viewproduct-image img{
+    width: 164.577px;
+    height: 100%;
+    border-radius: 10.618px;
+    /* border: 0.885px solid var(--Grey, #E1E2E9); */
+}
+.viewproduct-size, .viewproduct-lastorder, .viewproduct-orders{
+    height: 100%;
+    padding: 0.60831rem 0.8295rem;
+    border-radius: 10.618px;
+    background: #FFF;
+}
+.size-avaliable{
+    margin-top: 30px;
+}
+.size-available-title{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 12.387px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.sizes{
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sizes p{
+    color: var(--black-60, #45464E);
+    font-family:"Poppins";
+    font-size: 17.696px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.lastorder-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.lastorder-title{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 10.618px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.lastorder-title span{
+    color: var(--black-90, #2C2D33);
+    font-family: "Inter";
+    font-size: 10.618px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.lastorder-status{
+    padding: 3.539px 9.733px;
+    border-radius: 7.079px;
+    background: rgba(50, 147, 111, 0.16)
+}
+.lastorder-status p{
+    color: var(--action-green, #519C66);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 10.618px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.lastorder-body{
+    display: flex;
+    align-items: center;
+    gap: 93px;
+    margin-top: 57px;
+}
+.last-order-title{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 10.618px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.last-order-body{
+    margin-top: 7px;
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 12.387px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.viewproduct-order-body{
+    margin-top: 34px;
+}
+.viewproduct-order-body p{
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 12.387px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.viewproduct-order-body h2{
+    margin-top: 8px;
+    color: var(--black-60, #45464E);
+    font-family: "Poppins";
+    font-size: 17.696px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

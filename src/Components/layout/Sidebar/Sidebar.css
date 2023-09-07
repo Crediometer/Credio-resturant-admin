@@ -1,0 +1,61 @@
+.sidebar{
+    width: 280px;
+    padding: 1.5rem;
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+}
+.company-logo-inner{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 2.08025rem;
+    height: 2.15713rem;
+}
+.logo2{
+   margin-left: 12px;
+}
+.sidebar-links{
+    margin-top: 60px;
+}
+.sidebar-links nav, .sidebar-bottom nav{
+    list-style: none;
+}
+.sidebar-links nav li{
+    margin-top: 48px;
+}
+.sidebar-links nav li a, .sidebar-bottom nav li a{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+}
+.sidebar-links nav li a p, .sidebar-bottom nav li a p{
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+.sidebar-links nav li a svg, .sidebar-bottom nav li a svg{
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+.sidebar-bottom{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+}
+ .sidebar-bottom nav li{
+    margin-bottom: 30px;
+ }
+.link{
+    color: var(--grey-grey-600, #5D6679);
+}
+.active2{
+    color: var(--primary-primary-500, #1570EF);
+}
