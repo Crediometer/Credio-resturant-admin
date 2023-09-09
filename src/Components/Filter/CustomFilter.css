@@ -1,0 +1,61 @@
+.customfilter{
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 32px 0px rgba(61, 70, 112, 0.08);
+}
+.by-date{
+    padding-bottom: 12px;
+}
+.custom-date-range{
+    padding-top: 12px;
+}
+.by-date-text{
+    color: var(--black-100, #1C1D22);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 1.5rem */
+    letter-spacing: -0.01rem;
+}
+.date-periods{
+    width: 360px;
+    margin-top: 21px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 12px;
+}
+.date-checkboxs{
+    display: flex;
+    align-items: center;
+}
+.date-checkboxs input{
+    margin-right: 20px;
+}
+.date-checkboxs label{
+    color: var(--black-3, #83898C);
+    text-align: right;
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.custom-button{
+    margin-top: 16px;
+}
+.custom-button button{
+    padding: 1.0625rem 1rem;
+    width: 100%;
+    border-radius: 10px;
+    border:none;
+    background: var(--primary-primary-500, #1570EF);
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

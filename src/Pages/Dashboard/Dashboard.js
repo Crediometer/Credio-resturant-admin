@@ -7,11 +7,21 @@ import {HiOutlineCurrencyDollar} from 'react-icons/hi'
 import food from '../../Assets/food.jpeg'
 import Graph from '../../Components/Graph/Graph';
 import { useEffect, useState } from 'react';
+import CustomFilter from '../../Components/Filter/CustomFilter';
 const Dashboard = () => {
     const [show, setShow] = useState(false)
+    const [show2, setShow2] = useState(false)
+    const [show3, setShow3] = useState(false)
     const [graph,setGraph] = useState('line')
+
     const handleToggle = () =>{
         setShow(!show)
+    }
+    const handleToggle2 = () =>{
+        setShow2(!show2)
+    }
+    const handleToggle3 = () =>{
+        setShow3(!show3)
     }
     const handleGraph = (type) =>{
         setGraph(type)
@@ -35,7 +45,7 @@ const Dashboard = () => {
                                 <div className="filter-outer">
                                     <div className="filter" onClick={handleToggle}>
                                         <BsCalendar4/>
-                                        <p>Change Chart</p>
+                                        <p>{graph} Chart</p>
                                     </div>
                                     {show && (
                                         <div className="filter-dropdown">
@@ -44,17 +54,33 @@ const Dashboard = () => {
                                             <p onClick={()=>{handleGraph('scatter');handleToggle()}}>Scatter Chart</p>
                                             <p onClick={()=>{handleGraph('area');handleToggle()}}>Area Chart</p>
                                             <p onClick={()=>{handleGraph('radar');handleToggle()}}>Radar</p>
-                                            <p onClick={()=>{handleGraph('boxplot');handleToggle()}}>BoxPlot</p>
                                         </div>
                                     )}
                                 </div>
-                                <div className="filter">
-                                    <BsCalendar4/>
-                                    <p>Custom</p>
+                                <div className="filter-outer">
+                                    <div className="filter" onClick={handleToggle2}>
+                                        <BsCalendar4/>
+                                        <p>Custom</p>    
+                                    </div>
+                                        {show2 && (
+                                            <div className="custom">
+                                                <CustomFilter toggle={handleToggle2}/>
+                                            </div>
+                                        )}
                                 </div>
-                                <div className="filter">
-                                    <PiFunnel/>
-                                    <p>Weekly</p>
+                                <div className="filter-outer">
+                                    <div className="filter" onClick={handleToggle3}>
+                                        <PiFunnel/>
+                                        <p>Weekly</p>
+                                    </div>
+                                    {show && (
+                                        <div className="filter-dropdown">
+                                            <p onClick={()=>{handleToggle3()}}>Daily</p>
+                                            <p onClick={()=>{handleToggle3()}}>Weekly</p>
+                                            <p onClick={()=>{handleToggle3()}}>Monthly</p>
+                                            <p onClick={()=>{handleToggle3()}}>Anually</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

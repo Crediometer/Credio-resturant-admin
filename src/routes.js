@@ -6,6 +6,7 @@ import Categories from './Pages/Categories/Categories';
 import AddProduct from './Pages/Categories/AddProduct';
 import ViewProduct from './Pages/Categories/ViewProduct';
 import Order from './Pages/Order/Order';
+import Settings from './Pages/Settings/Settings';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -22,7 +23,7 @@ export default function Router() {
               { path: 'category/product', element: <AddProduct/> },
               { path: 'category/product/view', element: <ViewProduct/> },
               { path: 'orders', element: <Order/> },
-            //   { path: 'career', element: <Notfound/> },
+              { path: 'settings', element: <Settings/> },
             //   { path: 'employee', element: <Notfound/> },
             //   { path: 'document', element: <Notfound/> },
             //   { path: 'report', element: <Notfound/> },

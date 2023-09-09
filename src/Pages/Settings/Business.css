@@ -1,0 +1,107 @@
+.business{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 23px;
+}
+.business-left, .business-right{
+    width: 50%;
+}
+.business-logo-form, .business-banner{
+    width: 100%;
+    background-color: white;
+    padding: 1.22rem;
+    border-radius: 10px;
+}
+.business-right{
+    background-color: white;
+    padding: 1.5rem 0.625rem;
+    border-radius: 10px;
+}
+.business-input{
+    margin-bottom: 15px;
+}
+.business-input input{
+    width: 100%;
+    background-color: transparent;
+    padding: 0.42875rem 0.8575rem;
+    border-radius: 6.86px;
+    border: 0.857px solid var(--black-1, #CFD3D4);
+    color: var(--black-2, #ABAFB1);
+    font-family: "Inter";
+    font-size: 0.8575rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.business-input input::placeholder{
+    color: var(--black-2, #ABAFB1);
+    font-family: "Inter";
+    font-size: 0.8575rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.business-logo{
+    margin-top: 37px;
+}
+.business-logo-head{
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 13.72px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.business-upload{
+    margin-top: 19px;
+    display: flex;
+    align-items: center;
+}
+.upload-logo{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 10px; */
+    width: 147.489px;
+    height: 143.201px;
+    border-radius: 10.29px;
+    border: 0.857px solid var(--Grey, #E1E2E9);
+    background: var(--Main-Background, #F4F5FA);
+}
+.busines-upload-instruction{
+    width: 70%;
+}
+.business-banner{
+    margin-top: 22px;
+}
+.banner-upper{
+    padding: 3.91rem 1.28rem;
+    display: flex;
+    align-items: center;
+    border-radius: 9.664px;
+    border: 1px solid #E0E0E0;
+}
+.banner-input, .banner-upload{
+    width: 50%;
+}
+.banner-input p{
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: rgba(4, 4, 4, 0.81);
+    font-family: 'Poppin';
+    font-size: 44.027px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 48.43px */
+}
+.banner-lower{
+    margin-top: 22px;
+    padding: 1.05119rem 0.99281rem;
+    border: 1px solid #F2F2F2;
+    border-radius: 9.664px;
+}

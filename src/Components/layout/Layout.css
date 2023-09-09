@@ -8,6 +8,7 @@
 .layout-right{
 }
 .layout-main{
+    position: relative;
     margin-top: 100px;
     background-color: #F0F1F3;
     padding: 1rem 2.13rem;

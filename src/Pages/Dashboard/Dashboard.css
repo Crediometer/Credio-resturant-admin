@@ -50,6 +50,7 @@
     position: relative;
 }
 .filter{
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8.29px;
@@ -63,11 +64,17 @@
     color: #5D6679;
 }
 .filter p{
+    text-transform: capitalize;
     color: var(--grey-grey-600, #5D6679);
     font-family: "Inter";
     font-size: 0.90663rem;
     font-style: normal;
     font-weight: 500;
+}
+.custom{
+    position: absolute;
+    z-index: 5;
+    top: 30px;
 }
 .filter-dropdown{
     z-index: 5;

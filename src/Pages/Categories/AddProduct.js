@@ -2,14 +2,18 @@ import { FiChevronDown, FiPlus, FiUploadCloud } from 'react-icons/fi';
 import './AddProduct.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useState } from 'react';
+import { useState, Component } from 'react';
 import { Link } from 'react-router-dom';
+// import { Editor } from 'react-draft-wysiwyg';
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const AddProduct = () => {
     const [value, setValue] = useState('');
     var toolbarOptions =  [[{ 'font': [] }],[{ 'size': ['small', false, 'large', 'huge'] }],['bold', 'italic', 'underline', 'strike'],[{ 'align': [] }]];
     const modules = {
         toolbar: toolbarOptions
     }
+  
+
     return ( 
         <div className="addproduct">
             <div className="categories-head">
@@ -102,7 +106,13 @@ const AddProduct = () => {
                         <div className="product-details-right">
                             <div className="product-description">
                                 <p className='product-des-title'>Product Long Description</p>
-                                <ReactQuill modules={modules} theme="snow" value={value} onChange={setValue} />
+                                <div >
+                                {/* <Editor
+                                    wrapperClassName="wrapper-class"
+                                    editorClassName="editor-class"
+                                    toolbarClassName="toolbar-class"
+                                /> */}
+                                </div>  
                                 <p className='product-instruction'>Add a long description for your product</p>
                             </div>
                             <div className="return-policy">

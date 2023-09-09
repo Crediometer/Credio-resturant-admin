@@ -1,0 +1,260 @@
+.account{
+    display: flex;
+    align-items: first baseline;
+    gap: 38px;
+}
+.account-left, .account-right{
+    border-radius: 10px;
+    background: #FFF;  
+    padding: 0.62rem;
+}
+.account-left{
+    width: 40%;
+}
+.account-right{
+    width: 60%;
+}
+.password-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.password-head{
+    color: var(--black-60, #45464E);
+    font-family: "Poppins";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.password-change{
+    padding: 1.06rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background: #F2F2F2;
+    color: #1570EF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-forms{
+    margin-top: 32px;
+    padding: 0rem 0.5rem;
+}
+.password-instruction{
+    color: var(--black-4, #5E6366);
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-form, .password-form-check{
+    width: 100%;
+    margin-top: 32px;
+}
+.password-form-check{
+    display: flex;
+    gap: 8px;
+}
+.password-form label{
+    color: var(--black-4, #5E6366);
+    font-family:"Inter";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-form input{
+    margin-top: 8px;
+    width: 100%;
+    padding:1rem;
+    border-radius: 0.5rem;
+    border: 0.87px solid #F2F2F2;
+    background: rgba(255, 255, 255, 0.60);
+    color: var(--black-4, #5E6366);
+    /* Input/Placeholder */
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-form input::placeholder{
+    color: var(--black-4, #5E6366);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-form-check input{
+    margin-left: 8px;
+}
+.password-form-check label{
+    color: var(--black-4, #5E6366);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-save{
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.password-save button{
+    border: none;
+    border-radius: 10px;
+    background: #1570EF;
+    padding: 1.06rem 5rem;
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.director-info-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.director-head{
+    color: var(--black-60, #45464E);
+    font-family: "Poppins";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.director-update{
+    border: none;
+    padding: 1.0625rem 3rem;
+    border-radius: 10px;
+    background: #1570EF;
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.director-body{
+    display: flex;
+    justify-content: space-between;
+    gap: 37px;
+    margin-top: 42px;
+}
+.director-forms{
+    width: 70%;   
+}
+.director-image{
+    width: 30%;
+}
+.director-form{
+    margin-bottom: 16px;
+}
+.director-form label, .form-label{
+    color: var(--black-4, #5E6366);
+    font-family: "Inter";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.director-form-input{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 0.87px solid #F2F2F2;
+    background: rgba(255, 255, 255, 0.60);
+}
+.director-form-input svg{
+    font-size: 1rem;
+    color: #5E6366;
+}
+.director-form-input input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding:0rem 1rem;
+    color: var(--black-4, #5E6366);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.director-form-2{
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    gap: 4px;
+}
+.director-form-inner{
+    width: 50%;
+}
+.director-form-country{
+    width: 35%;
+}
+.director-form-phone{
+    width: 65%;
+}
+.director-form-select{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #F2F2F2;
+    background: rgba(255, 255, 255, 0.60);
+}
+.director-form-select p, .director-form-select svg{
+    color: var(--black-4, #5E6366);
+    display: flex;
+    align-items: center;
+    /* Input/Placeholder */
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.director-form-select p span img{
+    width: 35%;
+}
+.director-form-select input{
+    border: none;
+    background: transparent;
+    color: var(--black-4, #5E6366);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.director-image img{
+    width: 100%;
+    height: 172px;
+    border-radius: 10px;
+}
+@media (max-width:1310px) {
+    .director-forms{
+        width: 60%;   
+    }
+    .director-image{
+        width: 40%;
+    }
+}
