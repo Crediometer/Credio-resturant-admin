@@ -1,6 +1,26 @@
-import { FiPlus, FiUploadCloud } from 'react-icons/fi';
+import { FiChevronDown, FiPlus, FiUploadCloud } from 'react-icons/fi';
 import './Business.css';
+import { ChromePicker } from 'react-color'
+import { useState } from 'react';
+import transparent from '../../Assets/transparent.png'
 const Business = () => {
+    const[currentColor, setCurrentColor] = useState('#fff ')
+    const[textColor, setTextColor] = useState("#121212")
+    const[textColor1, setTextColor1] = useState("#121212")
+    const[textShow, setTextShow] = useState(false)
+    const handleColor = (color)=>{
+        setCurrentColor(color.hex)
+    }
+    const handleTextColor = (color) =>{
+        setTextColor(color)
+        setTextColor1(color.hex)
+    }
+    const textStyle = {
+        color: textColor1,
+    }
+    const appStyle = {
+        backgroundColor: currentColor
+    }
     return ( 
         <div className="business">
             <div className="business-left">
@@ -38,9 +58,9 @@ const Business = () => {
                     </div>
                 </div>
                 <div className="business-banner">
-                    <div className="banner-upper">
+                    <div className="banner-upper" style={appStyle}>
                         <div className="banner-input">
-                            <p>Enter Text<br></br> Here</p>
+                            <p style={textStyle}>Enter Text<br></br> Here</p>
                             {/* <input type='text' placeholder='Enter Text Here'></input> */}
                         </div>
                         <div className="banner-upload">
@@ -67,7 +87,105 @@ const Business = () => {
                 </div>
             </div>
             <div className="business-right">
-               
+                <p className="brand-color">Brand Color</p>
+                <p className="adjust">Adjust color of the Brand</p>
+                <div className="color-pallete">
+                    <ChromePicker width='100'
+                    color={currentColor} onChangeComplete={handleColor} 
+                    />
+                </div>
+                <div className="position-opacity">
+                    <div className="position">
+                        <p className="position-head">Position</p>
+                        <div className="highlight">
+                            <div className="position-box">
+                                <div className="box-1"></div>
+                                <div className="box-2"></div>
+                                <div className="box-3"></div>
+                                <div className="box-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="opacity">
+                        <p className="position-head">Opacity</p>
+                        <div className="opacity-boxes">
+                            <div className="opacity-box">
+                              <div className="position-box"></div>
+                              <p>Solid</p>
+                            </div>
+                            <div className="opacity-box">
+                                <img src={transparent}></img>
+                                <p>Transparent</p>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div className="shapes">
+                    <p className="position-head">Shape</p>
+                    <div className="shapes-boxes">
+                        <div className="opacity-box">
+                            <div className="position-box">
+                                <div className="rectangle"></div>
+                               
+                            </div>
+                            <p>Rectangle</p>
+                        </div>
+                        <div className="opacity-box">
+                            <div className="position-box">
+                                <div className="pill"></div>
+                               
+                            </div>
+                            <p>Pill</p>
+                        </div>
+                        <div className="opacity-box">
+                            <div className="position-box">
+                                <div className="circle"></div>
+                                
+                            </div>
+                            <p>Circle</p>
+                        </div>
+                        <div className="opacity-box">
+                            <div className="position-box">
+                                <div className="rectangle"></div>
+                                
+                            </div>
+                            <p>Triangle</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="shape-colors">
+                    <p className="position-head">Shape Color</p>
+                    <p className="sub-text">Select a color for the shape of your overlay that will be applied to every image.</p>
+                    <div className="shapes-boxes">
+                        <div className="shape-color circle-1"></div>
+                        <div className="shape-color circle-2"></div>
+                        <div className="shape-color circle-3"></div>
+                        <div className="shape-color circle-4"></div>
+                        <div className="shape-color circle-5"></div>
+                        <div className="shape-color circle-6"></div>
+                    </div>
+                </div>
+                <div className="shape-colors">
+                    <p className="position-head">Text Color</p>
+                    <p className="sub-text">Select a color for the text of your overlay that will be applied to every image.</p>
+                    <div className="shapes-boxes">
+                        <div className="shape-color circle-1" onClick={()=> {handleTextColor("#FFF")}}></div>
+                        <div className="shape-color circle-2" onClick={() =>{handleTextColor("#121212")}}></div>
+                        <div className="shape-color circle-6" onClick={()=>{setTextShow(!textShow)}}></div>
+                        <div className="chrome">
+                            {textShow && (<ChromePicker color={textColor1} onChangeComplete={handleTextColor} />)}
+                        </div>
+                    </div>
+                </div>
+                <div className="shape-colors">
+                    <p className="position-head">Text</p>
+                    <p className="sub-text">Select</p>
+                    <div className="text-select">
+                       <p>Poppins</p>
+                       <FiChevronDown/>
+                    </div>
+                </div>
             </div>
         </div>
      );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Account from './Account';
 import './Settings.css';
 import Business from './Business';
@@ -10,6 +10,9 @@ const Settings = () => {
     const handleBusiness = ()=>{
         setShow(2)
     }
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[])
     return ( 
         <div className="settings">
             <div className="settings-nav">

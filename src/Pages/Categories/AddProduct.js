@@ -1,4 +1,5 @@
-import { FiChevronDown, FiPlus, FiUploadCloud } from 'react-icons/fi';
+import { FiChevronDown, FiClock, FiPlus, FiUploadCloud } from 'react-icons/fi';
+import {BsCalendar2Week} from 'react-icons/bs';
 import './AddProduct.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -8,12 +9,13 @@ import { Link } from 'react-router-dom';
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const AddProduct = () => {
     const [value, setValue] = useState('');
+    const [showCategory, setShowCategory] =useState(false)
+    const [showSize, setShowSize] =useState(false)
+    const [showType, setShowType] =useState(false)
     var toolbarOptions =  [[{ 'font': [] }],[{ 'size': ['small', false, 'large', 'huge'] }],['bold', 'italic', 'underline', 'strike'],[{ 'align': [] }]];
     const modules = {
         toolbar: toolbarOptions
     }
-  
-
     return ( 
         <div className="addproduct">
             <div className="categories-head">
@@ -35,12 +37,45 @@ const AddProduct = () => {
                                 ></input>
                             </div>
                             <div className="product-input-2">
-                                <p className='product-placeholder'>Select Product Category</p>
+                                <p className='product-placeholder' onClick={()=>{setShowCategory(!showCategory)}}>Select Product Category</p>
                                 <FiChevronDown/>
+                                {showCategory && (
+                                    <div className="product-dropdown">
+                                        <div className="product-drop">
+                                            <label>Drinks</label>
+                                            <input type='checkbox'></input>
+                                        </div>
+                                        <div className="product-drop">
+                                            <label>Dinner</label>
+                                            <input type='checkbox'></input>
+                                        </div>
+                                        <div className="product-drop">
+                                            <label>Lunch</label>
+                                            <input type='checkbox'></input>
+                                        </div>
+                                    </div>
+                                )}
+                               
                             </div>
                             <div className="product-input-2">
-                                <p className='product-placeholder'>Product Sizes</p>
+                                <p className='product-placeholder' onClick={()=>{setShowSize(!showSize)}}>Product Sizes</p>
                                 <FiChevronDown/>
+                                {showSize && (
+                                    <div className="product-dropdown">
+                                        <div className="product-drop">
+                                            <label>Small</label>
+                                            <input type='checkbox' value="Small"></input>
+                                        </div>
+                                        <div className="product-drop">
+                                            <label>Medium</label>
+                                            <input type='checkbox' value='Medium'></input>
+                                        </div>
+                                        <div className="product-drop">
+                                            <label>Large</label>
+                                            <input type='checkbox' value="Medium"></input>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             <div className="product-input-3">
                                 <div className="product-input-left">
@@ -78,6 +113,22 @@ const AddProduct = () => {
                                     ></input>
                                 </div>
                             </div>
+                            <div className="product-input-4">
+                                <div className="product-input-1">
+                                    <input
+                                        type='number'
+                                        placeholder='Selling price'
+                                        required
+                                    ></input>
+                                </div>
+                                <div className="product-input-1">
+                                    <input
+                                        type='number'
+                                        placeholder='Cost price'
+                                        required
+                                    ></input>
+                                </div>
+                            </div>
                             <div className="product-input-1">
                                 <input
                                     type='number'
@@ -86,8 +137,24 @@ const AddProduct = () => {
                                 ></input>
                             </div>
                             <div className="product-input-2">
-                                <p className='product-placeholder'>Product Sizes</p>
+                                <p className='product-placeholder' onClick={()=>{setShowType(!showType)}}>Order Type</p>
                                 <FiChevronDown/>
+                                {showType && (
+                                    <div className="product-dropdown">
+                                        <div className="product-drop">
+                                            <label>Drinks</label>
+                                            <input type='checkbox'></input>
+                                        </div>
+                                        <div className="product-drop">
+                                            <label>Dinner</label>
+                                            <input type='checkbox'></input>
+                                        </div>
+                                        <div className="product-drop">
+                                            <label>Lunch</label>
+                                            <input type='checkbox'></input>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             <div className="product-discount">
                                 <p>Discount</p>
@@ -107,11 +174,7 @@ const AddProduct = () => {
                             <div className="product-description">
                                 <p className='product-des-title'>Product Long Description</p>
                                 <div >
-                                {/* <Editor
-                                    wrapperClassName="wrapper-class"
-                                    editorClassName="editor-class"
-                                    toolbarClassName="toolbar-class"
-                                /> */}
+                                <ReactQuill modules={modules} theme="snow" value={value} onChange={setValue} />
                                 </div>  
                                 <p className='product-instruction'>Add a long description for your product</p>
                             </div>
@@ -124,6 +187,37 @@ const AddProduct = () => {
                                 </div>
                                 <ReactQuill modules={modules} theme="snow" value={value} onChange={setValue} />
                                 <p className='product-instruction'>Helper text goes here</p>
+                            </div>
+                            <div className="date-added">
+                                <p className="date-added-top">Date Added</p>
+                                <div className="date-added-block">
+                                    <div className="date">
+                                        <div className="statement-date">
+                                            <BsCalendar2Week/>
+                                            <input
+                                                type='text'
+                                                placeholder='12/12/2020'
+                                                className='datefield'
+                                                onFocus={(e) => (e.target.type = "date")}
+                                                onBlur={(e) => {(e.target.type = "text");}}
+                                                required
+                                            ></input>
+                                        </div>  
+                                    </div>
+                                    <div className="time">
+                                        <div className="statement-date">
+                                            <FiClock/>
+                                            <input
+                                                type='text'
+                                                placeholder='12:00 PM'
+                                                className='datefield'
+                                                onFocus={(e) => (e.target.type = "time")}
+                                                onBlur={(e) => {(e.target.type = "text");}}
+                                                required
+                                            ></input>
+                                        </div>  
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>

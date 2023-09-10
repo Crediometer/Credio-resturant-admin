@@ -37,7 +37,7 @@
 .product-input-1 input{
     width: 100%;
     background-color: transparent;
-    padding: 0.44rem 0.89rem;
+    padding: 0.89rem;
     color: var(--black-2, #ABAFB1);
     font-family: "Inter";
     font-size: 0.88606rem;
@@ -51,12 +51,40 @@
     color: var(--black-2, #ABAFB1);
 }
 .product-input-2{
-    padding: 0.44rem 0.89rem;
+    position: relative;
+    padding: 0.89rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 0.44306rem;
     border: 0.886px solid var(--black-1, #CFD3D4);
+}
+.product-dropdown{
+    z-index: 5;
+    top: 50px;
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--primary-primary-50, #E8F1FD);
+    background: #FFF;
+}
+.product-drop{
+    width: 100%;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-bottom: 0.2px solid var(--grey-grey-50, #F0F1F3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.product-drop label{
+    color: var(--grey-grey-500, #667085);
+    font-family: "Inter";
+    font-size: 0.66531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .product-placeholder{
     color: var(--black-2, #ABAFB1);
@@ -70,8 +98,13 @@
     display: flex;
     align-items: stretch;
 }
+.product-input-4{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .product-input-left{
-    padding: 0.44rem 0.89rem;
+    padding: 0.89rem;
     border-radius: 0.44306rem 0rem 0rem 0.44306rem;
     border: 0.886px solid var(--black-1, #CFD3D4);
 }
@@ -81,7 +114,7 @@
 .product-input-right input{
     width: 100%;
     background-color: transparent;
-    padding: 0.44rem 0.89rem;
+    padding: 0.89rem;
     color: var(--black-2, #ABAFB1);
     font-family: "Inter";
     font-size: 0.88606rem;
@@ -117,6 +150,45 @@
 }
 .product-details-right, .product-details-left{
     width: 50%;
+}
+.date-added{
+    margin-top: 21px;
+}
+.date-added-top{
+    color: var(--black-50, #53545C);
+    font-family: "Inter";
+    font-size: 0.66456rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.date-added-block{
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.date,.time{
+    width: 50%;
+}
+.statement-date{
+    display: flex;
+    align-items: center;
+    border-radius: 7.089px;
+    background: var(--input-default-background, rgba(239, 241, 249, 0.60));
+    padding: 0.625rem;
+}
+.datefield{
+    width: 90%;
+    margin-left: 14px;
+    border: none;
+    background-color: transparent;
+    color: var(--black-2, #ABAFB1);
+    font-family: "Inter";
+    font-size: 0.88606rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .product-des-title{
     margin-bottom: 7px;
@@ -313,4 +385,52 @@
     font-style: normal;
     font-weight: 400;
     line-height: 16.712px; /* 142.857% */
+}
+.ql-container{
+    border-radius: 0px 0px 7.089px 7.089px!important;
+    border: 0.886px solid var(--black-1, #CFD3D4) !important;
+    border-top: none !important;
+}
+.ql-editor {
+    height: 120px !important;
+}
+.ql-toolbar{
+    border-radius:7.089px 7.089px 0px 0px !important;
+    border: 0.886px solid var(--black-1, #CFD3D4) !important;
+    border-bottom: none !important;
+    color: var(--black-2, #ABAFB1) !important;
+    font-family: "Inter" !important;
+    font-size: 0.55381rem !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+}
+.ql-formats{
+    margin-right: 7px !important;
+}
+.ql-toolbar button{
+    width: 20px !important;
+    height: 16px !important;
+}
+.ql-font,.ql-picker {
+    width: 80px !important;
+}
+.ql-icon-picker{
+    width: 10px !important;
+}
+.ql-icon-picker span{
+    border-radius: none !important;
+    border: none !important;
+}
+.ql-picker-label{
+    padding: 0.39px !important;
+    border-radius: 0.44306rem !important;
+    border: 0.886px solid var(--black-1, #CFD3D4) !important;
+    /* width: 80px !important; */
+    color: var(--black-2, #ABAFB1) !important;
+    font-family: "Inter" !important;
+    font-size: 0.55381rem !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
 }
