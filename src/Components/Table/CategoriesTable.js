@@ -21,31 +21,35 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import './CategoryTable.css'
 
-function createData(name, calories, fat, carbs, protein) {
+function createData(product, category, unit, instock, discount, total, action, status) {
   return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
+    product,
+    category,
+    unit,
+    instock,
+    discount,
+    total,
+    action, 
+    status
   };
 }
 
 const rows = [
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Honeycomb', 408, 3.2, 87, 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  createData('KitKat', 518, 26.0, 65, 7.0),
-  createData('Lollipop', 392, 0.2, 98, 0.0),
-  createData('Marshmallow', 318, 0, 81, 2.0),
-  createData('Nougat', 360, 19.0, 9, 37.0),
-  createData('Oreo', 437, 18.0, 63, 4.0),
+  createData('Cupcake', 'Lunch', "NGN60,000.00", 8, "NGN0.00", "NGN100,000.00", 0, 1),
+  createData('Donut', 'Dinner', "NGN25,000.00", 10, "NGN0.00", "NGN500,000.00", 1, 1),
+  createData('Eclair', 'Breakfast', "NGN80,000.00", 20, "NGN0.00", "NGN56,000.00", 1, 1),
+  createData('Frozen yoghurt', 'Lunch', "NGN95,000.00", 50, "NGN0.00", "NGN70,000.00", 0, 1),
+  createData('Gingerbread', 'Dinner', "NGN55,000.00", 7, "NGN0.00", "NGN50,000.00", 1, 1),
+  createData('Honeycomb', 'Breakfast', "NGN65,000.00", 8, "NGN0.00", "NGN400,000.00", 0, 1),
+  createData('Ice cream sandwich', 'Breakfast', "NGN100,000.00", 8, "NGN0.00", "NGN90,000.00", 0, 1),
+  createData('Jelly Bean', 'Lunch', "NGN260,000.00", 22, "NGN0.00", "NGN54,000.00", 1, 1),
+  createData('KitKat', 'Breakfast', "NGN85,000.00", 11, "NGN0.00", "NGN57,000.00", 0, 1),
+  createData('Lollipop', 'Dinner', "NGN45,000.00", 8, "NGN0.00", "NGN68,000.00", 1, 1),
+  createData('Marshmallow', 'Lunch', "NGN5,000.00", 30, "NGN0.00", "NGN90,000.00", 0, 1),
+  createData('Nougat', 'Breakfast', "NGN15,000.00", 44, "NGN0.00", "NG480,000.00", 1, 1),
+  createData('Oreo', 'Lunch', "NGN95,000.00", 40, "NGN0.00", "NGN90,000.00", 0, 1),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -82,39 +86,57 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'name',
+    id: 'product',
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)',
+    label: 'Product Name',
   },
   {
-    id: 'calories',
+    id: 'category',
     numeric: true,
     disablePadding: false,
-    label: 'Calories',
+    label: 'Category',
   },
   {
-    id: 'fat',
+    id: 'unit',
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
+    label: 'Unit Price',
   },
   {
-    id: 'carbs',
+    id: 'instock',
     numeric: true,
     disablePadding: false,
-    label: 'Carbs (g)',
+    label: 'In-Stock',
   },
   {
-    id: 'protein',
+    id: 'discount',
     numeric: true,
     disablePadding: false,
-    label: 'Protein (g)',
+    label: 'Discount',
+  },
+  {
+    id: 'total',
+    numeric: true,
+    disablePadding: false,
+    label: 'Total Value',
+  },
+  {
+    id: 'action',
+    numeric: true,
+    disablePadding: false,
+    label: 'Action',
+  },
+  {
+    id: 'status',
+    numeric: true,
+    disablePadding: false,
+    label: 'Status',
   },
 ];
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
+  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} =
     props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -137,7 +159,7 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            align={'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -343,13 +365,27 @@ export default function EnhancedTable() {
                       id={labelId}
                       scope="row"
                       padding="none"
+                      
                     >
-                      {row.name}
+                      <div className='table-product'>
+                        <img src="https://source.unsplash.com/random/?food" className='table-image'></img><p>{row.product}</p>
+                      </div>
+                      
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell align="left">{row.category}</TableCell>
+                    <TableCell align="left">{row.unit}</TableCell>
+                    <TableCell align="left">{row.instock}</TableCell>
+                    <TableCell align="left">{row.discount}</TableCell>
+                    <TableCell align="left">{row.total}</TableCell>
+                    <TableCell align="left" className='table-action'>
+                      <select>
+                        <optgroup>
+                          <option>Published</option>
+                          <option>Unpublished</option>
+                        </optgroup>
+                      </select>
+                      </TableCell>
+                    <TableCell align="left" ><p></p>{row.action === 1 ? (<p className='table-status-pub'>Published</p>) : (<p className='table-status-unpub'>Unpublished</p>)}</TableCell>
                   </TableRow>
                 );
               })}

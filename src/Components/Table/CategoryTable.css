@@ -1,0 +1,47 @@
+.table-product{
+    display: flex;
+    align-items: center;
+    gap: 21px;
+}
+.table-image{
+    width: 31.94px;
+    height: 31.94px;
+    border-radius: 8px;
+}
+.table-action select{
+    width: min-content;
+    border: none;
+    border-radius: 7.097px;
+    padding:0.60988rem;
+    background: rgba(94, 99, 102, 0.08);
+    color: var(--black-30, #8B8D97);
+    font-family: "Inter";
+    font-size: 10.645px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.table-status-pub{
+    padding: 0.22175rem 0.60988rem;
+    border-radius: 0.44356rem;
+    background: var(--primary-primary-500, #1570EF);
+    color: var(--primary-primary-50, #E8F1FD);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.66531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.table-status-unpub{
+    padding: 0.22175rem 0.60988rem;
+    border-radius: 0.44356rem;
+    background: var(--primary-primary-50, #E8F1FD);
+    color: var(--primary-primary-500, #1570EF);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.66531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
