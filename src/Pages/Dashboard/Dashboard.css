@@ -76,6 +76,9 @@
     z-index: 5;
     top: 30px;
 }
+.custom-2{
+    left: 0px;
+}
 .filter-dropdown{
     z-index: 5;
     position: absolute;

@@ -73,7 +73,7 @@ const Dashboard = () => {
                                         <PiFunnel/>
                                         <p>Weekly</p>
                                     </div>
-                                    {show && (
+                                    {show3 && (
                                         <div className="filter-dropdown">
                                             <p onClick={()=>{handleToggle3()}}>Daily</p>
                                             <p onClick={()=>{handleToggle3()}}>Weekly</p>

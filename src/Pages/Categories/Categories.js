@@ -6,7 +6,13 @@ import {FiPlus} from 'react-icons/fi';
 import { BsCalendar2Week } from 'react-icons/bs';
 import EnhancedTable from '../../Components/Table/CategoriesTable';
 import { Link } from 'react-router-dom';
+import CustomFilter from '../../Components/Filter/CustomFilter';
+import { useState } from 'react';
 const Categories = () => {
+    const [show, setShow] = useState(false)
+    const handleToggle = () =>{
+        setShow(!show)
+    }
     return ( 
         <div className="categories">
             <div className="categories-head">
@@ -35,10 +41,18 @@ const Categories = () => {
                             >
                             </input>
                         </div>
-                        <div className="table-filter">
-                            <IoFunnelOutline/>
-                            <p>Filter</p>
+                        <div className="table-filter-outer">
+                            <div className="table-filter" onClick={handleToggle}>
+                                <IoFunnelOutline/>
+                                <p >Filter</p>
+                            </div>
+                            {show && (
+                                <div className="custom custom-2">
+                                    <CustomFilter toggle={handleToggle}/>
+                                </div>
+                            )}
                         </div>
+                        
                         <div className="table-filter">
                             <BsCalendar2Week/>
                             <p>Filter</p>
