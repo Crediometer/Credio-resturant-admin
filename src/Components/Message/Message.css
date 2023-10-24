@@ -1,0 +1,95 @@
+.message{
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.message:hover{
+    background-color: #F2F2F2;
+}
+.message-right{
+    display: flex;
+    gap: 12.28px;
+    align-items: center;
+}
+.message-left{
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+.message-image{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #1366D9;
+}
+.message-image p{
+    color: #FFF;
+    font-family: "Poppins";
+    font-size: 1.30206rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 1.5625rem */
+}
+.message-text h2{
+    color: var(--black-05, #2B2B2B);
+    font-family: "Poppins";
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 1.275rem */
+}
+.text-overview{
+    color: #707070;
+    font-family: "Inter";
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 0.8125rem */
+}
+.message-date{
+    margin-top: 11px;
+    color: var(--black-05, #2B2B2B);
+    font-family: "Poppins";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 0.9rem */
+}
+.message-delete, .message-tick{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    padding: 0.51rem;
+    border-radius: 0.25588rem;
+    border: 1.024px solid var(--black-50, #53545C);
+    color: var(--black-50, #53545C);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 0.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.message-delete svg{
+    margin-right: 8px;
+    color: #D32F2F;
+    font-size: 0.9rem;
+}
+.message-tick svg{
+    margin-right: 8px;
+    color: #058B42;
+    font-size: 0.9rem;
+}
+@media screen and (max-width: 1350px) {
+    .message-right{
+        width: 35%;
+        justify-content: right;
+    }
+    .message-image p{
+        font-size: 1rem;
+    }
+
+}

@@ -1,0 +1,67 @@
+.notification-nav, .notification-nav-close{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.notification-nav-close{
+    color: #BA1A1A;
+}
+.notification-box{
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    right: 0px;
+    padding: 1rem 3rem;
+    background-color: white;
+}
+.notification-box nav{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.notification-box nav li{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+.all-number, .today-number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+}
+.all-number p{
+    color: #FFF;
+    font-family: "Poppins";
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 400;
+}
+.today-number{
+    background: #DDD;
+}
+.today-number p{
+    color: #1570EF;
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+}
+.notification-body{
+    width: 100%;
+    margin-top: 89px;
+    padding: 1rem 1.2rem;
+    background-color: white;
+    border-radius: 10px;
+}
+.notification-message{
+    margin-top: 13px;
+    height: 60vh;
+    overflow-y: scroll;
+}

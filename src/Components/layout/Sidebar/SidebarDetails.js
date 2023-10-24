@@ -9,11 +9,11 @@ export const mainsidebar = [
         icon:<FiHome/>,
         link:"/"
     },
-    {
-        title:"Categories",
-        icon:<BiCategory/>,
-        link:"/category"
-    },
+    // {
+    //     title:"Categories",
+    //     icon:<BiCategory/>,
+    //     link:"/category"
+    // },
     {
         title:"Inventory",
         icon:<MdShoppingCartCheckout/>,

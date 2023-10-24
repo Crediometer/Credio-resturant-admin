@@ -18,12 +18,15 @@
 .navbar-left svg{
     font-size: 1rem;
 }
+.navbar-location{
+    cursor: pointer;
+}
 .location-head{
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.location-head p{
+.location-head{
     color: var(--grey-grey-800, #383E49);
     font-family: "Inter";
     font-size: 1.25rem;
@@ -38,6 +41,28 @@
     font-style: normal;
     font-weight: 300;
     line-height: 1rem; /* 114.286% */
+}
+.other-locations{
+    position: absolute;
+    top: 110px;
+    width: 300px;
+    background-color: white;
+    border-radius: 4px;
+}
+.other-location{
+    padding: 0.62rem 1.12rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.17);   
+}
+.other-location:hover{
+    background-color: #F2F2F2;
+}
+.other-location-head{
+    color: var(--grey-grey-600, #5D6679);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; /* 150% */
 }
 .navbar-search{
     width: 100%;

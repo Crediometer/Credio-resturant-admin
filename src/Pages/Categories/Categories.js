@@ -17,7 +17,7 @@ const Categories = () => {
         <div className="categories">
             <div className="categories-head">
                 <p>Inventory Summary</p>
-                <Link to='/category/product'>
+                <Link to='/inventory/product'>
                     <button><FiPlus/>Add a New Product</button>
                 </Link>
             </div>

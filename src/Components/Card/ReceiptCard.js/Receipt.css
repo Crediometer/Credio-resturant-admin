@@ -1,0 +1,129 @@
+.receipt-outer{
+    width: 360px;
+}
+.receipt-card{
+    width: 100%;
+    padding: 1.71rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    background: #FFF;
+}
+.receipt-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.receipt-contact{
+    margin-top: 5px;
+    color: #333;
+    font-family: "Inter";
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.receipt-body{
+    margin-top: 17px;
+}
+.receipt-table-outer{
+    border-top: 1px #33333380 dashed;
+    border-bottom: 1px #33333380 dashed;
+    padding-top: 0.31rem;
+}
+.receipt-table{
+    width: 100%;
+}
+.receipt-table thead tr th{
+    padding-bottom: 1.19rem;
+    text-align: left;
+    color: #333;
+    font-family: "Inter";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.quantity-head{
+    width: 10%;
+}
+.item-head{
+    width: 70%;
+}
+.price-head{
+    text-align: right;
+    width: 20%;
+}
+.receipt-table tbody tr td{
+    padding-bottom: 1.19rem;
+    color: #0B0B0B;
+    font-family: "Inter";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.receipt-totals{
+    padding: 0.37rem;
+    border-bottom: 1px #33333380 dashed;
+}
+.totals{
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.total-head{
+    color: #0B0B0B;
+    font-family: "Inter";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.total-body{
+    color: #0B0B0B;
+    font-family: "Inter";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.receipt-footer{
+    padding: 2.31rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.receipt-footer p{
+    z-index: 3;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: "Inter";
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.receipt-footer img{
+    z-index: 1;
+    width: 100%;
+}
+.receipt-button{
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.not-select{
+    border-radius: 0.625rem;
+    border: none;
+    background: #737373;
+    padding: 1.0625rem 1rem;
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

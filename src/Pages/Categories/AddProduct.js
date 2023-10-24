@@ -22,7 +22,7 @@ const AddProduct = () => {
                 <p>Inventory Summary</p>
                 <div className="product-button">
                     <button className="draft">Save a Draft</button>
-                    <Link to="/category/product/view"><button>Save & Publish</button></Link>
+                    <Link to="/inventory/product/view"><button>Save & Publish</button></Link>
                 </div>
             </div>
             <div className="product-body">
