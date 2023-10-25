@@ -8,18 +8,34 @@ const Business = () => {
     const[textColor, setTextColor] = useState("#121212")
     const[textColor1, setTextColor1] = useState("#121212")
     const[textShow, setTextShow] = useState(false)
+    const [backgroundImage, setBackgroundImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            setBackgroundImage(event.target.result);
+        };
+        reader.readAsDataURL(file);
+        }
+    };
     const handleColor = (color)=>{
         setCurrentColor(color.hex)
     }
     const handleTextColor = (color) =>{
-        setTextColor(color)
+        setTextColor(color.hex)
         setTextColor1(color.hex)
     }
     const textStyle = {
-        color: textColor1,
+        color: textColor1 ,
+       
     }
     const appStyle = {
-        backgroundColor: currentColor
+        backgroundColor: currentColor,
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat"
     }
     return ( 
         <div className="business">
@@ -60,12 +76,19 @@ const Business = () => {
                 <div className="business-banner">
                     <div className="banner-upper" style={appStyle}>
                         <div className="banner-input">
-                            <p style={textStyle}>Enter Text<br></br> Here</p>
-                            {/* <input type='text' placeholder='Enter Text Here'></input> */}
+                            {/* <p style={textStyle}>Enter Text<br></br> Here</p> */}
+                            <textarea style={textStyle} type='text' placeholder='Enter Text Here'></textarea>
                         </div>
-                        <div className="banner-upload">
-                        <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
-                        <p className='upload-instruction'>Upload a cover image for your product.File Format Recommened Size</p>
+                        <div className="banner-upload" onClick={()=> document.querySelector(".image-picker").click()}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageChange}
+                                className='image-picker'
+                                hidden
+                            />
+                            <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
+                            <p className='upload-instruction'>Upload a cover image for your product.File Format Recommened Size</p>
                         </div>
                     </div>
                     <div className="banner-lower">
@@ -170,11 +193,11 @@ const Business = () => {
                     <p className="position-head">Text Color</p>
                     <p className="sub-text">Select a color for the text of your overlay that will be applied to every image.</p>
                     <div className="shapes-boxes">
-                        <div className="shape-color circle-1" onClick={()=> {handleTextColor("#FFF")}}></div>
-                        <div className="shape-color circle-2" onClick={() =>{handleTextColor("#121212")}}></div>
+                        <div className="shape-color circle-1" onClick={()=> {handleTextColor({hex: "#FFF"})}}></div>
+                        <div className="shape-color circle-2" onClick={() =>{handleTextColor({hex: "#121212"})}}></div>
                         <div className="shape-color circle-6" onClick={()=>{setTextShow(!textShow)}}></div>
                         <div className="chrome">
-                            {textShow && (<ChromePicker color={textColor1} onChangeComplete={handleTextColor} />)}
+                            {textShow && (<ChromePicker color={textColor} onChangeComplete={handleTextColor} />)}
                         </div>
                     </div>
                 </div>

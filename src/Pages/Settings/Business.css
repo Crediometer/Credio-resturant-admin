@@ -88,6 +88,16 @@
     border: 1px solid #E0E0E0;
 }
 .banner-input, .banner-upload{
+    position: relative;
+    width: 50%;
+    cursor: pointer;
+}
+.image-picker{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+}
+.banner-input{
     width: 50%;
 }
 .banner-input p{
@@ -96,7 +106,29 @@
     border: none;
     background-color: transparent;
     color: rgba(4, 4, 4, 0.81);
-    font-family: 'Poppin';
+    font-family: 'Poppins';
+    font-size: 44.027px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 48.43px */
+}
+.banner-input textarea{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: rgba(4, 4, 4, 0.81);
+    font-family: 'Poppins';
+    font-size: 44.027px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 48.43px */
+}
+textarea:focus{
+    outline: none;
+}
+.banner-input textarea::placeholder{
+    /* color: rgba(4, 4, 4, 0.81); */
+    font-family: 'Poppins';
     font-size: 44.027px;
     font-style: normal;
     font-weight: 600;

@@ -6,10 +6,23 @@ import CustomFilter from "../../Components/Filter/CustomFilter";
 import { BsCalendar2Week } from "react-icons/bs";
 import Message from "../../Components/Message/Message";
 import DeleteModal from "../../Components/Modal/DeleteModal";
+import TablePagination from '@mui/material/TablePagination';
 const Notification = () => {
     const [show1, setShow1] = useState(1);
     const [show, setShow] = useState(false)
     const [showdelete, setShowDelete] = useState(false)
+    const [page, setPage] = useState(2);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+  
+    const handleChangePage = (event, newPage) => {
+      setPage(newPage);
+    };
+  
+    const handleChangeRowsPerPage = (event) => {
+      setRowsPerPage(parseInt(event.target.value, 10));
+      setPage(0);
+    };
+  
     const handleToggle = () =>{
         setShow(!show)
     }
@@ -76,6 +89,16 @@ const Notification = () => {
                     <Message toggle={handleDelete}/>
                     <Message toggle={handleDelete}/>
                     <Message toggle={handleDelete}/>
+                </div>
+                <div className="notification-pagination">
+                <TablePagination
+                    component="div"
+                    count={100}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
                 </div>
             </div>
            {showdelete && (<DeleteModal toggle={handleDelete}/>)} 
