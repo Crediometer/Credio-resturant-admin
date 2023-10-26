@@ -35,6 +35,9 @@ const Notification = () => {
     const handleBusiness = ()=>{
         setShow1(2)
     }
+    const handleRead = ()=>{
+        setShow1(4)
+    }
     const handleReceipt = ()=>{
         setShow1(3)
     }
@@ -44,6 +47,7 @@ const Notification = () => {
                 <nav>
                     <li onClick={handleAccount} className={show1 === 1 ? `nav-active notification-nav`: 'notification-nav'}> <div className="all-number"><p>5</p></div> All</li>
                     <li onClick={handleBusiness} className={show1 === 2 ? `nav-active notification-nav`: 'notification-nav'}><div className="today-number"><p>4</p></div>Today</li>
+                    <li onClick={handleRead} className={show1 === 4 ? `nav-active notification-nav`: 'notification-nav'}><div className="today-number"><p>10</p></div>Read</li>
                     <li onClick={handleReceipt} className={show1 === 3 ? `nav-active notification-nav-close`: 'notification-nav-close'}><div className="clear icon"><FaTrash/></div>Clear all</li>
                 </nav>
             </div>

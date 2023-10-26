@@ -7,12 +7,24 @@ import { BsCalendar2Week } from 'react-icons/bs';
 import EnhancedTable from '../../Components/Table/CategoriesTable';
 import { Link } from 'react-router-dom';
 import CustomFilter from '../../Components/Filter/CustomFilter';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 const Categories = () => {
     const [show, setShow] = useState(false)
+    const dropdownRef = useRef(null);
     const handleToggle = () =>{
         setShow(!show)
     }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShow(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="categories">
             <div className="categories-head">
@@ -47,7 +59,7 @@ const Categories = () => {
                                 <p >Filter</p>
                             </div>
                             {show && (
-                                <div className="custom custom-2">
+                                <div className="custom custom-2"  ref={dropdownRef}>
                                     <CustomFilter toggle={handleToggle}/>
                                 </div>
                             )}
@@ -59,7 +71,7 @@ const Categories = () => {
                         </div>
                         <div className="table-filter">
                             <IoPaperPlaneOutline/>
-                            <p>Search</p>
+                            <p>Share</p>
                         </div>
                     </div>
                 </div>

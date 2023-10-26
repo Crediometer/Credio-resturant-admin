@@ -8,6 +8,9 @@
     align-items: center;
     gap: 24px;
 }
+.back svg{
+    font-size: 1.8rem;
+}
 .viewproduct-title, .viewproduct-date{
     color: var(--black-60, #45464E);
     font-family: "Inter";

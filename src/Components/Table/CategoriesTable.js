@@ -169,11 +169,11 @@ function EnhancedTableHead(props) {
               onClick={createSortHandler(headCell.id)}
             >
               {headCell.label}
-              {orderBy === headCell.id ? (
+              {/* {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                 </Box>
-              ) : null}
+              ) : null} */}
             </TableSortLabel>
           </TableCell>
         ))}
@@ -374,9 +374,9 @@ export default function EnhancedTable() {
                     </TableCell>
                     <TableCell align="left">{row.category}</TableCell>
                     <TableCell align="left">{row.unit}</TableCell>
-                    <TableCell align="left">{row.instock}</TableCell>
+                    <TableCell align="left" style={{minWidth:"120px"}}>{row.instock}</TableCell>
                     <TableCell align="left">{row.discount}</TableCell>
-                    <TableCell align="left">{row.total}</TableCell>
+                    <TableCell align="left" style={{minWidth:"150px"}}>{row.total}</TableCell>
                     <TableCell align="left" className='table-action'>
                       <select>
                         <optgroup>

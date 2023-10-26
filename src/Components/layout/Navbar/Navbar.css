@@ -51,13 +51,19 @@
 }
 .other-location{
     padding: 0.62rem 1.12rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.17);   
+    border-bottom: 1px solid rgba(0, 0, 0, 0.17);  
+    color: #989FAD; 
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1rem;
 }
 .other-location:hover{
-    background-color: #F2F2F2;
+    background-color: #1570EF;
+    color: white !important; 
 }
 .other-location-head{
-    color: var(--grey-grey-600, #5D6679);
     font-family: "Inter";
     font-size: 1rem;
     font-style: normal;
@@ -70,7 +76,7 @@
     align-items: center;
     padding: 0.62rem 1rem;
     gap: 8px;
-    border: 4px;
+    border-radius: 6px;
     border: 1px solid var(--grey-grey-50, #F0F1F3);
 }
 .navbar-search svg{

@@ -38,7 +38,7 @@
     width: 100%;
     background-color: transparent;
     padding: 0.89rem;
-    color: var(--black-2, #ABAFB1);
+    color: var(--black-2, #5E6366);
     font-family: "Inter";
     font-size: 0.88606rem;
     font-style: normal;
@@ -46,6 +46,9 @@
     line-height: normal;
     border-radius: 0.44306rem;
     border: 0.886px solid var(--black-1, #CFD3D4);
+}
+.product-input-1 input:focus{
+    border:0.886px solid #629FF4;
 }
 .product-input-1 input::placeholder, .product-input-right input::placeholder{
     color: var(--black-2, #ABAFB1);
@@ -61,6 +64,7 @@
 }
 .product-dropdown{
     z-index: 5;
+    left: 0rem;
     top: 50px;
     position: absolute;
     width: 100%;
@@ -87,6 +91,7 @@
     line-height: normal;
 }
 .product-placeholder{
+    width: 80%;
     color: var(--black-2, #ABAFB1);
     font-family: "Inter";
     font-size: 0.88606rem;
@@ -123,6 +128,9 @@
     line-height: normal;
     border-radius: 0rem 0.44306rem 0.44306rem 0rem;
     border: 0.886px solid var(--black-1, #CFD3D4);
+}
+.product-input-right input:focus{
+    border:0.886px solid #629FF4;
 }
 .product-discount{
     display: flex;
@@ -406,6 +414,7 @@
     line-height: normal !important;
 }
 .ql-formats{
+    
     margin-right: 7px !important;
 }
 .ql-toolbar button{

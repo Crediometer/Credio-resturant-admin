@@ -24,8 +24,9 @@ const Location = () => {
                             <p className='location-address-inner'>POX - 00000</p>
                             <p className='location-address-inner'>landmark - south gate</p>
                         </div>
-                        <div className="location-edit">
-                            <button>Edit</button>
+                        <div className="location-buttons">
+                            <button className='location-delete'>Delete</button>
+                            <button className="location-edit">Edit</button>
                         </div>
                     </div>
                 </div>
@@ -40,8 +41,9 @@ const Location = () => {
                             <p className='location-address-inner'>POX - 00000</p>
                             <p className='location-address-inner'>landmark - south gate</p>
                         </div>
-                        <div className="location-edit">
-                            <button>Edit</button>
+                        <div className="location-buttons">
+                            <button className='location-delete'>Delete</button>
+                            <button className="location-edit">Edit</button>
                         </div>
                     </div>
                 </div>
@@ -56,8 +58,9 @@ const Location = () => {
                             <p className='location-address-inner'>POX - 00000</p>
                             <p className='location-address-inner'>landmark - south gate</p>
                         </div>
-                        <div className="location-edit">
-                            <button>Edit</button>
+                        <div className="location-buttons">
+                            <button className='location-delete'>Delete</button>
+                            <button className="location-edit">Edit</button>
                         </div>
                     </div>
                 </div>

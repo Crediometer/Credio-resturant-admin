@@ -38,6 +38,9 @@ const Graph = ({graph}) => {
                         }
                     }
                 },
+                stroke: {
+                    curve: 'smooth', // Set the curve option to 'smooth'
+                },
                 fill: {
                     type: 'gradient',
                     gradient: {

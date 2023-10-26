@@ -75,7 +75,23 @@
     font-style: normal;
     font-weight: 400;
 }
-.location-edit button{
+.location-buttons{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.location-delete{
+    border: 0.886px solid var(--Danger, #F57E77);
+    background-color: white;
+    padding: 0.62rem 2rem;
+    color: var(--Danger, #F57E77);
+    font-family: "Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 142.857% */
+}
+.location-edit{
     border: 1px solid var(--primary-primary-50, #E8F1FD);
     background-color: white;
     padding: 0.62rem 2rem;

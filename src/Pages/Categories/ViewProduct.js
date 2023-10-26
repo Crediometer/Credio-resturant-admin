@@ -7,11 +7,16 @@ import CustomerCard from '../../Components/Card/CustomerCard/CustomerCard';
 import { BsCalendar2Week, BsHandbag } from 'react-icons/bs';
 import { IoFunnelOutline, IoPaperPlaneOutline, IoSearchOutline } from 'react-icons/io5';
 import EnhancedTable from '../../Components/Table/CategoriesTable';
+import { BiChevronLeft } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 const ViewProduct = () => {
     return ( 
         <div className="viewproduct">
              <div className="viewproduct-head">
                 <div className="viewproduct-name">
+                     <div className="back">
+                        <Link to="inventory/product"><BiChevronLeft/></Link>  
+                    </div>
                     <p className="viewproduct-title">Inventory Summary</p>
                     <p className="viewproduct-date">Date Added <span>12 Sept 2022 - 12:55 pm</span></p>
                 </div>
@@ -69,7 +74,9 @@ const ViewProduct = () => {
                 </div>
             </div>
             <div className="categories-top">
-                <div className="categories-order">
+                <CustomerCard/>
+                <CustomerCard/>
+                {/* <div className="categories-order">
                     <div className="customer-card">
                         <div className="customer-card-top">
                             <div className="customer-card-icon">
@@ -93,8 +100,8 @@ const ViewProduct = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="categories-customer">
+                </div> */}
+                {/* <div className="categories-customer">
                     <div className="customer-card">
                         <div className="customer-card-top">
                             <div className="customer-card-icon">
@@ -118,7 +125,7 @@ const ViewProduct = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="categories-body">
                 <div className="table-top">

@@ -4,16 +4,18 @@ import { BsArrowDownShort, BsArrowUpShort, BsBoxSeam, BsCalendar4 } from 'react-
 import { IoPeopleOutline } from 'react-icons/io5';
 import {PiCoins, PiFunnel} from 'react-icons/pi'
 import {HiOutlineCurrencyDollar} from 'react-icons/hi'
+import {Link} from 'react-router-dom'
 import food from '../../Assets/food.jpeg'
 import Graph from '../../Components/Graph/Graph';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CustomFilter from '../../Components/Filter/CustomFilter';
 const Dashboard = () => {
-    const [show, setShow] = useState(false)
-    const [show2, setShow2] = useState(false)
-    const [show3, setShow3] = useState(false)
-    const [graph,setGraph] = useState('line')
-
+    const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
+    const [graph,setGraph] = useState('line');
+    const [period,setPeriod] = useState('Monthly');
+    const dropdownRef = useRef(null);
     const handleToggle = () =>{
         setShow(!show)
     }
@@ -27,18 +29,42 @@ const Dashboard = () => {
         setGraph(type)
         console.log(graph)
     }
-
+    const handlePeriod = (type) =>{
+        setPeriod(type)
+    }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShow(false);
+          setShow2(false);
+          setShow3(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="dashboard">
             <div className="dashboard-card">
-                <Card icon={<IoPeopleOutline/>} title="Visitor" number="251" value=""/>
-                <Card icon={<BsBoxSeam/>} title="Order Received" number="351" value="+0.00%"/>
-                <Card icon={<PiCoins/>} title="Net earning" number="NGN 1.300.000" value="+0.00%"/>
-                <Card icon={<HiOutlineCurrencyDollar/>} title="Cost" number="NGN 200.00" value="+0.00%"/>
+                <div className="card-outer">
+                    <Card icon={<IoPeopleOutline/>} title="Visitor" number="251" value=""/>
+                </div>
+                <div className="card-outer">
+                    <Card icon={<BsBoxSeam/>} title="Order Received" number="351" value="+0.00%"/>
+                </div>
+                <div className="card-outer">
+                    <Card icon={<PiCoins/>} title="Net earning" number="NGN 1.300.000" value="+0.00%"/>
+                </div>
+                <div className="card-outer">
+                    <Card icon={<HiOutlineCurrencyDollar/>} title="Cost" number="NGN 200.00" value="+0.00%"/>
+                </div>
+                
             </div>
-            <div className="dashboard-body">
+            <div className="dashboard-body" >
                 <div className="dashboard-body-inner">
-                    <div className="dashboard-graph">
+                    <div className="dashboard-graph" >
                         <div className="graph-top">
                             <p className="graph-header">Sales & Purchase</p>
                             <div className="graph-filter">
@@ -48,12 +74,11 @@ const Dashboard = () => {
                                         <p>{graph} Chart</p>
                                     </div>
                                     {show && (
-                                        <div className="filter-dropdown">
+                                        <div className="filter-dropdown" ref={dropdownRef}>
                                             <p onClick={()=>{handleGraph('bar');handleToggle()}}>Bar Chart</p>
                                             <p onClick={()=>{handleGraph('line');handleToggle()}}>Line Chart</p>
                                             <p onClick={()=>{handleGraph('scatter');handleToggle()}}>Scatter Chart</p>
                                             <p onClick={()=>{handleGraph('area');handleToggle()}}>Area Chart</p>
-                                            <p onClick={()=>{handleGraph('radar');handleToggle()}}>Radar</p>
                                         </div>
                                     )}
                                 </div>
@@ -63,7 +88,7 @@ const Dashboard = () => {
                                         <p>Custom</p>    
                                     </div>
                                         {show2 && (
-                                            <div className="custom">
+                                            <div className="custom" ref={dropdownRef}>
                                                 <CustomFilter toggle={handleToggle2}/>
                                             </div>
                                         )}
@@ -71,14 +96,14 @@ const Dashboard = () => {
                                 <div className="filter-outer">
                                     <div className="filter" onClick={handleToggle3}>
                                         <PiFunnel/>
-                                        <p>Weekly</p>
+                                        <p>{period}</p>
                                     </div>
                                     {show3 && (
-                                        <div className="filter-dropdown">
-                                            <p onClick={()=>{handleToggle3()}}>Daily</p>
-                                            <p onClick={()=>{handleToggle3()}}>Weekly</p>
-                                            <p onClick={()=>{handleToggle3()}}>Monthly</p>
-                                            <p onClick={()=>{handleToggle3()}}>Anually</p>
+                                        <div className="filter-dropdown" ref={dropdownRef}>
+                                            <p onClick={()=>{handleToggle3(); handlePeriod("Daily")}}>Daily</p>
+                                            <p onClick={()=>{handleToggle3(); handlePeriod("Weekly")}}>Weekly</p>
+                                            <p onClick={()=>{handleToggle3(); handlePeriod("Monthly")}}>Monthly</p>
+                                            <p onClick={()=>{handleToggle3(); handlePeriod("Anually")}}>Anually</p>
                                         </div>
                                     )}
                                 </div>
@@ -169,7 +194,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className="button-con">
-                            <button className='see-more'>See more</button>
+                            <Link to='/orders'><button className='see-more'>See more</button></Link> 
                         </div>   
                     </div>
                 </div>

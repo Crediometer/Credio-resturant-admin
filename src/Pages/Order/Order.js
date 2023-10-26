@@ -4,12 +4,30 @@ import { IoFunnelOutline, IoPaperPlaneOutline, IoSearchOutline } from 'react-ico
 import { BsCalendar2Week } from 'react-icons/bs';
 import EnhancedTable from '../../Components/Table/CategoriesTable';
 import OrderModal from '../../Components/Modal/OrderModal';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import CustomFilter from '../../Components/Filter/CustomFilter';
 const Order = () => {
     const [show, setShow] = useState(false)
+    const [show1, setShow1] = useState(false)
+    const dropdownRef = useRef(null);
     const handleShow = ()=>{
         setShow(!show)
     }
+   
+    const handleToggle = () =>{
+        setShow(!show)
+    }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShow(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="order">
             <div className="order-top">
@@ -27,9 +45,14 @@ const Order = () => {
                             >
                             </input>
                         </div>
-                        <div className="table-filter">
+                        <div className="table-filter"onClick={handleToggle}>
                             <IoFunnelOutline/>
                             <p>Filter</p>
+                            {show1 && (
+                                <div className="custom custom-2"  ref={dropdownRef}>
+                                    <CustomFilter toggle={handleToggle}/>
+                                </div>
+                            )}
                         </div>
                         <div className="table-filter">
                             <BsCalendar2Week/>
@@ -37,7 +60,7 @@ const Order = () => {
                         </div>
                         <div className="table-filter">
                             <IoPaperPlaneOutline/>
-                            <p>Search</p>
+                            <p>Share</p>
                         </div>
                     </div>
                 </div>

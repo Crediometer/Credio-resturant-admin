@@ -3,7 +3,7 @@ import {BsCalendar2Week} from 'react-icons/bs';
 import './AddProduct.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useState, Component } from 'react';
+import { useState, Component, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 // import { Editor } from 'react-draft-wysiwyg';
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -12,10 +12,24 @@ const AddProduct = () => {
     const [showCategory, setShowCategory] =useState(false)
     const [showSize, setShowSize] =useState(false)
     const [showType, setShowType] =useState(false)
+    const dropdownRef = useRef(null);
     var toolbarOptions =  [[{ 'font': [] }],[{ 'size': ['small', false, 'large', 'huge'] }],['bold', 'italic', 'underline', 'strike'],[{ 'align': [] }]];
     const modules = {
         toolbar: toolbarOptions
     }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShowCategory(false);
+          setShowSize(false);
+          setShowType(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="addproduct">
             <div className="categories-head">
@@ -38,9 +52,11 @@ const AddProduct = () => {
                             </div>
                             <div className="product-input-2">
                                 <p className='product-placeholder' onClick={()=>{setShowCategory(!showCategory)}}>Select Product Category</p>
-                                <FiChevronDown/>
+                                <div onClick={()=>{setShowCategory(!showCategory)}}>
+                                    <FiChevronDown/>
+                                </div>
                                 {showCategory && (
-                                    <div className="product-dropdown">
+                                    <div className="product-dropdown" ref={dropdownRef}>
                                         <div className="product-drop">
                                             <label>Drinks</label>
                                             <input type='checkbox'></input>
@@ -61,7 +77,7 @@ const AddProduct = () => {
                                 <p className='product-placeholder' onClick={()=>{setShowSize(!showSize)}}>Product Sizes</p>
                                 <FiChevronDown/>
                                 {showSize && (
-                                    <div className="product-dropdown">
+                                    <div className="product-dropdown" ref={dropdownRef}>
                                         <div className="product-drop">
                                             <label>Small</label>
                                             <input type='checkbox' value="Small"></input>
@@ -140,7 +156,7 @@ const AddProduct = () => {
                                 <p className='product-placeholder' onClick={()=>{setShowType(!showType)}}>Order Type</p>
                                 <FiChevronDown/>
                                 {showType && (
-                                    <div className="product-dropdown">
+                                    <div className="product-dropdown" ref={dropdownRef}>
                                         <div className="product-drop">
                                             <label>Drinks</label>
                                             <input type='checkbox'></input>
@@ -193,26 +209,26 @@ const AddProduct = () => {
                                 <div className="date-added-block">
                                     <div className="date">
                                         <div className="statement-date">
-                                            <BsCalendar2Week/>
+                                            {/* <BsCalendar2Week/> */}
                                             <input
-                                                type='text'
+                                                type='date'
                                                 placeholder='12/12/2020'
                                                 className='datefield'
                                                 onFocus={(e) => (e.target.type = "date")}
-                                                onBlur={(e) => {(e.target.type = "text");}}
+                                                // onBlur={(e) => {(e.target.type = "text");}}
                                                 required
                                             ></input>
                                         </div>  
                                     </div>
                                     <div className="time">
                                         <div className="statement-date">
-                                            <FiClock/>
+                                            {/* <FiClock/> */}
                                             <input
-                                                type='text'
+                                                type='time'
                                                 placeholder='12:00 PM'
                                                 className='datefield'
                                                 onFocus={(e) => (e.target.type = "time")}
-                                                onBlur={(e) => {(e.target.type = "text");}}
+                                                // onBlur={(e) => {(e.target.type = "text");}}
                                                 required
                                             ></input>
                                         </div>  

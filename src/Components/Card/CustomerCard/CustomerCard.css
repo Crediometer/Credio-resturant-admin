@@ -1,6 +1,7 @@
 .customer-card{
     width: 100%;
     height: 100%;
+    position: relative;
     padding: 0.61rem 0.83rem;
     border-radius: 0.66531rem;
     background: #FFF;
