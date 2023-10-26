@@ -9,6 +9,7 @@
 }
 .business-right{
     width: 40%;
+    
 }
 .business-logo-form, .business-banner{
     width: 100%;
@@ -207,10 +208,30 @@ textarea:focus{
     background-color: #D1D5DB;
     
 }
+  .position-box input[type="radio"] {
+      display: none;
+    }
+    /* Create a custom square radio button */
+    .custom-radio {
+      width: 12px; /* Adjust the size as needed */
+      height: 12px; /* Adjust the size as needed */
+      background-color: #ffff; /* Background color for the square */
+      border: none; /* Border for the square */
+      display: inline-block;
+      position: relative;
+    }
+    /* Style the square when the radio input is checked */
+    .position-box input[type="radio"]:checked + label .custom-radio {
+      background-color: #007bff; /* Change the background color when checked */
+      border: 1px solid #0056b3; /* Change the border color when checked */
+    }
 .box-1, .box-2, .box-3, .box-4{
     width: 15px;
     height: 15px;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .box-2{
     position: absolute;
