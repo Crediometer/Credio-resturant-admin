@@ -18,7 +18,7 @@ export default function Router() {
             path: '/',
             element: <Layout/>,
             children: [
-              { index: true, element: <Dashboard/> },
+              { path: 'dashboard', index: true, element: <Dashboard/> },
               { path: 'location', element: <Location/> },
               { path: 'inventory', element: <Categories/> },
               { path: 'inventory/product', element: <AddProduct/> },

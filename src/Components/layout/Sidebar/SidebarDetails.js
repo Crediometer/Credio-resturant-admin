@@ -7,7 +7,7 @@ export const mainsidebar = [
     {
         title:"Dashboard",
         icon:<FiHome/>,
-        link:"/"
+        link:"/dashboard"
     },
     // {
     //     title:"Categories",

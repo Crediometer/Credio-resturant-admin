@@ -9,6 +9,10 @@ import { BiLogOut } from 'react-icons/bi'
 import { useState } from 'react'
 const Sidebar = ({isOpen, toggle}) => {  
     const location = useLocation();
+
+    const isLinkActive = (val) => {
+        return location.pathname.startsWith(val.link);
+    };
     return ( 
         <div className="sidebar" style={{width: isOpen ? "280px" : "80px"}} >
             <div className="company-logo">
@@ -28,7 +32,7 @@ const Sidebar = ({isOpen, toggle}) => {
                                 key={index}
                             >
                                 <Link to={val.link}
-                                className={ classNames('link', { ['active2']: location.pathname == val.link})}
+                                className={ classNames('link', { ['active2']: isLinkActive(val)})}
                                 >
                                     {val.icon}
                                     <p style={{display: isOpen ? "block" : "none"}}>{val.title}</p>
