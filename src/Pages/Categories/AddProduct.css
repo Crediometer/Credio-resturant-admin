@@ -360,8 +360,32 @@
     display: flex;
     gap: 13px;
 }
-.addon-save{
+
+.addon-save button{
+    background: transparent;
+    color: var(--primary-primary-600, #1366D9);
+    /* Body 2/Medium */
+    font-family:"Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 142.857% */
+    padding: 0.625rem 2rem;
+    border-radius: 0.25rem;
     border: 1px solid var(--primary-primary-500, #1570EF);
+}
+.addon-edit button{
+    background: transparent;
+    color: var(--primary-primary-600, #1366D9);
+    /* Body 2/Medium */
+    font-family:"Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 142.857% */
+    padding: 0.625rem 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--primary-primary-500, #E8F1FD);
 }
 .addon-body{
     margin-top: 10px;

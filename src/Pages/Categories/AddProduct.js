@@ -327,10 +327,10 @@ const AddProduct = () => {
                         <div className="addon-form-top">
                             <p className='addon-top-text'>Edit add on name </p>
                             <div className="addon-button">
-                                <div className="location-edit addon-save">
+                                <div className="addon-save">
                                     <button>Save</button>
                                 </div>
-                                <div className="location-edit">
+                                <div className="addon-edit">
                                     <button>Edit</button>
                                 </div>
                             </div>

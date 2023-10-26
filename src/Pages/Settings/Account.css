@@ -258,6 +258,27 @@
 .director-image{
     display: flex;
     justify-content: right;
+    position: relative;
+}
+.director-image-edit{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.edit-icons{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--secondary-30, #FFF2E2);
+}
+.edit-icons svg{
+    font-size: 1.25rem;
 }
 .director-image img{
     width: 172px;

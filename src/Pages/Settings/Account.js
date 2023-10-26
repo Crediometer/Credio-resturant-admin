@@ -4,8 +4,9 @@ import ng from '../../Assets/ng.png'
 import profile from '../../Assets/profile2.png'
 import './Account.css'
 import { IoLocationOutline } from 'react-icons/io5';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiTrash } from 'react-icons/fi';
 import {FaRegUser} from 'react-icons/fa'
+import {LuUploadCloud} from 'react-icons/lu'
 const Account = () => {
     return ( 
         <div className="account">
@@ -126,6 +127,14 @@ const Account = () => {
                         </form>
                     </div>
                     <div className="director-image">
+                        <div className="director-image-edit">
+                            <div className="edit-icons">
+                                <LuUploadCloud/>
+                            </div>
+                            <div className="edit-icons">
+                                <FiTrash/>
+                            </div>
+                        </div>
                         <img src={profile}></img>
                     </div>
                 </div>
