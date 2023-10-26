@@ -12,7 +12,9 @@
     align-items: center; */
     grid-gap: 15px;
 }
-
+.period{
+    width:50px;
+}
 .dashboard-body{
     margin-top: 24px;
 }

@@ -96,7 +96,7 @@ const Dashboard = () => {
                                 <div className="filter-outer">
                                     <div className="filter" onClick={handleToggle3}>
                                         <PiFunnel/>
-                                        <p>{period}</p>
+                                        <p className='period'>{period}</p>
                                     </div>
                                     {show3 && (
                                         <div className="filter-dropdown" ref={dropdownRef}>

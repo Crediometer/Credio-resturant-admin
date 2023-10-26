@@ -2,16 +2,29 @@ import './Navbar.css';
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { IoLocationOutline, IoNotificationsOutline, IoSearchOutline } from "react-icons/io5";
 import avatar from '../../../Assets/Avatar.svg'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 const Navbar = ({isOpen}) => {
     const [show, setshow] = useState(false);
     const [location, setLocation] = useState({title:'Futa south gate', des: "No 23 off owode road futa southgate Akure, Ondo state."})
+    const dropdownRef = useRef(null);
     const handleshow = () =>{
         setshow(!show)
     }
     const handleLocation = (loc)=>{
         setLocation(loc)
     }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setshow(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="navbar" style={{width: isOpen ? "calc(100% - 280px)" : "calc(100% - 80px)"}}>
             <div className="navbar-left">
@@ -24,7 +37,7 @@ const Navbar = ({isOpen}) => {
                     <p className="location-body">{location.des}</p>
                 </div>
                 {show && (
-                    <div className="other-locations" >
+                    <div className="other-locations" ref={dropdownRef}>
                         <div className="navbar-location other-location" onClick={()=>{handleshow(); handleLocation({title:"Akure South gate", des: "NO 24 south gate akure, ondo state landmark - south gate"})}}>
                             <div>
                                 <p className="other-location-head">Akure South gate</p>
@@ -50,7 +63,7 @@ const Navbar = ({isOpen}) => {
                 </div>
             </div>
             <div className="navbar-right">
-                <IoNotificationsOutline/>
+                <Link to="/notification"><IoNotificationsOutline/></Link>
                 <img src={avatar}>
                 </img>
                 <p className="navbar-role">Admin</p>
