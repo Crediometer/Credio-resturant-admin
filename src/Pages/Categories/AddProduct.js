@@ -127,7 +127,7 @@ const AddProduct = () => {
                             </div>
                             <div className="product-input-3">
                                 <div className="product-input-left">
-                                    <p className='product-placeholder'>Large</p>
+                                    <p className='product-placeholder product-placeholder-1'>Large</p>
                                 </div>
                                 <div className="product-input-right">
                                     <input
@@ -139,7 +139,7 @@ const AddProduct = () => {
                             </div>
                             <div className="product-input-3">
                                 <div className="product-input-left">
-                                    <p className='product-placeholder'>Medium</p>
+                                    <p className='product-placeholder product-placeholder-1' >Medium</p>
                                 </div>
                                 <div className="product-input-right">
                                     <input
@@ -151,7 +151,7 @@ const AddProduct = () => {
                             </div>
                             <div className="product-input-3">
                                 <div className="product-input-left">
-                                    <p className='product-placeholder'>Small</p>
+                                    <p className='product-placeholder product-placeholder-1'>Small</p>
                                 </div>
                                 <div className="product-input-right">
                                     <input

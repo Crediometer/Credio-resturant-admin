@@ -99,6 +99,9 @@
     font-weight: 400;
     line-height: normal;
 }
+.product-placeholder-1{
+    width: 60px;
+}
 .product-input-3{
     display: flex;
     align-items: stretch;
