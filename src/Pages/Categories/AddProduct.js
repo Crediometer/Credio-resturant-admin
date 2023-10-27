@@ -137,7 +137,9 @@ const AddProduct = () => {
             setaddaearror('')
         }else{
             console.log("no")
-            setaddaearror("Please fill all the Necessary field before saving")
+            if(!formFields.addonImage){
+                setaddaearror("Please Import an Image")
+            }
         }    
     };
     const handleImage = () => {
@@ -528,6 +530,7 @@ const AddProduct = () => {
                             accept="image/*"
                             onChange={handleAddOnImageChange}
                             className='addon-picker'
+                            required
                             hidden
                         />
                         <p className='upload-text addon-upload-text'><span><FiUploadCloud/></span>Upload Image</p>
@@ -555,7 +558,7 @@ const AddProduct = () => {
                                         value={name}
                                         onChange={handlename}
                                         onBlur={handlename}
-                                      
+                                        required
                                     ></input>
                                 </div>
                                 <div className="addon-form-1">
@@ -567,6 +570,7 @@ const AddProduct = () => {
                                         value={price}
                                         onChange={handleprice}
                                         onBlur={handleprice}
+                                        required
                                     ></input>
                                 </div>
                            
