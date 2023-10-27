@@ -4,7 +4,7 @@
     margin-top: 10px;
     background: transparent;
     overflow-x: scroll;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 .draft-top{
     color: var(--black-60, #45464E);

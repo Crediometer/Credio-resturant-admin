@@ -64,6 +64,7 @@
     /* height: 128.299px; */
     display: grid;
     overflow-x: scroll;
+    overflow-y: hidden;
     grid-template-columns: 164.577px 290.221px 362.776px 291.991px ;
     grid-template-rows: 128.299px;
     grid-gap: 16.81px;

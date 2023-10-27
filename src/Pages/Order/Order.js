@@ -37,7 +37,7 @@ const Order = () => {
             </div>
             <div className="categories-body">
                 <div className="table-top">
-                    <p>Purchases</p>
+                    <p>Orders</p>
                     <div className="table-filters">
                         <div className="table-search">
                             <IoSearchOutline/>
