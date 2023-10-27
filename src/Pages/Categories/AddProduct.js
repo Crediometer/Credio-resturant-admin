@@ -138,7 +138,7 @@ const AddProduct = () => {
         }else{
             console.log("no")
             if(!formFields.addonImage){
-                setaddaearror("Please Import an Image")
+                setaddaearror("Please Upload an Image")
             }
         }    
     };
