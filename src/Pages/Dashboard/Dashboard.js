@@ -195,7 +195,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className="button-con">
-                            <Link to='/orders'><button className='see-more'>See more</button></Link> 
+                            <Link to='/dashboard/orders'><button className='see-more'>See more</button></Link> 
                         </div>   
                     </div>
                 </div>
