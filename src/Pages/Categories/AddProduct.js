@@ -529,7 +529,6 @@ const AddProduct = () => {
                             onChange={handleAddOnImageChange}
                             className='addon-picker'
                             hidden
-                            required
                         />
                         <p className='upload-text addon-upload-text'><span><FiUploadCloud/></span>Upload Image</p>
                         <p className='upload-instruction addon-upload-instruction'>Upload a cover image for your product.<br></br>File Format jpeg, png Recommened Size 600x600 (1:1)</p>
@@ -556,7 +555,7 @@ const AddProduct = () => {
                                         value={name}
                                         onChange={handlename}
                                         onBlur={handlename}
-                                        required
+                                      
                                     ></input>
                                 </div>
                                 <div className="addon-form-1">
@@ -568,7 +567,6 @@ const AddProduct = () => {
                                         value={price}
                                         onChange={handleprice}
                                         onBlur={handleprice}
-                                        required
                                     ></input>
                                 </div>
                            

@@ -16,7 +16,7 @@ const LogoutModal = ({toggle}) => {
                     <p>Logging out, but remember, you're always welcome back! 👋🌟</p>
                     <div className="delete-buttons">
                         <div className="delete-cancle">
-                            <button className='order-cancle' onClick={toggle}>Cancle</button>
+                            <button className='order-cancle' onClick={toggle}>Cancel</button>
                             <Link to='/'><button className='order-ok'>OK</button></Link>
                         </div>
                     </div>

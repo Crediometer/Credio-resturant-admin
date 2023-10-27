@@ -15,7 +15,7 @@ const DeleteModal = ({toggle}) => {
                     <p>Be sure you want to delete this once deleted this can not be gotten back  👋🌟</p>
                     <div className="delete-buttons">
                         <div className="delete-cancle">
-                            <button className='order-cancle' onClick={toggle}>Cancle</button>
+                            <button className='order-cancle' onClick={toggle}>Cancel</button>
                             <button className='order-ok'>OK</button>
                         </div>
                     </div>

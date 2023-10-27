@@ -23,7 +23,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import './CategoryTable.css'
 
-function createData(product, category, unit, instock, discount, total, action, status) {
+function createData(product, category, unit, instock, discount, total, status) {
   return {
     product,
     category,
@@ -31,25 +31,24 @@ function createData(product, category, unit, instock, discount, total, action, s
     instock,
     discount,
     total,
-    action, 
     status
   };
 }
 
 const rows = [
-  createData('Cupcake', 'Lunch', "NGN60,000.00", 8, "NGN0.00", "NGN100,000.00", 0, 1),
-  createData('Donut', 'Dinner', "NGN25,000.00", 10, "NGN0.00", "NGN500,000.00", 1, 1),
-  createData('Eclair', 'Breakfast', "NGN80,000.00", 20, "NGN0.00", "NGN56,000.00", 1, 1),
-  createData('Frozen yoghurt', 'Lunch', "NGN95,000.00", 50, "NGN0.00", "NGN70,000.00", 0, 1),
-  createData('Gingerbread', 'Dinner', "NGN55,000.00", 7, "NGN0.00", "NGN50,000.00", 1, 1),
-  createData('Honeycomb', 'Breakfast', "NGN65,000.00", 8, "NGN0.00", "NGN400,000.00", 0, 1),
-  createData('Ice cream sandwich', 'Breakfast', "NGN100,000.00", 8, "NGN0.00", "NGN90,000.00", 0, 1),
-  createData('Jelly Bean', 'Lunch', "NGN260,000.00", 22, "NGN0.00", "NGN54,000.00", 1, 1),
-  createData('KitKat', 'Breakfast', "NGN85,000.00", 11, "NGN0.00", "NGN57,000.00", 0, 1),
-  createData('Lollipop', 'Dinner', "NGN45,000.00", 8, "NGN0.00", "NGN68,000.00", 1, 1),
-  createData('Marshmallow', 'Lunch', "NGN5,000.00", 30, "NGN0.00", "NGN90,000.00", 0, 1),
-  createData('Nougat', 'Breakfast', "NGN15,000.00", 44, "NGN0.00", "NG480,000.00", 1, 1),
-  createData('Oreo', 'Lunch', "NGN95,000.00", 40, "NGN0.00", "NGN90,000.00", 0, 1),
+  createData('Cupcake', 'Lunch', "NGN60,000.00", 8, "NGN0.00", "NGN100,000.00", 1),
+  createData('Donut', 'Dinner', "NGN25,000.00", 10, "NGN0.00", "NGN500,000.00", 1),
+  createData('Eclair', 'Breakfast', "NGN80,000.00", 20, "NGN0.00", "NGN56,000.00", 1),
+  createData('Frozen yoghurt', 'Lunch', "NGN95,000.00", 50, "NGN0.00", "NGN70,000.00", 1),
+  createData('Gingerbread', 'Dinner', "NGN55,000.00", 7, "NGN0.00", "NGN50,000.00", 1),
+  createData('Honeycomb', 'Breakfast', "NGN65,000.00", 8, "NGN0.00", "NGN400,000.00", 1),
+  createData('Ice cream sandwich', 'Breakfast', "NGN100,000.00", 8, "NGN0.00", "NGN90,000.00", 1),
+  createData('Jelly Bean', 'Lunch', "NGN260,000.00", 22, "NGN0.00", "NGN54,000.00", 1),
+  createData('KitKat', 'Breakfast', "NGN85,000.00", 11, "NGN0.00", "NGN57,000.00", 1),
+  createData('Lollipop', 'Dinner', "NGN45,000.00", 8, "NGN0.00", "NGN68,000.00", 1),
+  createData('Marshmallow', 'Lunch', "NGN5,000.00", 30, "NGN0.00", "NGN90,000.00", 1),
+  createData('Nougat', 'Breakfast', "NGN15,000.00", 44, "NGN0.00", "NG480,000.00", 1),
+  createData('Oreo', 'Lunch', "NGN95,000.00", 40, "NGN0.00", "NGN90,000.00", 1),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -120,12 +119,6 @@ const headCells = [
     numeric: true,
     disablePadding: false,
     label: 'Total Value',
-  },
-  {
-    id: 'action',
-    numeric: true,
-    disablePadding: false,
-    label: 'Action',
   },
   {
     id: 'status',
@@ -338,26 +331,16 @@ export default function EnhancedTable({show}) {
                       id={labelId}
                       scope="row"
                       padding="none"
-                      
                     >
                       <div className='table-product'>
                         <img src="https://source.unsplash.com/random/?food" className='table-image'></img><p>{row.product}</p>
                       </div>
-                      
                     </TableCell>
                     <TableCell align="left">{row.category}</TableCell>
                     <TableCell align="left">{row.unit}</TableCell>
                     <TableCell align="left" style={{minWidth:"120px"}}>{row.instock}</TableCell>
                     <TableCell align="left">{row.discount}</TableCell>
                     <TableCell align="left" style={{minWidth:"150px"}}>{row.total}</TableCell>
-                    <TableCell align="left" className='table-action'>
-                      <select>
-                        <optgroup>
-                          <option>Published</option>
-                          <option>Unpublished</option>
-                        </optgroup>
-                      </select>
-                      </TableCell>
                     <TableCell align="left" ><p></p>{row.action === 1 ? (<p className='table-status-pub'>Published</p>) : (<p className='table-status-unpub'>Unpublished</p>)}</TableCell>
                   </TableRow>
                 );
