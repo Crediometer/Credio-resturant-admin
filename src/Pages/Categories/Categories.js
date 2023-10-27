@@ -10,6 +10,7 @@ import CustomFilter from '../../Components/Filter/CustomFilter';
 import { useEffect, useRef, useState } from 'react';
 const Categories = () => {
     const [show, setShow] = useState(false)
+    const [value, setvalue] = useState("Filter")
     const dropdownRef = useRef(null);
     const handleToggle = () =>{
         setShow(!show)
@@ -56,18 +57,13 @@ const Categories = () => {
                         <div className="table-filter-outer">
                             <div className="table-filter" onClick={handleToggle}>
                                 <IoFunnelOutline/>
-                                <p >Filter</p>
+                                <p className='period'>{value}</p>
                             </div>
                             {show && (
                                 <div className="custom custom-2"  ref={dropdownRef}>
-                                    <CustomFilter toggle={handleToggle}/>
+                                    <CustomFilter toggle={handleToggle} setvalue={setvalue}/>
                                 </div>
                             )}
-                        </div>
-                        
-                        <div className="table-filter">
-                            <BsCalendar2Week/>
-                            <p>Filter</p>
                         </div>
                         <div className="table-filter">
                             <IoPaperPlaneOutline/>

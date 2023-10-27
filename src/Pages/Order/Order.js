@@ -10,6 +10,7 @@ import EnhancedTable from '../../Components/Table/OrderTable';
 const Order = () => {
     const [show, setShow] = useState(false)
     const [show1, setShow1] = useState(false)
+    const [value, setvalue] = useState("Filter")
     const dropdownRef = useRef(null);
     const handleShow = ()=>{
         setShow(!show)
@@ -48,10 +49,10 @@ const Order = () => {
                         </div>
                         <div className="table-filter"onClick={handleToggle}>
                             <IoFunnelOutline/>
-                            <p>Filter</p>
+                            <p className='period'>{value}</p>
                             {show1 && (
                                 <div className="custom custom-2"  ref={dropdownRef}>
-                                    <CustomFilter toggle={handleToggle}/>
+                                    <CustomFilter toggle={handleToggle} setvalue={setvalue}/>
                                 </div>
                             )}
                         </div>

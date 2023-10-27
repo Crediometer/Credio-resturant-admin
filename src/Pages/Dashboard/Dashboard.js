@@ -13,6 +13,7 @@ const Dashboard = () => {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
+    const [value, setvalue] = useState("Custom")
     const [graph,setGraph] = useState('line');
     const [period,setPeriod] = useState('Monthly');
     const dropdownRef = useRef(null);
@@ -85,11 +86,11 @@ const Dashboard = () => {
                                 <div className="filter-outer">
                                     <div className="filter" onClick={handleToggle2}>
                                         <BsCalendar4/>
-                                        <p>Custom</p>    
+                                        <p className='period'>{value}</p>    
                                     </div>
                                         {show2 && (
                                             <div className="custom" ref={dropdownRef}>
-                                                <CustomFilter toggle={handleToggle2}/>
+                                                <CustomFilter toggle={handleToggle2} setvalue={setvalue}/>
                                             </div>
                                         )}
                                 </div>
