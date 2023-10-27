@@ -17,21 +17,21 @@ export const mainsidebar = [
     {
         title:"Inventory",
         icon:<MdShoppingCartCheckout/>,
-        link:"/inventory"
+        link:"/dashboard/inventory"
     },
     {
         title:"Location",
         icon:<IoLocationOutline/>,
-        link:"/location"
+        link:"/dashboard/location"
     },
     {
         title:"Orders",
         icon:<BsBoxSeam/>,
-        link:"/orders"
+        link:"/dashboard/orders"
     },
     {
         title:"Notification",
         icon:<IoNotificationsOutline/>,
-        link:"/notification"
+        link:"/dashboard/notification"
     },
 ]

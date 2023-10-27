@@ -7,12 +7,12 @@ import { Link, useLocation } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import { BiLogOut } from 'react-icons/bi'
 import { useState } from 'react'
-const Sidebar = ({isOpen, toggle}) => {  
+import LogoutModal from '../../Modal/LogoutModal'
+const Sidebar = ({isOpen, toggle, show}) => {  
     const location = useLocation();
-
-    const isLinkActive = (val) => {
-        return location.pathname.startsWith(val.link);
-    };
+    // const isLinkActive = (val) => {
+    //     return location.pathname(val.link);
+    // };
     return ( 
         <div className="sidebar" style={{width: isOpen ? "280px" : "80px"}} >
             <div className="company-logo">
@@ -32,7 +32,7 @@ const Sidebar = ({isOpen, toggle}) => {
                                 key={index}
                             >
                                 <Link to={val.link}
-                                className={ classNames('link', { ['active2']: isLinkActive(val)})}
+                                className={ classNames('link', { ['active2']: location.pathname == val.link})}
                                 >
                                     {val.icon}
                                     <p style={{display: isOpen ? "block" : "none"}}>{val.title}</p>
@@ -52,7 +52,7 @@ const Sidebar = ({isOpen, toggle}) => {
                             <p style={{display: isOpen ? "block" : "none"}}>Settings</p>
                         </Link>
                     </li>
-                    <li >
+                    <li onClick={show}>
                         <Link
                         className={ classNames('link')}
                         >

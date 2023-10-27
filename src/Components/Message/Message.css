@@ -89,7 +89,17 @@
         justify-content: right;
     }
     .message-image p{
-        font-size: 1rem;
+        font-size: 0.8rem;
+    }
+
+}
+@media screen and (max-width: 1300px) {
+    .message-image{
+        width: 58px;
+        height: 48px;
+    }
+    .message-image p{
+        font-size: 0.8rem;
     }
 
 }

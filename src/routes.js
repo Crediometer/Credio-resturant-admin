@@ -9,6 +9,7 @@ import Order from './Pages/Order/Order';
 import Settings from './Pages/Settings/Settings';
 import Notification from './Pages/Notification/Notification';
 import Draft from './Pages/Categories/Draft';
+import Login from './Pages/Login/Login';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -16,10 +17,14 @@ export default function Router() {
         //     element: <LoginPage />, // Renders LoginPage component when the root path is accessed
         // },
         {
-            path: '/',
+          path: '/',
+          element: <Login/>, // Renders LoginPage component when the root path is accessed
+        },
+        {
+            path: '/dashboard',
             element: <Layout/>,
             children: [
-              { path: 'dashboard', index: true, element: <Dashboard/> },
+              { index: true, element: <Dashboard/> },
               { path: 'location', element: <Location/> },
               { path: 'inventory', element: <Categories/> },
               { path: 'inventory/product', element: <AddProduct/> },

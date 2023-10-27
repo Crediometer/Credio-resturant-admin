@@ -197,8 +197,8 @@ const AddProduct = () => {
             <div className="categories-head">
                 <p>Inventory Summary</p>
                 <div className="product-button">
-                    <Link to="/inventory/product/draft"><button className="draft">Save a Draft</button></Link>
-                    <Link to="/inventory/product/view"><button>Save & Publish</button></Link>
+                    <Link to="/dashboard/inventory/product/draft"><button className="draft">Save a Draft</button></Link>
+                    <Link to="/dashboard/inventory/product/view"><button>Save & Publish</button></Link>
                 </div>
             </div>
             <div className="product-body">
