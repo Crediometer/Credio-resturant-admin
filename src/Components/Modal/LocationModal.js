@@ -1,5 +1,5 @@
 import './Modal.css'
-const LocationModal = ({toggle}) => {
+const LocationModal = ({toggle, address,pobox, landmark}) => {
     return ( 
         <div className="modal-background">
             <div className="modal">
@@ -11,6 +11,7 @@ const LocationModal = ({toggle}) => {
                             type='text'
                             required
                             placeholder='Enter full address'
+                            defaultValue={address}
                         ></input>
                     </div>
                     <div className="form-1">
@@ -19,6 +20,7 @@ const LocationModal = ({toggle}) => {
                             type='text'
                             required
                             placeholder='Enter Box'
+                            defaultValue={pobox}
                         ></input>
                     </div>
                     <div className="form-1">
@@ -27,6 +29,7 @@ const LocationModal = ({toggle}) => {
                             type='text'
                             required
                             placeholder='Enter Landmark'
+                            defaultValue={landmark}
                         ></input>
                     </div>
                     <div className="form-submit">

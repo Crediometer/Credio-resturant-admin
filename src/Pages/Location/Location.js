@@ -3,9 +3,16 @@ import './Location.css'
 import {useState} from 'react'
 const Location = () => {
     const [modal, setModal] = useState(false)
-
+    const [address, setAddress] = useState('')
+    const [pobox, setPobox] = useState('')
+    const [landmark, setlandmark] = useState('')
     const handleModal = () =>{
         setModal(!modal)
+    }
+    const handlelocation =(add, po, land) =>{
+        setAddress(add)
+        setPobox(po)
+        setlandmark(land)
     }
     return ( 
         <div className="location">
@@ -20,13 +27,13 @@ const Location = () => {
                     <div className="location-details">
                         <div className="loaction-address">
                             <p className='location-name'>Akure South gate</p>
-                            <p className='location-address-inner'>NO 24 south gate akure, ondo state</p>
+                            <p className='location-address-inner'>NO 24 North gate akure, ondo state</p>
                             <p className='location-address-inner'>POX - 00000</p>
                             <p className='location-address-inner'>landmark - south gate</p>
                         </div>
                         <div className="location-buttons">
                             <button className='location-delete'>Delete</button>
-                            <button className="location-edit" onClick={handleModal}>Edit</button>
+                            <button className="location-edit" onClick={()=>{handleModal(); handlelocation("NO 24 North gate akure, ondo state", 'POX - 00000', 'south gate')}}>Edit</button>
                         </div>
                     </div>
                 </div>
@@ -43,7 +50,7 @@ const Location = () => {
                         </div>
                         <div className="location-buttons">
                             <button className='location-delete'>Delete</button>
-                            <button className="location-edit" onClick={handleModal}>Edit</button>
+                            <button className="location-edit" onClick={()=>{handleModal(); handlelocation("NO 24 south gate akure, ondo state", 'POX - 00000', 'south gate')}} >Edit</button>
                         </div>
                     </div>
                 </div>
@@ -60,12 +67,12 @@ const Location = () => {
                         </div>
                         <div className="location-buttons">
                             <button className='location-delete'>Delete</button>
-                            <button className="location-edit" onClick={handleModal}>Edit</button>
+                            <button className="location-edit" onClick={()=>{handleModal(); handlelocation("NO 24 south gate akure, ondo state", 'POX - 00000', 'south gate')}}>Edit</button>
                         </div>
                     </div>
                 </div>
             </div>
-            {modal && (<LocationModal toggle={handleModal}/>)}
+            {modal && (<LocationModal toggle={handleModal} address={address} pobox={pobox} landmark={landmark}/>)}
         </div>
     );
 }

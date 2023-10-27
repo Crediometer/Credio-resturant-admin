@@ -269,15 +269,17 @@
 .addition-body{
     height: 147.975px;
     width: 100%;
-    display: flex;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
 }
 .more-upload, .add-upload{
-    width: 50%;
+    width: 100%;
 }
 .more-upload{
     height: 100%;
     display: flex;
+    padding: 0.5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;

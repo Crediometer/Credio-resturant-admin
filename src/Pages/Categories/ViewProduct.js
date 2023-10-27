@@ -17,6 +17,9 @@ const ViewProduct = () => {
     const handleToggle2 = () =>{
         setShow2(!show2)
     }
+    const goBack = () => {
+        window.history.back();
+    };
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
           setShow2(false);
@@ -32,14 +35,14 @@ const ViewProduct = () => {
         <div className="viewproduct">
              <div className="viewproduct-head">
                 <div className="viewproduct-name">
-                     <div className="back">
-                        <Link to="inventory/product"><BiChevronLeft/></Link>  
+                     <div className="back" onClick={goBack}>
+                        <BiChevronLeft/> 
                     </div>
                     <p className="viewproduct-title">Inventory Summary</p>
                     <p className="viewproduct-date">Date Added <span>12 Sept 2022 - 12:55 pm</span></p>
                 </div>
                 <div className="viewproduct-button">
-                    <button className="draft">Edit Product</button>
+                    <button className="draft" onClick={goBack}>Edit Product</button>
                     <button className='live'>Go Live</button>
                 </div>
             </div>

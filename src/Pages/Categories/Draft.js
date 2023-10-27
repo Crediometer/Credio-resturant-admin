@@ -1,11 +1,20 @@
 import './Draft.css'
 import { FiChevronDown, FiEye, FiPieChart } from "react-icons/fi";
 import food from '../../Assets/food.jpeg'
+import { BiChevronLeft } from 'react-icons/bi';
 const Draft = () => {
+    const goBack = () => {
+        window.history.back();
+    };
     return ( 
         <div className="drafts">
             <div className="draft-top">
-                <p className="viewproduct-title draft-top">Draft</p>
+                <div className="viewproduct-name">
+                    <div className="back" onClick={goBack}>
+                        <BiChevronLeft/> 
+                    </div>
+                    <p className="viewproduct-title">Draft Summary</p>
+                </div>
             </div>
             <div className="draft-body">
                 <div className="viewproduct-top">

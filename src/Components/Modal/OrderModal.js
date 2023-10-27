@@ -20,6 +20,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Product name'
+                                    disabled
                                 >
                                 </input>
                             </div>
@@ -27,6 +28,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Categories'
+                                    disabled
                                 >
                                 </input>
                             </div>
@@ -34,6 +36,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Product Size'
+                                    disabled
                                 >
                                 </input>
                             </div>
@@ -41,11 +44,13 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Selling price'
+                                    disabled
                                 >
                                 </input>
                                 <input
                                     type='text'
                                     placeholder='NGN 9,000'
+                                    disabled
                                 >
                                 </input>
                             </div>
@@ -53,6 +58,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Order Type'
+                                    disabled
                                 >
                                 </input>
                             </div>
@@ -60,14 +66,15 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Discount Percentage'
+                                    disabled
                                 >
                                 </input>
                             </div>
                             <div className="order-form-1">
-                                
                                 <input
                                     type='text'
                                     placeholder='Method of Payment'
+                                    disabled
                                 >
                                 </input>
                             </div>
