@@ -62,7 +62,6 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Order Type'
-                                    
                                     disabled
                                 >
                                 </input>
@@ -90,8 +89,7 @@ const OrderModal = ({toggle}) => {
                     </div>
                 </div>
                 <div className="order-modal-button">
-                    <button className='order-cancle' onClick={toggle}>Cancle</button>
-                    <button className='order-ok'>OK</button>
+                    <button className='order-ok'  onClick={toggle}>OK</button>
                     <button className='order-share'>Share</button>
                 </div>
             </div>

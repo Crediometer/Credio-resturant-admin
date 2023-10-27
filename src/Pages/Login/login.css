@@ -11,7 +11,7 @@
     background-size: cover;
 }
 .group-lower{
-    height: 418px;
+    height: 100vh;
     position: absolute;
     bottom: 0;
     width: 49.4%;
