@@ -66,7 +66,7 @@
     border: none;
     border-radius: 7.021px;
     background: var(--input-default-background, rgba(239, 241, 249, 0.60));
-    color: var(--black-2, #ABAFB1);
+    color: var(--black-2,#5E6366);
     font-family: "Inter";
     font-size: 0.87769rem;
     font-style: normal;
@@ -74,7 +74,7 @@
     line-height: normal;
 }
 .order-form-1 input::placeholder, .order-form-2 input::placeholder{
-    color: var(--black-2, #ABAFB1);
+    color: var(--black-2, #5E6366);
 }
 .order-modal-right img{
     width: 100%;

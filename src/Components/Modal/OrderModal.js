@@ -20,6 +20,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Product name'
+                                    value="CupCake"
                                     disabled
                                 >
                                 </input>
@@ -28,6 +29,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Categories'
+                                    value="Lunch"
                                     disabled
                                 >
                                 </input>
@@ -36,6 +38,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Product Size'
+                                    value="Small"
                                     disabled
                                 >
                                 </input>
@@ -44,6 +47,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Selling price'
+                                    value="NGN 5000"
                                     disabled
                                 >
                                 </input>
@@ -58,6 +62,7 @@ const OrderModal = ({toggle}) => {
                                 <input
                                     type='text'
                                     placeholder='Order Type'
+                                    
                                     disabled
                                 >
                                 </input>
