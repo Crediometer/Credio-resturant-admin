@@ -2,10 +2,11 @@ import './Order.css';
 import OrderCard from "../../Components/Card/OrderCard/OrderCard";
 import { IoFunnelOutline, IoPaperPlaneOutline, IoSearchOutline } from 'react-icons/io5';
 import { BsCalendar2Week } from 'react-icons/bs';
-import EnhancedTable from '../../Components/Table/CategoriesTable';
+// import EnhancedTable from '../../Components/Table/CategoriesTable';
 import OrderModal from '../../Components/Modal/OrderModal';
 import { useEffect, useRef, useState } from 'react';
 import CustomFilter from '../../Components/Filter/CustomFilter';
+import EnhancedTable from '../../Components/Table/OrderTable';
 const Order = () => {
     const [show, setShow] = useState(false)
     const [show1, setShow1] = useState(false)
@@ -15,7 +16,7 @@ const Order = () => {
     }
    
     const handleToggle = () =>{
-        setShow(!show)
+        setShow1(!show1)
     }
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -55,17 +56,13 @@ const Order = () => {
                             )}
                         </div>
                         <div className="table-filter">
-                            <BsCalendar2Week/>
-                            <p>Filter</p>
-                        </div>
-                        <div className="table-filter">
                             <IoPaperPlaneOutline/>
                             <p>Share</p>
                         </div>
                     </div>
                 </div>
-                <div className="table-body" onClick={handleShow}>
-                    <EnhancedTable/>
+                <div className="table-body">
+                    <EnhancedTable show={handleShow}/>
                 </div>
             </div>
             {show && (<OrderModal toggle={handleShow}/>)}

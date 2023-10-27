@@ -8,6 +8,7 @@ import ViewProduct from './Pages/Categories/ViewProduct';
 import Order from './Pages/Order/Order';
 import Settings from './Pages/Settings/Settings';
 import Notification from './Pages/Notification/Notification';
+import Draft from './Pages/Categories/Draft';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -22,6 +23,7 @@ export default function Router() {
               { path: 'location', element: <Location/> },
               { path: 'inventory', element: <Categories/> },
               { path: 'inventory/product', element: <AddProduct/> },
+              { path: 'inventory/product/draft', element: <Draft/> },
               { path: 'inventory/product/view', element: <ViewProduct/> },
               { path: 'orders', element: <Order/> },
               { path: 'settings', element: <Settings/> },

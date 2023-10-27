@@ -9,7 +9,25 @@ import { IoFunnelOutline, IoPaperPlaneOutline, IoSearchOutline } from 'react-ico
 import EnhancedTable from '../../Components/Table/CategoriesTable';
 import { BiChevronLeft } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import CustomFilter from '../../Components/Filter/CustomFilter';
 const ViewProduct = () => {
+    const [show2, setShow2] = useState(false);
+    const dropdownRef = useRef(null);
+    const handleToggle2 = () =>{
+        setShow2(!show2)
+    }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShow2(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="viewproduct">
              <div className="viewproduct-head">
@@ -139,14 +157,18 @@ const ViewProduct = () => {
                             >
                             </input>
                         </div>
-                        <div className="table-filter">
-                            <IoFunnelOutline/>
-                            <p>Filter</p>
+                        <div className="filter-outer">
+                            <div className="table-filter" onClick={handleToggle2}>
+                                <IoFunnelOutline/>
+                                <p>Filter</p>
+                            </div>
+                            {show2 && (
+                                <div className="custom-3" ref={dropdownRef}>
+                                    <CustomFilter toggle={handleToggle2}/>
+                                </div>
+                            )}
                         </div>
-                        <div className="table-filter">
-                            <BsCalendar2Week/>
-                            <p>Filter</p>
-                        </div>
+                       
                         <div className="table-filter">
                             <IoPaperPlaneOutline/>
                             <p>Search</p>

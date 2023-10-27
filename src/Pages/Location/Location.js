@@ -26,7 +26,7 @@ const Location = () => {
                         </div>
                         <div className="location-buttons">
                             <button className='location-delete'>Delete</button>
-                            <button className="location-edit">Edit</button>
+                            <button className="location-edit" onClick={handleModal}>Edit</button>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@ const Location = () => {
                         </div>
                         <div className="location-buttons">
                             <button className='location-delete'>Delete</button>
-                            <button className="location-edit">Edit</button>
+                            <button className="location-edit" onClick={handleModal}>Edit</button>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ const Location = () => {
                         </div>
                         <div className="location-buttons">
                             <button className='location-delete'>Delete</button>
-                            <button className="location-edit">Edit</button>
+                            <button className="location-edit" onClick={handleModal}>Edit</button>
                         </div>
                     </div>
                 </div>

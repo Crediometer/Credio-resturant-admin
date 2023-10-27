@@ -1,0 +1,16 @@
+.draft-body{
+    height: 78vh;
+    width: 100%;
+    margin-top: 10px;
+    background: transparent;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+.draft-top{
+    color: var(--black-60, #45464E);
+    font-family: "Inter";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

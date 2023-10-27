@@ -102,6 +102,12 @@
 .product-placeholder-1{
     width: 60px;
 }
+.product-placeholder-list{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--black-2, #5E6366);
+}
 .product-input-3{
     display: flex;
     align-items: stretch;
@@ -123,7 +129,7 @@
     width: 100%;
     background-color: transparent;
     padding: 0.89rem;
-    color: var(--black-2, #ABAFB1);
+    color: var(--black-2, #5E6366);
     font-family: "Inter";
     font-size: 0.88606rem;
     font-style: normal;
@@ -363,7 +369,22 @@
     display: flex;
     gap: 13px;
 }
-
+.addon-button-delete{
+    justify-content: right;
+}
+.addon-delete button{
+    background: transparent;
+    color: var(--primary-primary-600, #B11226);
+    /* Body 2/Medium */
+    font-family:"Inter";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 142.857% */
+    padding: 0.625rem 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(177, 18, 38, 0.50);
+}
 .addon-save button{
     background: transparent;
     color: var(--primary-primary-600, #1366D9);
@@ -391,7 +412,29 @@
     border: 1px solid var(--primary-primary-500, #E8F1FD);
 }
 .addon-body{
+    width: 100%;
     margin-top: 10px;
+}
+.addon-body p{
+    margin-bottom: 10px;
+    color: var(--black-2, #5E6366);
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+}
+.addon-body p span{
+    width: 317px;
+    padding: 0.4rem;
+    background-color: transparent;
+    border: none;
+    color: var(--grey-grey-400, #5E6366);
+    text-align: center;
+    font-family: "Inter";
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16.712px; /* 142.857% */
 }
 .addon-form-1{
     display: flex;
@@ -413,13 +456,16 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #D3D3D3;
-    color: var(--grey-grey-400, #858D9D);
+    color: var(--grey-grey-400, #5E6366);
     text-align: center;
     font-family: "Inter";
     font-size: 11.699px;
     font-style: normal;
     font-weight: 400;
     line-height: 16.712px; /* 142.857% */
+}
+.addon-form-1 input:focus{
+    border-bottom:0.886px solid #629FF4;
 }
 .ql-container{
     border-radius: 0px 0px 7.089px 7.089px!important;

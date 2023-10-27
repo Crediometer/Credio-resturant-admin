@@ -9,15 +9,62 @@ import { Link } from 'react-router-dom';
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const AddProduct = () => {
     const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('');
     const [showCategory, setShowCategory] =useState(false)
     const [showSize, setShowSize] =useState(false)
     const [showType, setShowType] =useState(false)
+    const [name, setName] =useState('')
+    const [price, setPrice]= useState('')
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [otherImage, setOtherImage] = useState(null);
+    const [addonImage, setAddOnImage] = useState(null);
+    const [sizes, setSize] = useState([])
+    const [category, setCategory] = useState([])
+    const [type, setType] = useState([])
     const dropdownRef = useRef(null);
+    const [formData, setFormData] = useState([]); // State to store form data
+    const [formFields, setFormFields] = useState({
+     
+    }); 
     var toolbarOptions =  [[{ 'font': [] }],[{ 'size': ['small', false, 'large', 'huge'] }],['bold', 'italic', 'underline', 'strike'],[{ 'align': [] }]];
     const modules = {
         toolbar: toolbarOptions
+    }
+    const optionsize = ['Large', 'Medium', 'Small'];
+    const optionCategory =["Breakfast", "Dinner", 'Lunch']
+    const optionType =["Breakfast", "Dinner", 'Lunch']
+    const handlesize = (value)=>{
+        const isSelected = sizes.indexOf(value) !== -1;
+
+        if (isSelected) {
+          // If the value is selected, remove it
+          setSize(sizes?.filter((item) => item !== value));
+        } else {
+          // If it's not selected, add it to the selectedValues array
+          setSize([...sizes, value]);
+        }
+    }
+    const handleCartegory = (value)=>{
+        const isSelected = category.indexOf(value) !== -1;
+
+        if (isSelected) {
+          // If the value is selected, remove it
+          setCategory(category?.filter((item) => item !== value));
+        } else {
+          // If it's not selected, add it to the selectedValues array
+          setCategory([...category, value]);
+        }
+    }
+     const handleType = (value)=>{
+        const isSelected = type.indexOf(value) !== -1;
+
+        if (isSelected) {
+          // If the value is selected, remove it
+          setType(type?.filter((item) => item !== value));
+        } else {
+          // If it's not selected, add it to the selectedValues array
+          setType([...type, value]);
+        }
     }
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -39,12 +86,61 @@ const AddProduct = () => {
         reader.readAsDataURL(file);
         }
     };
+    const handleAddOnImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            setAddOnImage(event.target.result);
+            console.log(addonImage)
+            setFormFields({...formFields, ...{addonImage:event.target.result}})
+        };
+        reader.readAsDataURL(file);
+        }
+    };
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
           setShowCategory(false);
           setShowSize(false);
           setShowType(false);
         }
+    };
+    // Handle form field input changes
+    const handlename = (e) =>{
+        const value = e.target.value
+        setName(value)
+        setFormFields({...formFields, ...{name}})
+    }
+    const handleprice = (e) =>{
+        const value = e.target.value
+        setPrice(value)
+        setFormFields({...formFields, ...{price}})
+    }
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormFields((prevFormFields) => ({
+    //     ...prevFormFields,
+    //     [name]: value,
+    //     }));
+    // };
+    // Handle saving the form data
+    const handleSave = () => {
+        console.log(formFields)
+        if (formFields.name && formFields.price && formFields.addonImage) {
+            setFormData((prevData) => [...prevData, formFields]);
+            setAddOnImage(null)
+            setName('')
+            setPrice("")
+            setFormFields({})
+        }else{
+            console.log("no")
+        }
+        
+    };
+    // Handle deleting a form entry
+    const handleDelete = (index) => {
+        const updatedData = formData.filter((_, i) => i !== index);
+        setFormData(updatedData);
     };
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -62,12 +158,26 @@ const AddProduct = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
     }
+    const addonStyle = {
+        backgroundImage: `url(${addonImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+    }
+    const outlinestyle = {
+        borderColor: `${showCategory ? "#629FF4" : ""}`
+    }
+    const outlinestyle2 = {
+        borderColor: `${showSize ? "#629FF4" : ""}`
+    }
+    const outlinestyle3 = {
+        borderColor: `${showType ? "#629FF4" : ""}`
+    }
     return ( 
         <div className="addproduct">
             <div className="categories-head">
                 <p>Inventory Summary</p>
                 <div className="product-button">
-                    <button className="draft">Save a Draft</button>
+                    <Link to="/inventory/product/draft"><button className="draft">Save a Draft</button></Link>
                     <Link to="/inventory/product/view"><button>Save & Publish</button></Link>
                 </div>
             </div>
@@ -82,46 +192,74 @@ const AddProduct = () => {
                                     required
                                 ></input>
                             </div>
-                            <div className="product-input-2">
-                                <p className='product-placeholder' onClick={()=>{setShowCategory(!showCategory)}}>Select Product Category</p>
+                            <div className="product-input-2" style={outlinestyle}>
+                            <p className='product-placeholder' onClick={()=>{setShowCategory(!showCategory)}}>
+                                    {(category.length === 0) ? "Select Product Category" : (
+                                        <p className='product-placeholder product-placeholder-list'>
+                                        {category.map((selectedValue) => {
+                                            return(
+                                                <p>{selectedValue}</p>
+                                            )
+                                        })}
+                                        </p>
+                                    )}
+                                   
+                                </p>
                                 <div onClick={()=>{setShowCategory(!showCategory)}}>
                                     <FiChevronDown/>
                                 </div>
                                 {showCategory && (
                                     <div className="product-dropdown" ref={dropdownRef}>
-                                        <div className="product-drop">
-                                            <label>Drinks</label>
-                                            <input type='checkbox'></input>
-                                        </div>
-                                        <div className="product-drop">
-                                            <label>Dinner</label>
-                                            <input type='checkbox'></input>
-                                        </div>
-                                        <div className="product-drop">
-                                            <label>Lunch</label>
-                                            <input type='checkbox'></input>
-                                        </div>
+                                        {optionCategory.map((size)=>{
+                                            return(
+                                                <div className="product-drop" key={size}>
+                                                    <label>{size}</label>
+                                                    <input 
+                                                    type='checkbox' 
+                                                    value={size}
+                                                    checked={category?.includes(size)}
+                                                    onChange={() => handleCartegory(size)}
+                                                    ></input>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 )}
                                
                             </div>
-                            <div className="product-input-2">
-                                <p className='product-placeholder' onClick={()=>{setShowSize(!showSize)}}>Product Sizes</p>
-                                <FiChevronDown/>
+                            <div className="product-input-2" style={outlinestyle2}>
+                                <p className='product-placeholder' onClick={()=>{setShowSize(!showSize)}}>
+                                    {(sizes.length === 0) ? "Product Size" : (
+                                        <p className='product-placeholder product-placeholder-list'>
+                                        {sizes.map((selectedValue) => {
+                                            return(
+                                                <p>{selectedValue}</p>
+                                            )
+                                        })}
+                                        </p>
+                                    )}
+                                   
+                                </p>
+                                <div onClick={()=>{setShowSize(!showSize)}}>
+                                    <FiChevronDown/>
+                                </div>
+                                
                                 {showSize && (
                                     <div className="product-dropdown" ref={dropdownRef}>
-                                        <div className="product-drop">
-                                            <label>Small</label>
-                                            <input type='checkbox' value="Small"></input>
-                                        </div>
-                                        <div className="product-drop">
-                                            <label>Medium</label>
-                                            <input type='checkbox' value='Medium'></input>
-                                        </div>
-                                        <div className="product-drop">
-                                            <label>Large</label>
-                                            <input type='checkbox' value="Medium"></input>
-                                        </div>
+                                        {optionsize.map((size)=>{
+                                            return(
+                                                <div className="product-drop" key={size}>
+                                                    <label>{size}</label>
+                                                    <input 
+                                                    type='checkbox' 
+                                                    value={size}
+                                                    checked={sizes?.includes(size)}
+                                                    onChange={() => handlesize(size)}
+                                                    ></input>
+                                                </div>
+                                            )
+                                        })}
+                                        
                                     </div>
                                 )}
                             </div>
@@ -184,23 +322,37 @@ const AddProduct = () => {
                                     required
                                 ></input>
                             </div>
-                            <div className="product-input-2">
-                                <p className='product-placeholder' onClick={()=>{setShowType(!showType)}}>Order Type</p>
-                                <FiChevronDown/>
+                            <div className="product-input-2" style={outlinestyle3}>
+                            <p className='product-placeholder' onClick={()=>{setShowType(!showType)}}>
+                                    {(type.length === 0) ? "Other Type" : (
+                                        <p className='product-placeholder product-placeholder-list'>
+                                        {type.map((selectedValue) => {
+                                            return(
+                                                <p>{selectedValue}</p>
+                                            )
+                                        })}
+                                        </p>
+                                    )}
+                                   
+                                </p>
+                                <div onClick={()=>{setShowType(!showType)}}>
+                                    <FiChevronDown/>
+                                </div>
                                 {showType && (
                                     <div className="product-dropdown" ref={dropdownRef}>
-                                        <div className="product-drop">
-                                            <label>Drinks</label>
-                                            <input type='checkbox'></input>
-                                        </div>
-                                        <div className="product-drop">
-                                            <label>Dinner</label>
-                                            <input type='checkbox'></input>
-                                        </div>
-                                        <div className="product-drop">
-                                            <label>Lunch</label>
-                                            <input type='checkbox'></input>
-                                        </div>
+                                       {optionType.map((size)=>{
+                                            return(
+                                                <div className="product-drop" key={size}>
+                                                    <label>{size}</label>
+                                                    <input 
+                                                    type='checkbox' 
+                                                    value={size}
+                                                    checked={type?.includes(size)}
+                                                    onChange={() => handleType(size)}
+                                                    ></input>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 )}
                             </div>
@@ -233,7 +385,7 @@ const AddProduct = () => {
                                         <p>Add Discount</p>
                                     </div>
                                 </div>
-                                <ReactQuill modules={modules} theme="snow" value={value} onChange={setValue} />
+                                <ReactQuill modules={modules} theme="snow" value={value2} onChange={setValue2} />
                                 <p className='product-instruction'>Helper text goes here</p>
                             </div>
                             <div className="date-added">
@@ -316,10 +468,48 @@ const AddProduct = () => {
             <div className="add-on">
                 <div className="add-on-top">
                     <p>Choose of Add on</p>
-                    <button>Add</button>
+                    <button onClick={() => handleSave()}>Add</button>
                 </div>
+                {formData.map((entry, index) => {
+                    return(
+                        // <div key={index} className="form-entry">
+                        // <div>
+                        //     <p>Name: {entry.name}</p>
+                        //     <p>Email: {entry.email}</p>
+                        // </div>
+                        // <button onClick={() => handleDelete(index)}>Delete</button>
+                        // </div>
+                        <div className="add-form">
+                        <div className="addon-image" style={{backgroundImage: `url(${entry.addonImage})`, backgroundSize: "cover", backgroundRepeat: "no-repeat",}} onClick={()=> document.querySelector(".addon-picker").click()}>
+                            
+                        </div>
+                        <div className="addon-details">
+                            <div className="addon-form-top">
+                                <div></div>
+                                <div className="addon-button addon-button-delete">
+                                    <div className="addon-delete">
+                                        <button  onClick={() => handleDelete(index)}>Delete</button>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div className="addon-body">
+                                <p>Name: <span>{entry.name}</span></p>
+                                <p>Price: <span>NGN {entry.price}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                })}
+                {formData.length > 0 && <hr />}
                 <div className="add-form">
-                    <div className="addon-image">
+                    <div className="addon-image" style={addonStyle} onClick={()=> document.querySelector(".addon-picker").click()}>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleAddOnImageChange}
+                            className='addon-picker'
+                            hidden
+                        />
                         <p className='upload-text addon-upload-text'><span><FiUploadCloud/></span>Upload Image</p>
                         <p className='upload-instruction addon-upload-instruction'>Upload a cover image for your product.<br></br>File Format jpeg, png Recommened Size 600x600 (1:1)</p>
                     </div>
@@ -328,7 +518,7 @@ const AddProduct = () => {
                             <p className='addon-top-text'>Edit add on name </p>
                             <div className="addon-button">
                                 <div className="addon-save">
-                                    <button>Save</button>
+                                    <button onClick={() => handleSave()}>Save</button>
                                 </div>
                                 <div className="addon-edit">
                                     <button>Edit</button>
@@ -336,20 +526,30 @@ const AddProduct = () => {
                             </div>
                         </div> 
                         <div className="addon-body">
-                            <div className="addon-form-1">
-                                <label>Name</label>
-                                <input
-                                    type='text'
-                                    placeholder='Enter Name'
-                                ></input>
-                            </div>
-                            <div className="addon-form-1">
-                                <label>Price</label>
-                                <input
-                                    type='text'
-                                    placeholder='Enter Price'
-                                ></input>
-                            </div>
+                            <form>
+                                <div className="addon-form-1">
+                                    <label>Name</label>
+                                    <input
+                                        type='text'
+                                        name="name" 
+                                        placeholder='Enter Name'
+                                        value={name}
+                                        onChange={handlename}
+                                        onBlur={handlename}
+                                    ></input>
+                                </div>
+                                <div className="addon-form-1">
+                                    <label>Price</label>
+                                    <input
+                                        type='text'
+                                        name='price'
+                                        placeholder='Enter Price'
+                                        value={price}
+                                        onChange={handleprice}
+                                        onBlur={handleprice}
+                                    ></input>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
