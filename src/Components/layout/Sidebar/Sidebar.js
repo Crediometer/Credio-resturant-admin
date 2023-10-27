@@ -45,7 +45,7 @@ const Sidebar = ({isOpen, toggle, show}) => {
             <div className="sidebar-bottom">
                 <nav>
                     <li >
-                        <Link to='/settings'
+                        <Link to='/dashboard/settings'
                         className={ classNames('link', { ['active2']: location.pathname === '/settings'})}
                         >
                             <FiSettings/>
