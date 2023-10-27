@@ -5,6 +5,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useState, Component, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { FaTrash } from 'react-icons/fa';
+import Alert from '@mui/material/Alert';
 // import { Editor } from 'react-draft-wysiwyg';
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const AddProduct = () => {
@@ -13,6 +15,7 @@ const AddProduct = () => {
     const [showCategory, setShowCategory] =useState(false)
     const [showSize, setShowSize] =useState(false)
     const [showType, setShowType] =useState(false)
+    const [adderror, setaddaearror] = useState('')
     const [name, setName] =useState('')
     const [price, setPrice]= useState('')
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -76,6 +79,9 @@ const AddProduct = () => {
         reader.readAsDataURL(file);
         }
     };
+    const handleImageDelete = ()=>{
+        setBackgroundImage(null);
+    }
     const handleOtherImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -87,6 +93,10 @@ const AddProduct = () => {
         reader.readAsDataURL(file);
         }
     };
+    const handleOtherImageDelete = (index) =>{
+        const updatedData = imageData.filter((_, i) => i !== index);
+        setImageData(updatedData);
+    }
     const handleAddOnImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -118,21 +128,23 @@ const AddProduct = () => {
         setFormFields({...formFields, ...{price}})
     }
     const handleSave = () => {
-        console.log(formFields)
         if (formFields.name && formFields.price && formFields.addonImage) {
             setFormData((prevData) => [...prevData, formFields]);
             setAddOnImage(null)
             setName('')
             setPrice("")
             setFormFields({})
+            setaddaearror('')
         }else{
             console.log("no")
+            setaddaearror("Please fill all the Necessary field before saving")
         }    
     };
     const handleImage = () => {
         console.log(imageFields)
         if (imageFields.otherImage) {
             setImageData((prevData) => [...prevData, imageFields]);
+            document.querySelector(".other-picker").click()
             setOtherImage(null)
             setImageFields({})
         }else{
@@ -173,6 +185,12 @@ const AddProduct = () => {
     }
     const outlinestyle3 = {
         borderColor: `${showType ? "#629FF4" : ""}`
+    }
+    const logoStyleText={
+        visibility: `${backgroundImage !== null ? "visible" : "hidden"}`
+    }
+    const moreStyleText={
+        visibility: `${imageData != [] ? "visible" : "hidden"}`
     }
     return ( 
         <div className="addproduct">
@@ -425,39 +443,52 @@ const AddProduct = () => {
                     </form>
                 </div>
                 <div className="product-upload">
-                    <div className="main-upload" style={appStyle} onClick={()=> document.querySelector(".image-picker").click()}>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}
-                            className='image-picker'
-                            hidden
-                        />
-                        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none">
-                            <path opacity="0.4" d="M30.3207 41.3961H12.4024C5.39501 41.3961 0.6875 36.4814 0.6875 29.1653V12.2788C0.6875 4.96267 5.39501 0.0458984 12.4024 0.0458984H30.3228C37.3302 0.0458984 42.0377 4.96267 42.0377 12.2788V29.1653C42.0377 36.4814 37.3302 41.3961 30.3207 41.3961" fill="#5570F1"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7952 13.8469C19.7952 16.6794 17.4899 18.9846 14.6574 18.9846C11.8229 18.9846 9.51968 16.6794 9.51968 13.8469C9.51968 11.0144 11.8229 8.70703 14.6574 8.70703C17.4899 8.70703 19.7952 11.0144 19.7952 13.8469ZM36.66 25.0375C37.1417 25.5047 37.487 26.0382 37.7144 26.6067C38.4029 28.3269 38.0452 30.3944 37.3092 32.098C36.4367 34.1263 34.7662 35.6583 32.6614 36.3282C31.7269 36.628 30.7469 36.7561 29.769 36.7561H12.4412C10.7169 36.7561 9.19107 36.355 7.94022 35.6025C7.15664 35.1311 7.01811 34.0456 7.59908 33.3385C8.57081 32.1601 9.53014 30.9774 10.4977 29.7845C12.342 27.502 13.5845 26.8404 14.9656 27.4213C15.5259 27.6612 16.0883 28.023 16.6672 28.4034C18.2095 29.4247 20.3536 30.8265 23.1778 29.3048C25.1083 28.2492 26.2289 26.4429 27.2042 24.8707L27.2239 24.839C27.2895 24.7338 27.3546 24.6286 27.4195 24.5238C27.7511 23.9879 28.0778 23.46 28.4479 22.9741C28.9068 22.3725 30.6105 20.491 32.8124 21.8308C34.2162 22.6743 35.3968 23.8156 36.66 25.0375Z" fill="#5570F1"/>
-                        </svg>
-                        <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
-                        <p className='upload-instruction'>Upload a cover image for your product.<br></br>File Format jpeg, png Recommened Size 600x600 (1:1)</p>
+                    <div className="main-upload-outer">
+                        <div className='upload-delete' onClick={handleImageDelete} style={logoStyleText}>
+                                <FaTrash/>
+                        </div>
+                        <div className="main-upload" style={appStyle} onClick={()=> document.querySelector(".image-picker").click()}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageChange}
+                                className='image-picker'
+                                hidden
+                            />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none">
+                                <path opacity="0.4" d="M30.3207 41.3961H12.4024C5.39501 41.3961 0.6875 36.4814 0.6875 29.1653V12.2788C0.6875 4.96267 5.39501 0.0458984 12.4024 0.0458984H30.3228C37.3302 0.0458984 42.0377 4.96267 42.0377 12.2788V29.1653C42.0377 36.4814 37.3302 41.3961 30.3207 41.3961" fill="#5570F1"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7952 13.8469C19.7952 16.6794 17.4899 18.9846 14.6574 18.9846C11.8229 18.9846 9.51968 16.6794 9.51968 13.8469C9.51968 11.0144 11.8229 8.70703 14.6574 8.70703C17.4899 8.70703 19.7952 11.0144 19.7952 13.8469ZM36.66 25.0375C37.1417 25.5047 37.487 26.0382 37.7144 26.6067C38.4029 28.3269 38.0452 30.3944 37.3092 32.098C36.4367 34.1263 34.7662 35.6583 32.6614 36.3282C31.7269 36.628 30.7469 36.7561 29.769 36.7561H12.4412C10.7169 36.7561 9.19107 36.355 7.94022 35.6025C7.15664 35.1311 7.01811 34.0456 7.59908 33.3385C8.57081 32.1601 9.53014 30.9774 10.4977 29.7845C12.342 27.502 13.5845 26.8404 14.9656 27.4213C15.5259 27.6612 16.0883 28.023 16.6672 28.4034C18.2095 29.4247 20.3536 30.8265 23.1778 29.3048C25.1083 28.2492 26.2289 26.4429 27.2042 24.8707L27.2239 24.839C27.2895 24.7338 27.3546 24.6286 27.4195 24.5238C27.7511 23.9879 28.0778 23.46 28.4479 22.9741C28.9068 22.3725 30.6105 20.491 32.8124 21.8308C34.2162 22.6743 35.3968 23.8156 36.66 25.0375Z" fill="#5570F1"/>
+                            </svg>
+                            <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
+                            <p className='upload-instruction'>Upload a cover image for your product.<br></br>File Format jpeg, png Recommened Size 600x600 (1:1)</p>
+                        </div>
                     </div>
+                    
                     <div className="addition">
                         <p className="addition-head">Additional Images</p>
                         <div className="addition-body">
                             {imageData.map((entry, index) => (
-                                 <div className="more-upload" style={{backgroundImage: `url(${entry.otherImage})`, backgroundSize: "cover", backgroundRepeat: "no-repeat",}}  onClick={()=> document.querySelector(".other-picker").click()}>
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={handleOtherImageChange}
-                                        className='other-picker'
-                                        hidden
-                                    />
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none">
-                                        <path opacity="0.4" d="M30.3207 41.3961H12.4024C5.39501 41.3961 0.6875 36.4814 0.6875 29.1653V12.2788C0.6875 4.96267 5.39501 0.0458984 12.4024 0.0458984H30.3228C37.3302 0.0458984 42.0377 4.96267 42.0377 12.2788V29.1653C42.0377 36.4814 37.3302 41.3961 30.3207 41.3961" fill="#5570F1"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7952 13.8469C19.7952 16.6794 17.4899 18.9846 14.6574 18.9846C11.8229 18.9846 9.51968 16.6794 9.51968 13.8469C9.51968 11.0144 11.8229 8.70703 14.6574 8.70703C17.4899 8.70703 19.7952 11.0144 19.7952 13.8469ZM36.66 25.0375C37.1417 25.5047 37.487 26.0382 37.7144 26.6067C38.4029 28.3269 38.0452 30.3944 37.3092 32.098C36.4367 34.1263 34.7662 35.6583 32.6614 36.3282C31.7269 36.628 30.7469 36.7561 29.769 36.7561H12.4412C10.7169 36.7561 9.19107 36.355 7.94022 35.6025C7.15664 35.1311 7.01811 34.0456 7.59908 33.3385C8.57081 32.1601 9.53014 30.9774 10.4977 29.7845C12.342 27.502 13.5845 26.8404 14.9656 27.4213C15.5259 27.6612 16.0883 28.023 16.6672 28.4034C18.2095 29.4247 20.3536 30.8265 23.1778 29.3048C25.1083 28.2492 26.2289 26.4429 27.2042 24.8707L27.2239 24.839C27.2895 24.7338 27.3546 24.6286 27.4195 24.5238C27.7511 23.9879 28.0778 23.46 28.4479 22.9741C28.9068 22.3725 30.6105 20.491 32.8124 21.8308C34.2162 22.6743 35.3968 23.8156 36.66 25.0375Z" fill="#5570F1"/>
-                                    </svg>
-                                    <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
+                                <div className="main-upload-outer">
+                                    <div className='upload-delete' onClick={() => handleOtherImageDelete(index)} style={moreStyleText}>
+                                        <FaTrash/>
+                                    </div>
+                                    <div className="more-upload" style={{backgroundImage: `url(${entry.otherImage})`, backgroundSize: "cover", backgroundRepeat: "no-repeat",}}  onClick={()=> document.querySelector(".other-picker").click()}>
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            onChange={handleOtherImageChange}
+                                            className='other-picker'
+                                            hidden
+                                        />
+                                        
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none">
+                                            <path opacity="0.4" d="M30.3207 41.3961H12.4024C5.39501 41.3961 0.6875 36.4814 0.6875 29.1653V12.2788C0.6875 4.96267 5.39501 0.0458984 12.4024 0.0458984H30.3228C37.3302 0.0458984 42.0377 4.96267 42.0377 12.2788V29.1653C42.0377 36.4814 37.3302 41.3961 30.3207 41.3961" fill="#5570F1"/>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7952 13.8469C19.7952 16.6794 17.4899 18.9846 14.6574 18.9846C11.8229 18.9846 9.51968 16.6794 9.51968 13.8469C9.51968 11.0144 11.8229 8.70703 14.6574 8.70703C17.4899 8.70703 19.7952 11.0144 19.7952 13.8469ZM36.66 25.0375C37.1417 25.5047 37.487 26.0382 37.7144 26.6067C38.4029 28.3269 38.0452 30.3944 37.3092 32.098C36.4367 34.1263 34.7662 35.6583 32.6614 36.3282C31.7269 36.628 30.7469 36.7561 29.769 36.7561H12.4412C10.7169 36.7561 9.19107 36.355 7.94022 35.6025C7.15664 35.1311 7.01811 34.0456 7.59908 33.3385C8.57081 32.1601 9.53014 30.9774 10.4977 29.7845C12.342 27.502 13.5845 26.8404 14.9656 27.4213C15.5259 27.6612 16.0883 28.023 16.6672 28.4034C18.2095 29.4247 20.3536 30.8265 23.1778 29.3048C25.1083 28.2492 26.2289 26.4429 27.2042 24.8707L27.2239 24.839C27.2895 24.7338 27.3546 24.6286 27.4195 24.5238C27.7511 23.9879 28.0778 23.46 28.4479 22.9741C28.9068 22.3725 30.6105 20.491 32.8124 21.8308C34.2162 22.6743 35.3968 23.8156 36.66 25.0375Z" fill="#5570F1"/>
+                                        </svg>
+                                        <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
+                                    </div>
                                 </div>
+                                 
                             ))}
                             <div className="more-upload" style={otherStyle} onClick={()=> document.querySelector(".other-picker").click()}>
                                 <input
@@ -473,7 +504,7 @@ const AddProduct = () => {
                                 </svg>
                                 <p className='upload-text'><span><FiUploadCloud/></span>Upload Image</p>
                             </div>
-                            <div className="add-upload" onClick={() => handleImage()}>
+                            <div className="add-upload" onClick={() => {handleImage(); }}>
                                 <FiPlus/>
                             </div>
                         </div>
@@ -488,6 +519,64 @@ const AddProduct = () => {
                     <p>Choose of Add on</p>
                     <button onClick={() => handleSave()}>Add</button>
                 </div>
+                <form >
+                {adderror !== '' ? (<Alert severity="error">{adderror}</Alert>) : <></>}
+                <div className="add-form">
+                    <div className="addon-image" style={addonStyle} onClick={()=> document.querySelector(".addon-picker").click()}>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleAddOnImageChange}
+                            className='addon-picker'
+                            hidden
+                            required
+                        />
+                        <p className='upload-text addon-upload-text'><span><FiUploadCloud/></span>Upload Image</p>
+                        <p className='upload-instruction addon-upload-instruction'>Upload a cover image for your product.<br></br>File Format jpeg, png Recommened Size 600x600 (1:1)</p>
+                    </div>
+                    <div className="addon-details">
+                        <div className="addon-form-top">
+                            <p className='addon-top-text'>Edit add on name </p>
+                            <div className="addon-button">
+                                <div className="addon-save">
+                                    <button onClick={() => handleSave()}>Save</button>
+                                </div>
+                                <div className="addon-edit">
+                                    <button>Edit</button>
+                                </div>
+                            </div>
+                        </div> 
+                        <div className="addon-body">
+                                <div className="addon-form-1">
+                                    <label>Name</label>
+                                    <input
+                                        type='text'
+                                        name="name" 
+                                        placeholder='Enter Name'
+                                        value={name}
+                                        onChange={handlename}
+                                        onBlur={handlename}
+                                        required
+                                    ></input>
+                                </div>
+                                <div className="addon-form-1">
+                                    <label>Price</label>
+                                    <input
+                                        type='text'
+                                        name='price'
+                                        placeholder='Enter Price'
+                                        value={price}
+                                        onChange={handleprice}
+                                        onBlur={handleprice}
+                                        required
+                                    ></input>
+                                </div>
+                           
+                        </div>
+                    </div>
+                   
+                </div>
+                </form>
                 {formData.map((entry, index) => {
                     return(
                         <div className="add-form">
@@ -511,59 +600,6 @@ const AddProduct = () => {
                     </div>
                     )
                 })}
-                {formData.length > 0 && <hr />}
-                <div className="add-form">
-                    <div className="addon-image" style={addonStyle} onClick={()=> document.querySelector(".addon-picker").click()}>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleAddOnImageChange}
-                            className='addon-picker'
-                            hidden
-                        />
-                        <p className='upload-text addon-upload-text'><span><FiUploadCloud/></span>Upload Image</p>
-                        <p className='upload-instruction addon-upload-instruction'>Upload a cover image for your product.<br></br>File Format jpeg, png Recommened Size 600x600 (1:1)</p>
-                    </div>
-                    <div className="addon-details">
-                        <div className="addon-form-top">
-                            <p className='addon-top-text'>Edit add on name </p>
-                            <div className="addon-button">
-                                <div className="addon-save">
-                                    <button onClick={() => handleSave()}>Save</button>
-                                </div>
-                                <div className="addon-edit">
-                                    <button>Edit</button>
-                                </div>
-                            </div>
-                        </div> 
-                        <div className="addon-body">
-                            <form>
-                                <div className="addon-form-1">
-                                    <label>Name</label>
-                                    <input
-                                        type='text'
-                                        name="name" 
-                                        placeholder='Enter Name'
-                                        value={name}
-                                        onChange={handlename}
-                                        onBlur={handlename}
-                                    ></input>
-                                </div>
-                                <div className="addon-form-1">
-                                    <label>Price</label>
-                                    <input
-                                        type='text'
-                                        name='price'
-                                        placeholder='Enter Price'
-                                        value={price}
-                                        onChange={handleprice}
-                                        onBlur={handleprice}
-                                    ></input>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );
