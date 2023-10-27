@@ -63,7 +63,7 @@ const Navbar = ({isOpen}) => {
                 </div>
             </div>
             <div className="navbar-right">
-                <Link to="/notification"><IoNotificationsOutline/></Link>
+                <Link to="/dashboard/notification"><IoNotificationsOutline/></Link>
                 <img src={avatar}>
                 </img>
                 <p className="navbar-role">Admin</p>

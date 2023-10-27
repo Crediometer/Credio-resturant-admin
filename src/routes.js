@@ -10,6 +10,7 @@ import Settings from './Pages/Settings/Settings';
 import Notification from './Pages/Notification/Notification';
 import Draft from './Pages/Categories/Draft';
 import Login from './Pages/Login/Login';
+import Signin from './Pages/SignIn/Sigin';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -19,6 +20,10 @@ export default function Router() {
         {
           path: '/',
           element: <Login/>, // Renders LoginPage component when the root path is accessed
+        },
+        {
+          path: '/signin',
+          element: <Signin/>, // Renders LoginPage component when the root path is accessed
         },
         {
             path: '/dashboard',

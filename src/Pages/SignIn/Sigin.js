@@ -1,7 +1,7 @@
-import './login.css';
+// import '../Login/Login.css';
 import {Link} from 'react-router-dom';
 import logo from '../../Assets/logo.png'
-const Login = () => {
+const Signin = () => {
     return ( 
         <div className="login-page">
             <div className="login-left">
@@ -24,35 +24,43 @@ const Login = () => {
                         <div className="login-logo">
                             <img src={logo}></img>
                         </div>
-                        <p className='login-welcome'>Log in to your account</p>
-                        <p className="login-subtext">Welcome back! Please enter your details.</p>
+                        <p className='login-welcome'>Create an account</p>
                     </div>
                     <div className="login-form">
                         <form>
                             <div className="phone">
-                                <label>Phone number</label><br></br>
+                                <label>Name*</label><br></br>
                                 <input
-                                type="tel"
+                                type="text"
                                 name='phone'
-                                placeholder='Enter phone number'
+                                placeholder='Enter your name'
+                                required
+                                ></input>
+                            </div>
+                            <div className="phone">
+                                <label>Email*</label><br></br>
+                                <input
+                                type="email"
+                                name='phone'
+                                placeholder='Enter your Email'
                                 required
                                 ></input>
                             </div>
                             <div className="password">
-                                <label>Password</label><br></br>
+                                <label>Password*</label><br></br>
                                 <input
                                 type='password'
                                 name='password'
-                                placeholder='*************'
+                                placeholder='*Create a Password'
                                 required
                                 ></input>
                             </div>
-                            <Link to="/dashboard">
+                            <Link to="/">
                                 <div className="submit">
                                     <input 
                                     type="submit"
                                     name="submit"
-                                    value="Login"
+                                    value="Get Started"
                                     ></input>
                                 </div>
                             </Link>
@@ -73,7 +81,7 @@ const Login = () => {
                                 Sign in with Google
                             </button>
                             <div className="account">
-                                <p className="signin">Don’t have an account yet ? <Link to='/signin'><span>Sign up </span></Link></p>
+                                <p className="signin">Already have an account? <Link to="/"><span>Log in</span></Link></p>
                             </div>
                         </form>
                     </div>
@@ -83,4 +91,4 @@ const Login = () => {
      );
 }
  
-export default Login;
+export default Signin;
