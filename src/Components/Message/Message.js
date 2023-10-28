@@ -26,7 +26,6 @@ const Message = ({toggle,title,body, id,getid}) => {
                     Delete
                 </button>
                 <button className="message-tick" onClick={handleRead}>
-                    
                     {read ? (<BsCheckAll/>) : (<FaCheck/>)}
                     {read ? ("Read") : "Mark as Read"}
                 </button>

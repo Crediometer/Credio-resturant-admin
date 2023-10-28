@@ -11,6 +11,7 @@ import Notification from './Pages/Notification/Notification';
 import Draft from './Pages/Categories/Draft';
 import Login from './Pages/Login/Login';
 import Signin from './Pages/SignIn/Sigin';
+import Sales from './Pages/Sales/Sales';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -38,6 +39,7 @@ export default function Router() {
               { path: 'orders', element: <Order/> },
               { path: 'settings', element: <Settings/> },
               { path: 'notification', element: <Notification/> },
+              { path: 'sales', element: <Sales/> },
             //   { path: 'employee', element: <Notfound/> },
             //   { path: 'document', element: <Notfound/> },
             //   { path: 'report', element: <Notfound/> },

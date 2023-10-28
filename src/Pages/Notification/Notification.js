@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaCheck, FaTrash } from "react-icons/fa";
 import './Notification.css'
 import { IoFunnelOutline, IoPaperPlaneOutline, IoSearchOutline } from "react-icons/io5";
 import CustomFilter from "../../Components/Filter/CustomFilter";
 import { BsCalendar2Week } from "react-icons/bs";
+import empty from '../../Assets/empty.png'
 import Message from "../../Components/Message/Message";
 import DeleteModal from "../../Components/Modal/DeleteModal";
 import TablePagination from '@mui/material/TablePagination';
+import ClearallModal from "../../Components/Modal/ClearallModal";
 const Notification = () => {
     const [show1, setShow1] = useState(1);
     const [id, setid] = useState('')
+    const [value, setvalue] = useState("Filter")
     const [show, setShow] = useState(false)
     const [showdelete, setShowDelete] = useState(false)
     const [page, setPage] = useState(2);
     const [rowsPerPage, setRowsPerPage] = useState(10);
+    const dropdownRef = useRef(null);
+    const [clearall, setclearall] = useState(false)
     const [notifications, setNotifications] = useState([
         {
             id: 1,
@@ -65,6 +70,7 @@ const Notification = () => {
     const handleid =(id)=>{
     setid(id)
     }
+
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
     };
@@ -92,6 +98,20 @@ const Notification = () => {
     const handleReceipt = ()=>{
         setShow1(3)
     }
+    const handleclearall = ()=>{
+        setclearall(!clearall)
+    }
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShow(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[]);
     return ( 
         <div className="notification">
              <div className="notification-box">
@@ -99,7 +119,7 @@ const Notification = () => {
                     <li onClick={handleAccount} className={show1 === 1 ? `nav-active notification-nav`: 'notification-nav'}> <div className="all-number"><p>5</p></div> All</li>
                     <li onClick={handleBusiness} className={show1 === 2 ? `nav-active notification-nav`: 'notification-nav'}><div className="today-number"><p>4</p></div>Today</li>
                     <li onClick={handleRead} className={show1 === 4 ? `nav-active notification-nav`: 'notification-nav'}><div className="today-number"><p><FaCheck/></p></div>Read</li>
-                    <li onClick={handleReceipt} className={show1 === 3 ? `nav-active notification-nav-close`: 'notification-nav-close'}><div className="clear icon"><FaTrash/></div>Clear all</li>
+                    <li onClick={handleclearall} className={show1 === 3 ? `nav-active notification-nav-close`: 'notification-nav-close'}><div className="clear icon"><FaTrash/></div>Clear all</li>
                 </nav>
             </div>
             <div className="notification-body">
@@ -117,18 +137,13 @@ const Notification = () => {
                         <div className="table-filter-outer">
                             <div className="table-filter" onClick={handleToggle}>
                                 <IoFunnelOutline/>
-                                <p >Filter</p>
+                                <p>{value}</p>
                             </div>
                             {show && (
-                                <div className="custom custom-2">
-                                    <CustomFilter toggle={handleToggle}/>
+                                <div className="custom custom-2" ref={dropdownRef}>
+                                    <CustomFilter toggle={handleToggle} setvalue={setvalue}/>
                                 </div>
                             )}
-                        </div>
-                        
-                        <div className="table-filter">
-                            <BsCalendar2Week/>
-                            <p>Filter</p>
                         </div>
                         <div className="table-filter">
                             <IoPaperPlaneOutline/>
@@ -137,13 +152,23 @@ const Notification = () => {
                     </div>
                 </div>
                 <div className="notification-message">
-                {notifications.map((notification)=>{
-                    return(
-                        <div key={notification.id}>
-                            <Message toggle={handleDelete} title={notification.title} body={notification.body} id={notification.id} getid={handleid}/>
+                    {(notifications === null) ? (
+                        <div className="notification-message-empty">
+                            <p className="empty-message">No Data Availabel</p>
+                            <img src={empty}></img>
                         </div>
-                    )
-                })}
+                    ):(
+                        <div className="notification-message">
+                            {notifications.map((notification)=>{
+                                return(
+                                    <div key={notification.id}>
+                                        <Message toggle={handleDelete} title={notification.title} body={notification.body} id={notification.id} getid={handleid}/>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )}
+                
                 </div>
                 <div className="notification-pagination">
                 <TablePagination
@@ -156,6 +181,7 @@ const Notification = () => {
                 />
                 </div>
             </div>
+            {clearall && (<ClearallModal toggle={handleclearall} setLocations={setNotifications}/>)}
            {showdelete && (<DeleteModal toggle={handleDelete} id={id} locations={notifications} setLocations={setNotifications}/>)} 
         </div>
     );

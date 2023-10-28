@@ -1,0 +1,23 @@
+.sales-head{
+    color: var(--grey-grey-800, #383E49);
+    font-family: "Inter";
+    font-size: 1.37663rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.06494rem; /* 150% */
+}
+.sales-outer{
+    width: 100%;
+    margin-top: 16px;
+    background-color: white;
+    padding: 1.4rem 1rem;
+    border-radius: 0.625rem;
+}
+.sales-outer-head{
+    color: var(--grey-grey-800, #383E49);
+    font-family: "Inter";
+    font-size: 1.37663rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.06494rem; /* 150% */
+}

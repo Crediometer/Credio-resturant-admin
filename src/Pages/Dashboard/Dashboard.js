@@ -204,7 +204,7 @@ const Dashboard = () => {
                         <div className="dash-order-header">
                             <p>Sales</p>
                         </div>
-                        <button>See All</button>
+                        <Link to='/dashboard/sales'><button>See All</button></Link>
                     </div>
                     <div className="dash-sales-body">
                         <div className="sales-food">

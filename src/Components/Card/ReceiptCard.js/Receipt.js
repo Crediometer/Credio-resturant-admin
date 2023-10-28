@@ -2,7 +2,13 @@ import './Receipt.css'
 import logo from '../../../Assets/logo.png'
 import logo2 from '../../../Assets/logo2.png'
 import barcode from '../../../Assets/barcode.png'
+import { useState } from 'react'
 const ReceiptCard = () => {
+    const [isSelected, setIsSelected] = useState(false);
+
+    const toggleSelection = () => {
+      setIsSelected(!isSelected);
+    };
     return ( 
         <div className="receipt-outer">
             <div className="receipt-card">
@@ -64,7 +70,10 @@ const ReceiptCard = () => {
                 </div>
             </div>
             <div className="receipt-button">
-                <button className="not-select">Not Selected</button>
+                {isSelected ? (
+                    <button className="selected" onClick={toggleSelection}>Selected</button>
+                ): <button className="not-select" onClick={toggleSelection}></button>}
+                
             </div>
         </div>
      );

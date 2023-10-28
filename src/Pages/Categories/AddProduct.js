@@ -493,6 +493,9 @@ const AddProduct = () => {
                                 </div>    
                             ))}
                              <div className="main-upload-outer">
+                                <div className='upload-delete' onClick={() => handleOtherImageDelete(1)} style={moreStyleText}>
+                                    <FaTrash/>
+                                </div>
                                 <div className="more-upload" style={otherStyle} onClick={()=> document.querySelector(".other-picker").click()}>
                                     <input
                                         type="file"

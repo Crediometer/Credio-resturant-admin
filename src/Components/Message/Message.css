@@ -63,9 +63,13 @@
     display: flex;
     align-items: center;
     padding: 0.51rem;
+    width: 120px;
     border-radius: 0.25588rem;
     border: 1.024px solid var(--black-50, #53545C);
     color: var(--black-50, #53545C);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-family: "Inter";
     font-size: 0.6rem;
