@@ -2,12 +2,39 @@ import { FiCopy, FiX } from 'react-icons/fi';
 import {FaTimes} from 'react-icons/fa'
 import food from '../../Assets/food.jpeg'
 import './OrderModal.css'
+import { useState } from 'react';
 const OrderModal = ({toggle}) => {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopyClick = () => {
+        // Get the text from the <p> element
+        const textToCopy = document.querySelector('.order-number');
+
+        // Check if the <p> element exists
+        if (textToCopy) {
+        // Create a temporary input element to copy the text to the clipboard
+        const copyInput = document.createElement('input');
+        copyInput.value = textToCopy.innerText;
+        document.body.appendChild(copyInput);
+        copyInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(copyInput);
+
+        // Update the state to indicate that the text has been copied
+        setCopied(true);
+
+        // Reset the "Copied" message after a short delay
+        setTimeout(() => {
+            setCopied(false);
+        }, 1500);
+        }
+    };
     return ( 
         <div className="modal-background">
             <div className="modal order-modal">
                 <div className="order-modal-top">
-                    <p className='order-number'>9348fjr73<span><FiCopy/></span></p>
+                    <p className='order-number'>9348fjr73<span onClick={handleCopyClick}><FiCopy/></span></p>
+                    {copied ? <span className='copied'>Copied!</span> : null}
                     <div className="modal-close" onClick={toggle}>
                         <FiX/>
                     </div>

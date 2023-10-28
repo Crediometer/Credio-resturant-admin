@@ -9,11 +9,62 @@ import DeleteModal from "../../Components/Modal/DeleteModal";
 import TablePagination from '@mui/material/TablePagination';
 const Notification = () => {
     const [show1, setShow1] = useState(1);
+    const [id, setid] = useState('')
     const [show, setShow] = useState(false)
     const [showdelete, setShowDelete] = useState(false)
     const [page, setPage] = useState(2);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-  
+    const [notifications, setNotifications] = useState([
+        {
+            id: 1,
+            title: "Take out",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 2,
+            title: "Take In",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 3,
+            title: "Fish was Purchased",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 4,
+            title: "Fish was Purchased",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 5,
+            title: "Fish was Purchased",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 6,
+            title: "Take In",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 7,
+            title: "Take In",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 8,
+            title: "Fish was Purchased",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        {
+            id: 9,
+            title: "Fish was Purchased",
+            body: "Their was a takeout order on the 2093 terminal located at Akure south gate, which cost NGN 40,000"
+        },
+        // Add more location entries here
+      ]);
+    const handleid =(id)=>{
+    setid(id)
+    }
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
     };
@@ -86,13 +137,13 @@ const Notification = () => {
                     </div>
                 </div>
                 <div className="notification-message">
-                    <Message toggle={handleDelete}/>
-                    <Message toggle={handleDelete}/>
-                    <Message toggle={handleDelete}/>
-                    <Message toggle={handleDelete}/>
-                    <Message toggle={handleDelete}/>
-                    <Message toggle={handleDelete}/>
-                    <Message toggle={handleDelete}/>
+                {notifications.map((notification)=>{
+                    return(
+                        <div key={notification.id}>
+                            <Message toggle={handleDelete} title={notification.title} body={notification.body} id={notification.id} getid={handleid}/>
+                        </div>
+                    )
+                })}
                 </div>
                 <div className="notification-pagination">
                 <TablePagination
@@ -105,7 +156,7 @@ const Notification = () => {
                 />
                 </div>
             </div>
-           {showdelete && (<DeleteModal toggle={handleDelete}/>)} 
+           {showdelete && (<DeleteModal toggle={handleDelete} id={id} locations={notifications} setLocations={setNotifications}/>)} 
         </div>
     );
 }

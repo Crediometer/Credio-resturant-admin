@@ -1,3 +1,6 @@
+.order-modal{
+    position: relative;
+}
 .order-modal-top{
     display: flex;
     align-items: center;
@@ -17,6 +20,20 @@
 .order-number span{
     margin-left: 8px;
     font-size: 0.90444rem;
+}
+.copied{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: #F4F5FA;
+    color: #5570F1;
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .modal-close{
     display: flex;

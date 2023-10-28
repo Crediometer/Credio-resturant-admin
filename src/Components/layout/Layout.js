@@ -6,7 +6,7 @@ import { useState } from 'react';
 import LogoutModal from '../Modal/LogoutModal';
 const Layout = () => {
     const[isOpen ,setIsOpen] = useState(true);
-    const toggle = () => setIsOpen (!isOpen);
+    const toggle = (checked) => {setIsOpen (checked);}
     const [show, setShow] = useState(false)
     const handleShow = ()=>{
         setShow(!show)

@@ -3,6 +3,7 @@ import logo from '../../../Assets/logo.png'
 import logo2 from '../../../Assets/logo2.png'
 import { mainsidebar } from './SidebarDetails'
 import classNames from 'classnames'
+import { Switch } from 'antd';
 import { Link, useLocation } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import { BiLogOut } from 'react-icons/bi'
@@ -16,11 +17,14 @@ const Sidebar = ({isOpen, toggle, show}) => {
     return ( 
         <div className="sidebar" style={{width: isOpen ? "280px" : "80px"}} >
             <div className="company-logo">
-                <div className="company-logo-inner" onClick={toggle} style={{display: isOpen ? "flex" : "none"}}>
+                <div className="sidebar-mode">
+                    <Switch checked={isOpen} onChange={toggle} defaultChecked/>
+                </div>
+                <div className="company-logo-inner"  style={{display: isOpen ? "flex" : "none"}}>
                     <img src={logo} className='logo'></img>
                     <img src={logo2} className='logo2'></img>
                 </div>
-                <div className="company-logo-inner" onClick={toggle}  style={{display: isOpen ? "none" : "flex"}}>
+                <div className="company-logo-inner"  style={{display: isOpen ? "none" : "flex"}}>
                     <img src={logo} className='logo'></img>
                 </div>
             </div>
