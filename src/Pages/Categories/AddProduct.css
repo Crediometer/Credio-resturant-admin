@@ -507,6 +507,10 @@
     font-weight: 400;
     line-height: 16.712px; /* 142.857% */
 }
+.addon-added input{
+    font-size: 14.699px;
+    font-weight: 500;
+}
 .addon-form-1 input:focus{
     border-bottom:0.886px solid #629FF4;
 }

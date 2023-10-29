@@ -33,6 +33,8 @@ const AddProduct = () => {
     const [formFields, setFormFields] = useState({}); 
     const [imageData, setImageData] = useState([]); // State to store form data
     const [imageFields, setImageFields] = useState({}); 
+    const [showForm, setShowForm] = useState(false); // State to control form visibility
+    const [editIndex, setEditIndex] = useState(-1);
     const inputRef = useRef(null);
     const inputRefmedium = useRef(null);
     const inputRefsmall = useRef(null);
@@ -167,14 +169,24 @@ const AddProduct = () => {
         setPrice(value)
         setFormFields({...formFields, ...{price}})
     }
-    const handleSave = () => {
+    const handleSave = (e) => {
+        e.preventDefault();
         if (formFields.name && formFields.price && formFields.addonImage) {
-            setFormData((prevData) => [...prevData, formFields]);
-            setAddOnImage(null)
-            setName('')
-            setPrice("")
-            setFormFields({})
-            setaddaearror('')
+            if (editIndex !== -1) {
+                // If in edit mode, update the existing entry
+                formData[editIndex] = formFields;
+                setEditIndex(-1); // Exit edit mode
+                setAddOnImage(null)
+                setName('')
+                setPrice("")
+            } else{
+                setFormData((prevData) => [...prevData, formFields]);
+                setAddOnImage(null)
+                setName('')
+                setPrice("")
+                setFormFields({})
+                setaddaearror('')
+            }
         }else{
             console.log("no")
             if(!formFields.addonImage){
@@ -194,17 +206,42 @@ const AddProduct = () => {
             console.log("no")
         }  
     };
+    const handleeditupload = (index)=>{
+        if(editIndex === -1){
+            console.log('')
+        }else{
+            document.querySelector(`.addon-picker-${index}`).click()
+        }
+    }
+    const handleeditImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            setAddOnImage(event.target.result);
+            console.log(addonImage)
+            setFormFields({...formFields, ...{addonImage:event.target.result}})
+        };
+        reader.readAsDataURL(file);
+        }
+    };
     // Handle deleting a form entry
     const handleDelete = (index) => {
         const updatedData = formData.filter((_, i) => i !== index);
         setFormData(updatedData);
     };
+    const handleEdit = (index) => {
+        setFormFields(formData[index]); // Populate the form with the selected data
+        setEditIndex(index); // Set the editIndex to the selected index
+        setShowForm(true); // Show the form for editing
+      };
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
           document.removeEventListener('mousedown', handleClickOutside);
         };
     },[]);
+    
     const appStyle = {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -220,6 +257,7 @@ const AddProduct = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
     }
+
     const outlinestyle = {
         borderColor: `${showCategory ? "#629FF4" : ""}`
     }
@@ -576,7 +614,7 @@ const AddProduct = () => {
                 <form >
                 {adderror !== '' ? (<Alert severity="error">{adderror}</Alert>) : <></>}
                 <div className="add-form">
-                    <div className="addon-image" style={addonStyle} onClick={()=> document.querySelector(".addon-picker").click()}>
+                    <div className="addon-image" style={(editIndex === -1)? addonStyle : {}} onClick={()=> document.querySelector(".addon-picker").click()}>
                         <input
                             type="file"
                             accept="image/*"
@@ -593,10 +631,9 @@ const AddProduct = () => {
                             <p className='addon-top-text'>Edit add on name </p>
                             <div className="addon-button">
                                 <div className="addon-save">
-                                    <button onClick={() => handleSave()}>Save</button>
-                                </div>
-                                <div className="addon-edit">
-                                    <button>Edit</button>
+                                    <button onClick={handleSave}>
+                                        Save
+                                    </button>
                                 </div>
                             </div>
                         </div> 
@@ -627,28 +664,72 @@ const AddProduct = () => {
                                 </div>
                            
                         </div>
-                    </div>
-                   
+                    </div>  
                 </div>
                 </form>
                 {formData.map((entry, index) => {
                     return(
                         <div className="add-form">
-                        <div className="addon-image" style={{backgroundImage: `url(${entry.addonImage})`, backgroundSize: "cover", backgroundRepeat: "no-repeat",}} onClick={()=> document.querySelector(".addon-picker").click()}>
-                            
+                        <div className="addon-image" style={(editIndex === -1)? { backgroundImage: `url(${entry.addonImage})`,
+        backgroundSize: "cover", 
+        backgroundRepeat: "no-repeat",} : {backgroundImage: `url(${entry.addonImage})`}} onClick={()=>{handleeditupload(entry.price)}}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleeditImageChange}
+                                className={`addon-picker-${entry.price}`}
+                                required
+                                hidden
+                            />
                         </div>
                         <div className="addon-details">
                             <div className="addon-form-top">
                                 <div></div>
                                 <div className="addon-button addon-button-delete">
-                                    <div className="addon-delete">
-                                        <button  onClick={() => handleDelete(index)}>Delete</button>
+                                    {editIndex === -1 ?(
+                                         <div className="addon-delete">
+                                            <button  onClick={() => handleDelete(index)}>Delete</button>
+                                        </div>
+                                    ) : (
+                                        <div className="addon-save">
+                                            <button onClick={handleSave}>
+                                            Update
+                                            </button>
+                                        </div>
+                                    )}
+                                   
+                                    <div className="addon-edit">
+                                        <button onClick={() => handleEdit(index)}x>Edit</button>
                                     </div>
                                 </div>
                             </div> 
                             <div className="addon-body">
-                                <p>Name: <span>{entry.name}</span></p>
-                                <p>Price: <span>NGN {entry.price}</span></p>
+                            <div className="addon-form-1 addon-added">
+                                    <label>Name</label>
+                                    <input
+                                        type='text'
+                                        name="name" 
+                                        placeholder='Enter Name'
+                                        defaultValue={entry.name}
+                                        disabled={editIndex === -1 ? true : false}
+                                        // onChange={handlename}
+                                        // onBlur={handlename}
+                                        required
+                                    ></input>
+                                </div>
+                                <div className="addon-form-1 addon-added">
+                                    <label>Price</label>
+                                    <input
+                                        type='text'
+                                        name='price'
+                                        placeholder='Enter Price'
+                                        defaultValue={entry.price}
+                                        disabled={editIndex === -1 ? true : false}
+                                        // onChange={handleprice}
+                                        // onBlur={handleprice}
+                                        required
+                                    ></input>
+                                </div>
                             </div>
                         </div>
                     </div>
