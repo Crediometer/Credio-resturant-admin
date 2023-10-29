@@ -119,7 +119,7 @@ const Notification = () => {
                     <li onClick={handleAccount} className={show1 === 1 ? `nav-active notification-nav`: 'notification-nav'}> <div className="all-number"><p>5</p></div> All</li>
                     <li onClick={handleBusiness} className={show1 === 2 ? `nav-active notification-nav`: 'notification-nav'}><div className="today-number"><p>4</p></div>Today</li>
                     <li onClick={handleRead} className={show1 === 4 ? `nav-active notification-nav`: 'notification-nav'}><div className="today-number"><p><FaCheck/></p></div>Read</li>
-                    <li onClick={handleclearall} className={show1 === 3 ? `nav-active notification-nav-close`: 'notification-nav-close'}><div className="clear icon"><FaTrash/></div>Clear all</li>
+                    <li onClick={()=>{handleclearall(); handleReceipt()}} className={show1 === 3 ? `nav-active notification-nav-close`: 'notification-nav-close'}><div className="clear icon"><FaTrash/></div>Clear all</li>
                 </nav>
             </div>
             <div className="notification-body">
@@ -154,7 +154,7 @@ const Notification = () => {
                 <div className="notification-message">
                     {(notifications === null) ? (
                         <div className="notification-message-empty">
-                            <p className="empty-message">No Data Availabel</p>
+                            <p className="empty-message">No Data Available</p>
                             <img src={empty}></img>
                         </div>
                     ):(

@@ -15,27 +15,74 @@ const AddProduct = () => {
     const [showCategory, setShowCategory] =useState(false)
     const [showSize, setShowSize] =useState(false)
     const [showType, setShowType] =useState(false)
+    const [isInputFocused, setInputFocus] = useState(false);
     const [adderror, setaddaearror] = useState('')
     const [name, setName] =useState('')
     const [price, setPrice]= useState('')
+    const [large, setlarge]=useState('')
+    const [medium, setMedium]=useState('')
+    const [small, setSmall]=useState('')
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [otherImage, setOtherImage] = useState(null);
     const [addonImage, setAddOnImage] = useState(null);
     const [sizes, setSize] = useState([])
-    const [category, setCategory] = useState([])
-    const [type, setType] = useState([])
+    const [category, setCategory] = useState("Select Product Category")
+    const [type, setType] = useState("Order Type")
     const dropdownRef = useRef(null);
     const [formData, setFormData] = useState([]); // State to store form data
     const [formFields, setFormFields] = useState({}); 
     const [imageData, setImageData] = useState([]); // State to store form data
     const [imageFields, setImageFields] = useState({}); 
+    const inputRef = useRef(null);
+    const inputRefmedium = useRef(null);
+    const inputRefsmall = useRef(null);
     var toolbarOptions =  [[{ 'font': [] }],[{ 'size': ['small', false, 'large', 'huge'] }],['bold', 'italic', 'underline', 'strike'],[{ 'align': [] }]];
     const modules = {
         toolbar: toolbarOptions
     }
     const optionsize = ['Large', 'Medium', 'Small'];
     const optionCategory =["Breakfast", "Dinner", 'Lunch']
-    const optionType =["Breakfast", "Dinner", 'Lunch']
+    const optionType =["Take Out", "Eat In"]
+    // const handleInputFocus = () => {
+    //     setInputFocus(true);
+    // };
+    
+    // const handleInputBlur = () => {
+    //     setInputFocus(false);
+    // };
+    const handleInputBlur = () => {
+        if (large === 'NGN ') {
+          inputRef.current.value = ''; // Clear the input when it loses focus and no amount is entered
+        }
+    };
+    const handleInputMediumBlur = () => {
+        if (medium === 'NGN ') {
+          inputRefmedium.current.value = ''; // Clear the input when it loses focus and no amount is entered
+        }
+    };
+    const handleInputsmallBlur = () => {
+        if (small === 'NGN ') {
+          inputRefsmall.current.value = ''; // Clear the input when it loses focus and no amount is entered
+        }
+    };
+    const handleInputFocus = () => {
+        inputRef.current.value = 'NGN '; // Set the input value to include "NGN " when it's in focus
+    };
+    const handleInputmediumFocus = () => {
+        inputRefmedium.current.value = 'NGN '; // Set the input value to include "NGN " when it's in focus
+    };
+    const handleInputsmallFocus = () => {
+        inputRefsmall.current.value = 'NGN '; // Set the input value to include "NGN " when it's in focus
+    };
+    const handleLargeChange = (e) => {
+        setlarge(e.target.value);
+    };
+    const handleMediumChange = (e) => {
+        setMedium(e.target.value);
+    };
+    const handleSmallChange = (e) => {
+        setSmall(e.target.value);
+    };
     const handlesize = (value)=>{
         const isSelected = sizes.indexOf(value) !== -1;
 
@@ -48,26 +95,19 @@ const AddProduct = () => {
         }
     }
     const handleCartegory = (value)=>{
-        const isSelected = category.indexOf(value) !== -1;
-
-        if (isSelected) {
-          // If the value is selected, remove it
-          setCategory(category?.filter((item) => item !== value));
-        } else {
-          // If it's not selected, add it to the selectedValues array
-          setCategory([...category, value]);
-        }
+        setCategory(value)
     }
      const handleType = (value)=>{
-        const isSelected = type.indexOf(value) !== -1;
+        setType(value)
+        // const isSelected = type.indexOf(value) !== -1;
 
-        if (isSelected) {
-          // If the value is selected, remove it
-          setType(type?.filter((item) => item !== value));
-        } else {
-          // If it's not selected, add it to the selectedValues array
-          setType([...type, value]);
-        }
+        // if (isSelected) {
+        //   // If the value is selected, remove it
+        //   setType(type?.filter((item) => item !== value));
+        // } else {
+        //   // If it's not selected, add it to the selectedValues array
+        //   setType([...type, value]);
+        // }
     }
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -192,6 +232,11 @@ const AddProduct = () => {
     const logoStyleText={
         visibility: `${backgroundImage !== null ? "visible" : "hidden"}`
     }
+    const placeholderstyle={
+        transform: "translateX(-10px) translateY(-32px)",
+        fontSize: '0.66456rem',
+        transition: "0.5s"
+    }
     const moreStyleText={
         visibility: `${imageData != [] ? "visible" : "hidden"}`
     }
@@ -211,22 +256,15 @@ const AddProduct = () => {
                             <div className="product-input-1">
                                 <input
                                     type='text'
-                                    placeholder='Product Name'
+                                    // placeholder='Product Name'
                                     required
                                 ></input>
+                                <span className='place-mobile'>Product Name</span>
                             </div>
                             <div className="product-input-2" style={outlinestyle}>
-                            <p className='product-placeholder' onClick={()=>{setShowCategory(!showCategory)}}>
-                                    {(category.length === 0) ? "Select Product Category" : (
-                                        <p className='product-placeholder product-placeholder-list'>
-                                        {category.map((selectedValue) => {
-                                            return(
-                                                <p>{selectedValue}</p>
-                                            )
-                                        })}
-                                        </p>
-                                    )}
-                                   
+                            {showCategory && <span style={showCategory && placeholderstyle} className='place-mobile'>Select Product Category</span>}
+                                <p className='product-placeholder product-placeholder-list' onClick={()=>{setShowCategory(!showCategory)}}>
+                                    {category}       
                                 </p>
                                 <div onClick={()=>{setShowCategory(!showCategory)}}>
                                     <FiChevronDown/>
@@ -235,14 +273,14 @@ const AddProduct = () => {
                                     <div className="product-dropdown" ref={dropdownRef}>
                                         {optionCategory.map((size)=>{
                                             return(
-                                                <div className="product-drop" key={size}>
+                                                <div className="product-drop" key={size} onClick={()=>{handleCartegory(size); setShowCategory(!showCategory);}}>
                                                     <label>{size}</label>
-                                                    <input 
+                                                    {/* <input 
                                                     type='checkbox' 
                                                     value={size}
                                                     checked={category?.includes(size)}
                                                     onChange={() => handleCartegory(size)}
-                                                    ></input>
+                                                    ></input> */}
                                                 </div>
                                             )
                                         })}
@@ -251,6 +289,7 @@ const AddProduct = () => {
                                
                             </div>
                             <div className="product-input-2" style={outlinestyle2}>
+                                {showSize && <span style={showSize && placeholderstyle} className='place-mobile'>Product size</span>}
                                 <p className='product-placeholder' onClick={()=>{setShowSize(!showSize)}}>
                                     {(sizes.length === 0) ? "Product Size" : (
                                         <p className='product-placeholder product-placeholder-list'>
@@ -294,6 +333,14 @@ const AddProduct = () => {
                                     <input
                                         type='text'
                                         placeholder='Enter Price for Large'
+                                        ref={inputRef}
+                                        onChange={handleLargeChange}
+                                        onFocus={handleInputFocus}
+                                        onBlur={handleInputBlur}
+                                        // onFocus={handleInputFocus}
+                                        // onBlur={handleInputBlur}
+                                        // onChange={handleLargeChange}
+                                        // value={isInputFocused ? 'NGN ' + large : large}
                                         required
                                     ></input>
                                 </div>
@@ -306,6 +353,10 @@ const AddProduct = () => {
                                     <input
                                         type='text'
                                         placeholder='Enter Price for Medium'
+                                        ref={inputRefmedium}
+                                        onChange={handleMediumChange}
+                                        onFocus={handleInputmediumFocus}
+                                        onBlur={handleInputMediumBlur}
                                         required
                                     ></input>
                                 </div>
@@ -318,6 +369,10 @@ const AddProduct = () => {
                                     <input
                                         type='text'
                                         placeholder='Enter Price for Small'
+                                        ref={inputRefsmall}
+                                        onChange={handleSmallChange}
+                                        onFocus={handleInputsmallFocus}
+                                        onBlur={handleInputsmallBlur}
                                         required
                                     ></input>
                                 </div>
@@ -326,37 +381,29 @@ const AddProduct = () => {
                                 <div className="product-input-1">
                                     <input
                                         type='number'
-                                        placeholder='Selling price'
                                         required
                                     ></input>
+                                    <span className='place-mobile'>Selling price</span>
                                 </div>
                                 <div className="product-input-1">
                                     <input
                                         type='number'
-                                        placeholder='Cost price'
                                         required
                                     ></input>
+                                    <span className='place-mobile'>Cost price</span>
                                 </div>
                             </div>
                             <div className="product-input-1">
                                 <input
                                     type='number'
-                                    placeholder='Quantity in Stock'
                                     required
                                 ></input>
+                                <span className='place-mobile'>Quantity in Stock</span>
                             </div>
                             <div className="product-input-2" style={outlinestyle3}>
-                            <p className='product-placeholder' onClick={()=>{setShowType(!showType)}}>
-                                    {(type.length === 0) ? "Other Type" : (
-                                        <p className='product-placeholder product-placeholder-list'>
-                                        {type.map((selectedValue) => {
-                                            return(
-                                                <p>{selectedValue}</p>
-                                            )
-                                        })}
-                                        </p>
-                                    )}
-                                   
+                                {showType && <span style={showType && placeholderstyle} className='place-mobile'>Other Type</span>}
+                                <p className='product-placeholder product-placeholder-list' onClick={()=>{setShowType(!showType)}}>
+                                    {type}
                                 </p>
                                 <div onClick={()=>{setShowType(!showType)}}>
                                     <FiChevronDown/>
@@ -365,14 +412,14 @@ const AddProduct = () => {
                                     <div className="product-dropdown" ref={dropdownRef}>
                                        {optionType.map((size)=>{
                                             return(
-                                                <div className="product-drop" key={size}>
+                                                <div className="product-drop" key={size} onClick={()=>{handleType(size); setShowType(!showType);}}>
                                                     <label>{size}</label>
-                                                    <input 
+                                                    {/* <input 
                                                     type='checkbox' 
                                                     value={size}
                                                     checked={type?.includes(size)}
                                                     onChange={() => handleType(size)}
-                                                    ></input>
+                                                    ></input> */}
                                                 </div>
                                             )
                                         })}
@@ -388,9 +435,9 @@ const AddProduct = () => {
                             <div className="product-input-1">
                                 <input
                                     type='text'
-                                    placeholder='Enter discount percentage %'
                                     required
                                 ></input>
+                                <span className='place-mobile'>Enter discount percentage %</span>
                             </div>
                         </div>
                         <div className="product-details-right">

@@ -352,7 +352,7 @@ export default function EnhancedTable() {
                     <TableCell align="left">{row.discount}</TableCell>
                     <TableCell align="left" style={{minWidth:"150px"}}>{row.total}</TableCell>
                     <TableCell align="left" className='table-action'>
-                      <select>
+                      <select style={{width: "110px"}}>
                         <optgroup>
                           <option>Published</option>
                           <option>Unpublished</option>

@@ -76,11 +76,24 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: ease-in 0.1s;
 }
 .message-delete svg{
     margin-right: 8px;
     color: #D32F2F;
     font-size: 0.9rem;
+}
+.message-delete:hover{
+    background-color: rgba(245, 126, 119, 0.12);
+    border: 1px solid #CC5F5F;
+    color: #CC5F5F;
+    transition: ease-in 0.1s;
+}
+.message-tick:hover{
+    background-color: #058b417e;
+    border: 1px solid #058B42;
+    color: #058B42;
+    transition: ease-in 0.1s;
 }
 .message-tick svg{
     margin-right: 8px;
