@@ -3,7 +3,7 @@ import logo from '../../../Assets/logo.png'
 import logo2 from '../../../Assets/logo2.png'
 import barcode from '../../../Assets/barcode.png'
 import { useState } from 'react'
-const ReceiptCard = ({render}) => {
+const ReceiptCard3 = ({render}) => {
     const [isSelected, setIsSelected] = useState(false);
 
     const toggleSelection = () => {
@@ -20,30 +20,34 @@ const ReceiptCard = ({render}) => {
                     </p>
                     <p className="receipt-contact">Tell: 0905893743</p>
                 </div>
+                <div className="time-date-receipt">
+                    <p>12 - 01 -2023</p>
+                    <p>12 : 13PM</p>
+                </div>
                 <div className="receipt-body">
                     <div className="receipt-table-outer">
+                        <div className="receipt-order-no">ORDER : 003</div>
                         <table className='receipt-table'>
                             <thead>
                                 <tr>
-                                    <th className='quantity-head'>Qty</th>
                                     <th className='item-head'>item</th>
                                     <th className='price-head'>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Soft Drink</td>
+                                    
+                                    <td>Soft Drink:</td>
                                     <td>NGN3,000</td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Fish and Rice</td>
+                                   
+                                    <td>Fish and Rice:</td>
                                     <td>NGN893,000</td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>Buscuit</td>
+                                    
+                                    <td>Buscuit:</td>
                                     <td>NGN3,000</td>
                                 </tr>
                             </tbody>
@@ -54,30 +58,30 @@ const ReceiptCard = ({render}) => {
                             <p className="total-head">Total</p>
                             <p className="total-head">NGN 40,000</p>
                         </div>
-                        <div className="totals">
+                        {/* <div className="totals">
                             <p className="total-body">Tax</p>
                             <p className="total-body">NGN 3000</p>
                         </div>
                         <div className="totals">
                             <p className="total-body">TOTAL + Tax</p>
                             <p className="total-body">NGN 43,000</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="receipt-footer">
                     <p>THANK YOU!</p>
-                    <img src={barcode}></img>
+                    {/* <img src={barcode}></img> */}
                 </div>
             </div>
             <div className="receipt-button">
-                {render(1, '')}
+                {render(3, '')}
                 {/* {isSelected ? (
                     <button className="selected" onClick={toggleSelection}>Selected</button>
-                ): <button className="not-select" onClick={toggleSelection}></button>} */}
-                
+                ): <button className="not-select" onClick={toggleSelection}></button>}
+                 */}
             </div>
         </div>
      );
 }
  
-export default ReceiptCard;
+export default ReceiptCard3;

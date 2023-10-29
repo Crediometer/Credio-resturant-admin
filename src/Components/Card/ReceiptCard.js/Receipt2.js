@@ -3,7 +3,7 @@ import logo from '../../../Assets/logo.png'
 import logo2 from '../../../Assets/logo2.png'
 import barcode from '../../../Assets/barcode.png'
 import { useState } from 'react'
-const ReceiptCard = ({render}) => {
+const ReceiptCard2 = ({render}) => {
     const [isSelected, setIsSelected] = useState(false);
 
     const toggleSelection = () => {
@@ -25,24 +25,20 @@ const ReceiptCard = ({render}) => {
                         <table className='receipt-table'>
                             <thead>
                                 <tr>
-                                    <th className='quantity-head'>Qty</th>
                                     <th className='item-head'>item</th>
                                     <th className='price-head'>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
                                     <td>Soft Drink</td>
                                     <td>NGN3,000</td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
                                     <td>Fish and Rice</td>
                                     <td>NGN893,000</td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
                                     <td>Buscuit</td>
                                     <td>NGN3,000</td>
                                 </tr>
@@ -70,7 +66,7 @@ const ReceiptCard = ({render}) => {
                 </div>
             </div>
             <div className="receipt-button">
-                {render(1, '')}
+                {render(2, '')}
                 {/* {isSelected ? (
                     <button className="selected" onClick={toggleSelection}>Selected</button>
                 ): <button className="not-select" onClick={toggleSelection}></button>} */}
@@ -80,4 +76,4 @@ const ReceiptCard = ({render}) => {
      );
 }
  
-export default ReceiptCard;
+export default ReceiptCard2;
