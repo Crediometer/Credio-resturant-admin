@@ -47,10 +47,10 @@ const CustomFilter = ({toggle, setvalue}) => {
                 </div>
             </div>
             <hr></hr>
-            <div className="date-checkboxs custom-date-range">
+            {/* <div className="date-checkboxs custom-date-range">
                 <input type="checkbox"></input>
                 <label>Date Range</label>
-            </div>
+            </div> */}
             <div className="date-range-picker">
             {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer components={['StaticDateRangePicker']}>
