@@ -17,7 +17,7 @@ const Draft = () => {
                 </div>
             </div>
             <div className="draft-body">
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -65,7 +65,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top  draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -113,7 +113,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top  draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -161,7 +161,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top  draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -209,7 +209,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top  draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -257,7 +257,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -305,7 +305,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -353,7 +353,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -401,7 +401,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -449,7 +449,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -497,7 +497,7 @@ const Draft = () => {
                         </div>
                     </div>
                 </div>
-                <div className="viewproduct-top">
+                <div className="viewproduct-top draft-content">
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>

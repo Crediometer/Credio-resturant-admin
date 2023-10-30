@@ -1,0 +1,115 @@
+.orderfilter{
+    padding: 1.5rem;
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 32px 0px rgba(61, 70, 112, 0.08);
+}
+.order-filter-head{
+    color: var(--black-100, #1C1D22);
+    font-family: "Inter";
+    font-size: 0.89538rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 1.34313rem */
+    letter-spacing: -0.00894rem;
+}
+.order-type{
+    margin-top: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #F1F3F9;
+}
+.order-type-head{
+    color: var(--black-50, #53545C);
+    font-family: "Inter";
+    font-size: 0.67156rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.order-type-body{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-5{
+    display: flex;
+    align-items: center;
+}
+.form-5 input{
+    width: 21.49px;
+    height: 21.49px;
+    border-radius: 10px;
+    border: 0.895px solid var(--black-1, #CFD3D4);
+}
+.form-5 label{
+    margin-left: 17px;
+    color: var(--black-3, #83898C);
+    text-align: right;
+    font-family: "Inter";
+    font-size: 0.7835rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.order-type-status{
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #F1F3F9;
+}
+.form-6{
+    margin-bottom: 14px;
+}
+.form-6 label, .label-top{
+    color: var(--black-50, #53545C);
+    font-family: "Inter";
+    font-size: 0.67156rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.form-6 select{
+    margin-top: 7px;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.39rem;
+    border-radius: 0.44769rem;
+    border: 0.895px solid var(--Grey, #E1E2E9);
+    background: var(--White, #FFF);
+    color: var(--black-100, #1C1D22);
+    font-family: "Inter";
+    font-size: 12.536px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21.49px; /* 171.429% */
+}
+.form-6 select optgroup option{
+    color: var(--black-100, #1C1D22);
+    font-family: "Inter";
+    font-size: 12.536px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21.49px; /* 171.429% */
+}
+.form-6 input{
+    margin-top: 7px;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 0.44769rem;
+    border: 0.895px solid var(--Grey, #E1E2E9);
+    background: var(--White, #FFF);
+    color: var(--black-100, #1C1D22);
+    font-family: "Inter";
+    font-size: 12.536px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21.49px; 
+}
+.form-7{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}

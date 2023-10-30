@@ -7,21 +7,26 @@ import OrderModal from '../../Components/Modal/OrderModal';
 import { useEffect, useRef, useState } from 'react';
 import CustomFilter from '../../Components/Filter/CustomFilter';
 import EnhancedTable from '../../Components/Table/OrderTable';
+import OrderFilter from '../../Components/Filter/OrderFilter';
 const Order = () => {
     const [show, setShow] = useState(false)
     const [show1, setShow1] = useState(false)
+    const [show2, setShow2] = useState(false)
     const [value, setvalue] = useState("Filter")
     const dropdownRef = useRef(null);
     const handleShow = ()=>{
         setShow(!show)
     }
-   
+   const handleToggle2 = ()=>{
+        setShow2(!show2)
+   }
     const handleToggle = () =>{
         setShow1(!show1)
     }
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-          setShow(false);
+          setShow1(false);
+          setShow2(false)
         }
     };
     useEffect(() => {
@@ -47,12 +52,21 @@ const Order = () => {
                             >
                             </input>
                         </div>
-                        <div className="table-filter"onClick={handleToggle}>
+                        <div className="table-filter">
                             <IoFunnelOutline/>
-                            <p className='period'>{value}</p>
+                            <p className='period' onClick={handleToggle}>{value}</p>
                             {show1 && (
                                 <div className="custom custom-2"  ref={dropdownRef}>
                                     <CustomFilter toggle={handleToggle} setvalue={setvalue}/>
+                                </div>
+                            )}
+                        </div>
+                        <div className="table-filter">
+                            <BsCalendar2Week/>
+                            <p className='period' onClick={handleToggle2}>Filter</p>
+                            {show2 && (
+                                <div className="custom custom-4"  ref={dropdownRef}>
+                                    <OrderFilter toggle={handleToggle2}/>
                                 </div>
                             )}
                         </div>

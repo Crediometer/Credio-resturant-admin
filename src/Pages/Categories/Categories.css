@@ -11,7 +11,7 @@
     font-weight: 500;
     line-height: normal;
 }
-.categories-head button{
+.button-head{
     display: flex;
     align-items: center;
     border: none;
@@ -26,7 +26,7 @@
     font-weight: 400;
     line-height: normal;
 }
-.categories-head button svg{
+.button-head svg{
     font-size: 1.33069rem;
     font-weight: 500;
 }

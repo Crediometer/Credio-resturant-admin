@@ -59,3 +59,12 @@
     font-weight: 400;
     line-height: normal;
 }
+.MuiPickersLayout-toolbar {
+    display: none !important;
+}
+.MuiPickersLayout-actionBar,.css-e784if-MuiTypography-root  {
+    display: none !important;
+}
+.css-1yr84r8-MuiPickersLayout-root .MuiPickersLayout-contentWrapper:first-child {
+    display: none !important;
+}

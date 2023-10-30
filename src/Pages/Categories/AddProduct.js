@@ -283,8 +283,8 @@ const AddProduct = () => {
             <div className="categories-head">
                 <p>Inventory Summary</p>
                 <div className="product-button">
-                    <Link to="/dashboard/inventory/product/draft"><button className="draft">Save a Draft</button></Link>
-                    <Link to="/dashboard/inventory/product/view"><button>Save & Publish</button></Link>
+                    <Link to="/dashboard/inventory/product/draft"><button className="draft">Save as Draft</button></Link>
+                    <Link to="/dashboard/inventory/product/view"><button className='button-head'>Save & Publish</button></Link>
                 </div>
             </div>
             <div className="product-body">
@@ -301,7 +301,7 @@ const AddProduct = () => {
                             </div>
                             <div className="product-input-2" style={outlinestyle}>
                             {showCategory && <span style={showCategory && placeholderstyle} className='place-mobile'>Select Product Category</span>}
-                                <p className='product-placeholder product-placeholder-list' onClick={()=>{setShowCategory(!showCategory)}}>
+                                <p className='product-placeholder' onClick={()=>{setShowCategory(!showCategory)}}>
                                     {category}       
                                 </p>
                                 <div onClick={()=>{setShowCategory(!showCategory)}}>
@@ -440,7 +440,7 @@ const AddProduct = () => {
                             </div>
                             <div className="product-input-2" style={outlinestyle3}>
                                 {showType && <span style={showType && placeholderstyle} className='place-mobile'>Other Type</span>}
-                                <p className='product-placeholder product-placeholder-list' onClick={()=>{setShowType(!showType)}}>
+                                <p className='product-placeholder' onClick={()=>{setShowType(!showType)}}>
                                     {type}
                                 </p>
                                 <div onClick={()=>{setShowType(!showType)}}>
@@ -609,7 +609,7 @@ const AddProduct = () => {
             <div className="add-on">
                 <div className="add-on-top">
                     <p>Choose of Add on</p>
-                    <button onClick={() => handleSave()}>Add</button>
+                    <button>Submit</button>
                 </div>
                 <form >
                 {adderror !== '' ? (<Alert severity="error">{adderror}</Alert>) : <></>}

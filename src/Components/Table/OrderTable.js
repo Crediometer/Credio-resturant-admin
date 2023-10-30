@@ -23,32 +23,32 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import './CategoryTable.css'
 
-function createData(product, category, unit, instock, discount, total, status) {
+function createData(category, OrderDate, OrderType, TrackingID, OrderTotal,status) {
   return {
-    product,
+    
     category,
-    unit,
-    instock,
-    discount,
-    total,
+    OrderDate,
+    OrderType,
+    TrackingID,
+    OrderTotal,
     status
   };
 }
 
 const rows = [
-  createData('Cupcake', 'Lunch', "NGN60,000.00", 8, "NGN0.00", "NGN100,000.00", 1),
-  createData('Donut', 'Dinner', "NGN25,000.00", 10, "NGN0.00", "NGN500,000.00", 1),
-  createData('Eclair', 'Breakfast', "NGN80,000.00", 20, "NGN0.00", "NGN56,000.00", 1),
-  createData('Frozen yoghurt', 'Lunch', "NGN95,000.00", 50, "NGN0.00", "NGN70,000.00", 1),
-  createData('Gingerbread', 'Dinner', "NGN55,000.00", 7, "NGN0.00", "NGN50,000.00", 1),
-  createData('Honeycomb', 'Breakfast', "NGN65,000.00", 8, "NGN0.00", "NGN400,000.00", 1),
-  createData('Ice cream sandwich', 'Breakfast', "NGN100,000.00", 8, "NGN0.00", "NGN90,000.00", 1),
-  createData('Jelly Bean', 'Lunch', "NGN260,000.00", 22, "NGN0.00", "NGN54,000.00", 1),
-  createData('KitKat', 'Breakfast', "NGN85,000.00", 11, "NGN0.00", "NGN57,000.00", 1),
-  createData('Lollipop', 'Dinner', "NGN45,000.00", 8, "NGN0.00", "NGN68,000.00", 1),
-  createData('Marshmallow', 'Lunch', "NGN5,000.00", 30, "NGN0.00", "NGN90,000.00", 1),
-  createData('Nougat', 'Breakfast', "NGN15,000.00", 44, "NGN0.00", "NG480,000.00", 1),
-  createData('Oreo', 'Lunch', "NGN95,000.00", 40, "NGN0.00", "NGN90,000.00", 1),
+  createData('Dinner', '12 Aug 2022 - 12:25 am', "Eat in", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
+  createData('Drink ', '12 Aug 2022 - 12:25 am', "Take Away", "9348fjr73", "₦25,000.00", 1),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -85,40 +85,34 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'product',
+    id: 'category',
     numeric: false,
     disablePadding: true,
-    label: 'Product Name',
-  },
-  {
-    id: 'category',
-    numeric: true,
-    disablePadding: false,
     label: 'Category',
   },
   {
-    id: 'unit',
+    id: 'OrderDate',
     numeric: true,
     disablePadding: false,
-    label: 'Unit Price',
+    label: 'Order Date',
   },
   {
-    id: 'instock',
+    id: 'OrderType',
     numeric: true,
     disablePadding: false,
-    label: 'In-Stock',
+    label: 'Order Type',
   },
   {
-    id: 'discount',
+    id: 'TrackingID',
     numeric: true,
     disablePadding: false,
-    label: 'Discount',
+    label: 'Tracking ID',
   },
   {
-    id: 'total',
+    id: 'OrderTotal',
     numeric: true,
     disablePadding: false,
-    label: 'Total Value',
+    label: 'Order Total',
   },
   {
     id: 'status',
@@ -326,22 +320,13 @@ export default function EnhancedTable({show}) {
                     selected={isItemSelected}
                     sx={{ cursor: 'pointer' }}
                   >
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="none"
-                    >
-                      <div className='table-product'>
-                        <img src="https://source.unsplash.com/random/?food" className='table-image'></img><p>{row.product}</p>
-                      </div>
-                    </TableCell>
+                    
                     <TableCell align="left">{row.category}</TableCell>
-                    <TableCell align="left">{row.unit}</TableCell>
-                    <TableCell align="left" style={{minWidth:"120px"}}>{row.instock}</TableCell>
-                    <TableCell align="left">{row.discount}</TableCell>
-                    <TableCell align="left" style={{minWidth:"150px"}}>{row.total}</TableCell>
-                    <TableCell align="left" ><p></p>{row.action === 1 ? (<p className='table-status-pub'>Published</p>) : (<p className='table-status-unpub'>Unpublished</p>)}</TableCell>
+                    <TableCell align="left">{row.OrderDate}</TableCell>
+                    <TableCell align="left" style={{minWidth:"120px"}}>{row.OrderType}</TableCell>
+                    <TableCell align="left">{row.TrackingID}</TableCell>
+                    <TableCell align="left" style={{minWidth:"150px"}}>{row.OrderTotal}</TableCell>
+                    <TableCell align="left" ><p></p>{row.status === 1 ? (<p className='table-status-pub'>Published</p>) : (<p className='table-status-unpub'>Unpublished</p>)}</TableCell>
                   </TableRow>
                 );
               })}

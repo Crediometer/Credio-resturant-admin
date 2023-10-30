@@ -83,6 +83,10 @@
 .custom-2{
     left: 0px;
 }
+.custom-4{
+    left: 250px;
+    right: 0px;
+}
 .custom-3{
     z-index: 5;
     position: absolute;

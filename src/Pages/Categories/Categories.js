@@ -31,7 +31,7 @@ const Categories = () => {
             <div className="categories-head">
                 <p>Inventory Summary</p>
                 <Link to='/dashboard/inventory/product'>
-                    <button><FiPlus/>Add a New Product</button>
+                    <button className='button-head'><FiPlus/>Add a New Product</button>
                 </Link>
             </div>
             <div className="categories-top">

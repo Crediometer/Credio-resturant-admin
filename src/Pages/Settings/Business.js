@@ -17,7 +17,7 @@ const Business = () => {
     const dropdownRef = useRef(null);
     const handleshowfont = () =>{
         setShowfont(!showfont)
-        console.log("yyyyyy")
+        
     }
     const handlefont =(font)=>{
         setfont(font)
@@ -70,9 +70,9 @@ const Business = () => {
     const appStyle = {
         backgroundColor: currentColor,
         backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "contain",
+        backgroundSize: "250px",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: `${(selectedRadio === 'radio1') ? 'bottom left' : ''}`
+        backgroundPosition: `${(selectedRadio === 'radio1') ? 'top left' :(selectedRadio === 'radio2')? "top right":(selectedRadio === 'radio3')? "bottom left": "bottom right"}`
     }
     const logoStyle = {
         backgroundImage: `url(${LogoImage})`,
