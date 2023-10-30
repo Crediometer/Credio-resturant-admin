@@ -369,7 +369,7 @@ const AddProduct = () => {
                                 </div>
                                 <div className="product-input-right">
                                     <input
-                                        type='text'
+                                        type='number'
                                         placeholder='Enter Price for Large'
                                         ref={inputRef}
                                         onChange={handleLargeChange}

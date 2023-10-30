@@ -15,7 +15,24 @@
     line-height: normal;
 }
 .draft-content{
+    position: relative;
     padding: 1rem;
+    padding-top: 3.5rem;
     background-color: #ebeefd;
     border-radius: 8px;
+}
+.edit-draft-button{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+   
+}
+.edit-draft-button button{
+    padding: 0.5rem;
+    border-radius: 10.633px;
+    background: var(--black-100, #1C1D22);
+    color: white;
+    font-family: "Inter";
+    font-size: 0.8rem;
+    font-style: normal;
 }

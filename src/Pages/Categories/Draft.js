@@ -2,6 +2,7 @@ import './Draft.css'
 import { FiChevronDown, FiEye, FiPieChart } from "react-icons/fi";
 import food from '../../Assets/food.jpeg'
 import { BiChevronLeft } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 const Draft = () => {
     const goBack = () => {
         window.history.back();
@@ -18,6 +19,9 @@ const Draft = () => {
             </div>
             <div className="draft-body">
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                    <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -66,6 +70,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top  draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -114,6 +121,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top  draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -162,6 +172,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top  draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -210,6 +223,7 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top  draft-content">
+                    <button className="edit-draft-button">Edit Draft</button>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -258,6 +272,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -306,6 +323,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -354,6 +374,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -402,6 +425,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -450,6 +476,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
@@ -498,6 +527,9 @@ const Draft = () => {
                     </div>
                 </div>
                 <div className="viewproduct-top draft-content">
+                    <div className="edit-draft-button">
+                        <Link to="/dashboard/inventory/product"><button>Edit Draft</button></Link>
+                    </div>
                     <div className="viewproduct-image">
                         <img src={food}></img>
                     </div>
