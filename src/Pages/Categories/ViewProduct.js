@@ -11,9 +11,14 @@ import { BiChevronLeft } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import CustomFilter from '../../Components/Filter/CustomFilter';
+import SuccessModal from '../../Components/Modal/SuccessModal';
 const ViewProduct = () => {
     const [show2, setShow2] = useState(false);
+    const [success, setSuccess] = useState(false)
     const dropdownRef = useRef(null);
+    const handlesuccess = ()=>{
+        setSuccess(!success)
+    }
     const handleToggle2 = () =>{
         setShow2(!show2)
     }
@@ -43,7 +48,7 @@ const ViewProduct = () => {
                 </div>
                 <div className="viewproduct-button">
                     <button className="draft" onClick={goBack}>Edit Product</button>
-                    <button className='live'>Go Live</button>
+                    <button className='live' onClick={handlesuccess}>Go Live</button>
                 </div>
             </div>
             <div className="viewproduct-top">
@@ -182,6 +187,7 @@ const ViewProduct = () => {
                     <EnhancedTable/>
                 </div>
             </div>
+             {success && (<SuccessModal/>)}
         </div>
     );
 }

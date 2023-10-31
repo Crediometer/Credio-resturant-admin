@@ -23,7 +23,9 @@
     border-radius: 10px;
 }
 .business-input{
-    margin-bottom: 15px;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
 }
 .business-input input{
     width: 100%;
@@ -45,6 +47,30 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+.business-input input:focus{
+    border:0.886px solid #629FF4;
+}
+.label-mobile{
+    display: block;
+    position:absolute;
+    top: 0;
+    left: 0;
+    padding: 0.4rem;
+    pointer-events: none;
+    color: var(--black-2, #ABAFB1);
+    font-family: "Inter";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 0.5s;
+}
+.business-input input:focus ~ .label-mobile,
+.business-input input:valid ~ .label-mobile{
+    transform: translateX(0px) translateY(-15px);
+    font-size: 0.66456rem;
+    padding: 0px;  
 }
 .business-logo{
     margin-top: 37px;

@@ -107,19 +107,30 @@ const Business = () => {
             <div className="business-left">
                 <div className="business-logo-form">
                     <div className="business-input">
-                        <input type='text' placeholder='Foodcourt'></input>
+                        <input type='text'
+                        required
+                        ></input>
+                        <span className='label-mobile'>Foodcourt</span>
                     </div>
                     <div className="business-input">
-                        <input type='text' placeholder='Dinner'></input>
+                        <input type='text' 
+                        required
+                        ></input>
+                        <span className='label-mobile'>Dinner</span>
                     </div>
                     <div className="business-input">
-                        <input type='text' placeholder='Large, Medium, Small'></input>
+                        <input type='text' 
+                        required
+                        ></input>
+                        <span className='label-mobile'>Large, Medium, Small</span>
                     </div>
                     <div className="business-input">
-                        <input type='text' placeholder='Take Away, Eat In'></input>
+                        <input type='text' required></input>
+                        <span className='label-mobile'>Take Away, Eat In</span>
                     </div>
                     <div className="business-input">
-                        <input type='text' placeholder='5%,10%,15%, 20%,30%,40%'></input>
+                        <input type='text'required></input>
+                        <span className='label-mobile'>Product Name</span>
                     </div>
                     <div className="business-logo">
                         <p className='business-logo-head'>Logo image</p>

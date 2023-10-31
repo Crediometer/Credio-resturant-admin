@@ -7,6 +7,7 @@ import { useState, Component, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import Alert from '@mui/material/Alert';
+import SuccessModal from '../../Components/Modal/SuccessModal';
 // import { Editor } from 'react-draft-wysiwyg';
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const AddProduct = () => {
@@ -19,9 +20,10 @@ const AddProduct = () => {
     const [adderror, setaddaearror] = useState('')
     const [name, setName] =useState('')
     const [price, setPrice]= useState('')
-    const [large, setlarge]=useState('')
-    const [medium, setMedium]=useState('')
-    const [small, setSmall]=useState('')
+    const [large, setlarge]=useState(false)
+    const [medium, setMedium]=useState(false)
+    const [small, setSmall]=useState(false)
+
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [otherImage, setOtherImage] = useState(null);
     const [addonImage, setAddOnImage] = useState(null);
@@ -52,6 +54,7 @@ const AddProduct = () => {
     // const handleInputBlur = () => {
     //     setInputFocus(false);
     // };
+   
     const handleInputBlur = () => {
         if (large === 'NGN ') {
           inputRef.current.value = ''; // Clear the input when it loses focus and no amount is entered
@@ -68,14 +71,15 @@ const AddProduct = () => {
         }
     };
     const handleInputFocus = () => {
-        inputRef.current.value = 'NGN '; // Set the input value to include "NGN " when it's in focus
+        setlarge(!large) // Set the input value to include "NGN " when it's in focus
     };
     const handleInputmediumFocus = () => {
-        inputRefmedium.current.value = 'NGN '; // Set the input value to include "NGN " when it's in focus
+        setMedium(!medium) // Set the input value to include "NGN " when it's in focus
     };
     const handleInputsmallFocus = () => {
-        inputRefsmall.current.value = 'NGN '; // Set the input value to include "NGN " when it's in focus
+        setSmall(!small) // Set the input value to include "NGN " when it's in focus
     };
+    
     const handleLargeChange = (e) => {
         setlarge(e.target.value);
     };
@@ -355,7 +359,9 @@ const AddProduct = () => {
                                                     value={size}
                                                     checked={sizes?.includes(size)}
                                                     onChange={() => handlesize(size)}
-                                                    ></input>
+                                                    >
+                                                        
+                                                    </input>
                                                 </div>
                                             )
                                         })}
@@ -367,34 +373,37 @@ const AddProduct = () => {
                                 <div className="product-input-left">
                                     <p className='product-placeholder product-placeholder-1'>Large</p>
                                 </div>
-                                <div className="product-input-right">
+                                <div className={large ? "product-input-right product-border" : "product-input-right"}>
+                                    {large && <span className='amount-currency'>NGN</span>}
                                     <input
                                         type='number'
                                         placeholder='Enter Price for Large'
-                                        ref={inputRef}
                                         onChange={handleLargeChange}
                                         onFocus={handleInputFocus}
-                                        onBlur={handleInputBlur}
+                                        onBlur={handleInputFocus}
                                         // onFocus={handleInputFocus}
                                         // onBlur={handleInputBlur}
                                         // onChange={handleLargeChange}
                                         // value={isInputFocused ? 'NGN ' + large : large}
                                         required
-                                    ></input>
+                                    >    
+                                    </input>
+                                    
                                 </div>
                             </div>
                             <div className="product-input-3">
                                 <div className="product-input-left">
                                     <p className='product-placeholder product-placeholder-1' >Medium</p>
                                 </div>
-                                <div className="product-input-right">
+                                <div className={medium ? "product-input-right product-border" : "product-input-right"}>
+                                    {medium && <span className='amount-currency'>NGN</span>}
                                     <input
                                         type='text'
                                         placeholder='Enter Price for Medium'
-                                        ref={inputRefmedium}
+                                        className='size-amount'
                                         onChange={handleMediumChange}
                                         onFocus={handleInputmediumFocus}
-                                        onBlur={handleInputMediumBlur}
+                                        onBlur={handleInputmediumFocus}
                                         required
                                     ></input>
                                 </div>
@@ -403,14 +412,15 @@ const AddProduct = () => {
                                 <div className="product-input-left">
                                     <p className='product-placeholder product-placeholder-1'>Small</p>
                                 </div>
-                                <div className="product-input-right">
+                                <div className={small ? "product-input-right product-border" : "product-input-right"}>
+                                    {small && <span className='amount-currency'>NGN</span>}
                                     <input
-                                        type='text'
+                                        type='text' 
                                         placeholder='Enter Price for Small'
-                                        ref={inputRefsmall}
-                                        onChange={handleSmallChange}
+                                        // ref={inputRefsmall}
+                                        // onChange={handleSmallChange}
                                         onFocus={handleInputsmallFocus}
-                                        onBlur={handleInputsmallBlur}
+                                        onBlur={handleInputsmallFocus}
                                         required
                                     ></input>
                                 </div>
@@ -736,6 +746,7 @@ const AddProduct = () => {
                     )
                 })}
             </div>
+           
         </div>
     );
 }
