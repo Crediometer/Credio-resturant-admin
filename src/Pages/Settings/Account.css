@@ -1,5 +1,6 @@
 .account{
     display: flex;
+    flex-direction: row-reverse;
     align-items: start;
     gap: 38px;
 }

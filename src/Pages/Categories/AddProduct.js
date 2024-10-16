@@ -287,8 +287,9 @@ const AddProduct = () => {
             <div className="categories-head">
                 <p>Inventory Summary</p>
                 <div className="product-button">
-                    <Link to="/dashboard/inventory/product/draft"><button className="draft">Save as Draft</button></Link>
-                    <Link to="/dashboard/inventory/product/view"><button className='button-head'>Save & Publish</button></Link>
+                    {/* <Link to="/dashboard/inventory/product/draft"><button className="draft">Save as Draft</button></Link> */}
+                    <button className="draft">Save as Draft</button>
+                    <Link to="/dashboard/inventory/product/view"><button className='button-head'>Save & and make available </button></Link>
                 </div>
             </div>
             <div className="product-body">

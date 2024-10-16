@@ -59,7 +59,7 @@ const Dashboard = () => {
                     <Card icon={<PiCoins/>} title="Net earning" number="NGN 1.300.000" value="+0.00%"/>
                 </div>
                 <div className="card-outer">
-                    <Card icon={<HiOutlineCurrencyDollar/>} title="Cost" number="NGN 200.00" value="+0.00%"/>
+                    <Card icon={<HiOutlineCurrencyDollar/>} title="Staff On" number="9" value=""/>
                 </div>
                 
             </div>

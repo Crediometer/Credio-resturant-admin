@@ -1,6 +1,7 @@
 import {FiHome} from 'react-icons/fi'
 import {BiCategory, BiSolidCategory} from 'react-icons/bi'
 import {IoLocationOutline, IoNotifications, IoNotificationsOutline} from 'react-icons/io5'
+import { TbClockCheck } from "react-icons/tb";
 import {MdShoppingCartCheckout} from 'react-icons/md'
 import {BsBoxSeam} from 'react-icons/bs'
 export const mainsidebar = [
@@ -15,23 +16,34 @@ export const mainsidebar = [
     //     link:"/category"
     // },
     {
-        title:"Inventory",
-        icon:<MdShoppingCartCheckout/>,
-        link:"/dashboard/inventory"
+        title:"Clocking in/out",
+        icon:<TbClockCheck/>,
+        // link:"/dashboard"
     },
     {
-        title:"Location",
+        title:"Seat Arrangement",
         icon:<IoLocationOutline/>,
-        link:"/dashboard/location"
+        // link:"/dashboard/location"
     },
     {
-        title:"Orders",
+        title:"Sales processing ",
         icon:<BsBoxSeam/>,
-        link:"/dashboard/orders"
+        link:"/dashboard/sales"
+    },
+    {
+        title:"End of Day Report",
+        icon:<BsBoxSeam/>,
+        // link:"/dashboard/"
+    },
+    {
+        title:"Analytics",
+        icon:<BsBoxSeam/>,
+        // link:"/dashboard/orders"
     },
     {
         title:"Notification",
         icon:<IoNotificationsOutline/>,
         link:"/dashboard/notification"
     },
+    
 ]

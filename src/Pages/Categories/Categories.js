@@ -30,7 +30,7 @@ const Categories = () => {
         <div className="categories">
             <div className="categories-head">
                 <p>Inventory Summary</p>
-                <Link to='/dashboard/inventory/product'>
+                <Link to='/dashboard/sales/product'>
                     <button className='button-head'><FiPlus/>Add a New Product</button>
                 </Link>
             </div>

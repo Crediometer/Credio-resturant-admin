@@ -9,11 +9,11 @@ const Signin = () => {
                     <div className="group-lower-inner">
                         <div className="group-outer">
                             <div className="group">
-                                <p>Be Accountable For Your Business</p>
+                                <p>Savor the Perfect Restaurant Experience</p>
                             </div>
                         </div>
                         <div className="lorem-outer">
-                            <p className='lorem'>Embrace the principle of accountability to ensure the growth and prosperity of your business. Take ownership of your decisions and actions.</p>
+                            <p className='lorem'>Experience dining at its finest with seamless service, exquisite flavors, and a welcoming ambiance. Every moment is designed to make your visit effortless and unforgettable.</p>
                         </div>
                     </div>
                 </div>
