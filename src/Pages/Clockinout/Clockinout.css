@@ -4,5 +4,12 @@
 }
 .clockinout-body{
     background-color: white;
-    padding: 1rem 1rem;
+    padding: 1.5rem 1.2rem;
+}
+.clockinout-head{
+    margin-bottom: 14px;
+    font-size: 1.5rem;
+    font-family: "Inter";
+    font-weight: 500;
+    color: #383E49;
 }

@@ -1,13 +1,20 @@
 import "./Clockinout.css";
 import { BsCalendar4 } from "react-icons/bs";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoFunnelOutline, IoSearchOutline } from "react-icons/io5";
 import CustomFilter from "../../Components/Filter/CustomFilter";
 import { useEffect, useRef, useState } from "react";
+import ClockinoutTable from "../../Components/Table/ClockinoutTable";
 
 const Clockinout = () => {
     const [value, setvalue] = useState("Date")
+    const [value2, setvalue2] = useState("Department")
+    const [show, setShow] = useState(false)
     const [show2, setShow2] = useState(false);
+    
     const dropdownRef = useRef(null);
+    const handleToggle = () =>{
+        setShow(!show)
+    }
     const handleToggle2 = () =>{
         setShow2(!show2)
     }
@@ -26,7 +33,7 @@ const Clockinout = () => {
         <div className="clockinout">
             <div className="clockinout-body">
                 <div className="clockinout-top">
-                    <p>Clocking in/out</p>
+                    <p className="clockinout-head">Clocking in/out</p>
                     <div className="table-filters">
                         <div className="table-search">
                             <IoSearchOutline/>
@@ -47,7 +54,24 @@ const Clockinout = () => {
                                     </div>
                                 )}
                         </div>
+                        <div className="table-filter-outer">
+                            <div className="filter" onClick={handleToggle}>
+                                <IoFunnelOutline/>
+                                <p className='period'>{value2}</p>
+                            </div>
+                            {show && (
+                                <div className="filter-dropdown"  ref={dropdownRef}>
+                                    <p onClick={()=>{setvalue2('Server');handleToggle()}}>Server</p>
+                                    <p onClick={()=>{setvalue2('Bartender');handleToggle()}}>Bartender</p>
+                                    <p onClick={()=>{setvalue2('Cashier');handleToggle()}}>Cashier</p>
+                                    <p onClick={()=>{setvalue2('Kitchen');handleToggle()}}>Kitchen</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
+                </div>
+                <div className="clockinout-table">
+                    <ClockinoutTable/>
                 </div>
             </div>
         </div>
