@@ -12,6 +12,8 @@ import Draft from './Pages/Categories/Draft';
 import Login from './Pages/Login/Login';
 import Signin from './Pages/SignIn/Sigin';
 import Sales from './Pages/Sales/Sales';
+import Employees from './Pages/Clockinout/Employee';
+import Clockinout from './Pages/Clockinout/Clockinout';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -36,6 +38,8 @@ export default function Router() {
               { path: 'sales/product', element: <AddProduct/> },
               { path: 'sales/product/draft', element: <Draft/> },
               { path: 'sales/product/view', element: <ViewProduct/> },
+              { path: 'employee', element: <Employees/> },
+              { path: 'clocking', element: <Clockinout/> },
               { path: 'orders', element: <Order/> },
               { path: 'settings', element: <Settings/> },
               { path: 'notification', element: <Notification/> },

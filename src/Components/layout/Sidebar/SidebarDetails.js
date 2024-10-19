@@ -18,7 +18,7 @@ export const mainsidebar = [
     {
         title:"Clocking in/out",
         icon:<TbClockCheck/>,
-        // link:"/dashboard"
+        link:"/dashboard/clocking"
     },
     {
         title:"Seat Arrangement",
@@ -29,6 +29,11 @@ export const mainsidebar = [
         title:"Sales processing ",
         icon:<BsBoxSeam/>,
         link:"/dashboard/sales"
+    },
+    {
+        title:"Staff Management",
+        icon:<TbClockCheck/>,
+        link:"/dashboard/employee"
     },
     {
         title:"End of Day Report",

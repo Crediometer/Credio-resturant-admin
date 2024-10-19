@@ -1,0 +1,58 @@
+.status-active{
+    width: 100px;
+    padding: 0.4rem 0rem;
+    background-color: #058B42B2;
+    border-radius: 2px;
+}
+.status-active p{
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.status-pending{
+    width: 100px;
+    padding: 0.4rem 0rem;
+    background-color: #B26500C7;
+    border-radius: 2px;
+}
+.status-pending p{
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 400;
+    text-align: center;
+}
+.status-inactive{
+    width: 100px;
+    padding: 0.4rem 0rem;
+    background-color: #B11226;
+    border-radius: 2px;
+}
+.status-inactive p{
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 400;
+    text-align: center;
+}
+.actions{
+    display: flex;
+    gap: 10px;
+}
+.action-edit svg, .action-delete svg{
+    font-size: 0.8rem;
+    color: #000000;
+}
+.action-edit, .action-delete{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D3D3D3;
+    border-radius: 6px;
+}
+.table-row{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
