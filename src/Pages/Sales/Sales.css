@@ -1,10 +1,108 @@
-.sales-head{
+.sales-nav{
+    width: 100%;
+}
+.sales-nav nav{
+    list-style: none;
+    display: flex;
+    gap: 46px;
+}
+.sales-nav nav li{
+    padding-bottom: 1.5rem;
+    font-family: "Inter";
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #383E49;
+}
+.sale-nav-active{
+    border-bottom: 2px solid #058B42;
+}
+.sales-body{
+    margin-bottom: 14px ;
+}
+.overview-top{
+    width:100%;
+    display: flex;
+    gap: 5px;
+}
+.overview-graph, .overview-traffic{
+    width: 70%;
+    padding: 1.25rem 1.5rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #E4E4E7;
+}
+.overview-traffic{
+    width: 30%;
+}
+.overview-graph-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.overview-head{
+    font-family: "Plus Jakarta Sans";
+    font-size: 1rem;
+    font-weight: 700;
+    color: #18181B;
+}
+.overview-graph-filter{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.timeline p{
+    font-family: "Plus Jakarta Sans";
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #71717A;
+}
+.export-overview{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #D4D4D8;
+    border-radius: 5px;
+    padding: 0.6875rem;
+}
+.export-overview svg, .export-overview p{
+    font-family: "Plus Jakarta Sans";
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #18181B;
+}
+.overview-graph-inner{
+    width: 100%;
+    height:230px;
+}
+.overview-traffic-body{
+    margin-top: 30px;
+}
+.traffic{
+    margin-bottom: 24px;
+}
+.traffic-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.traffic-top p{
+    font-family: "Plus Jakarta Sans";
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #18181B;
+}
+.traffic-bar{
+    margin-top: 10px;
+}
+
+/* .sales-head{
     color: var(--grey-grey-800, #383E49);
     font-family: "Inter";
     font-size: 1.37663rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 2.06494rem; /* 150% */
+    line-height: 2.06494rem; 
 }
 .sales-outer{
     width: 100%;
@@ -19,5 +117,5 @@
     font-size: 1.37663rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 2.06494rem; /* 150% */
-}
+    line-height: 2.06494rem;
+} */

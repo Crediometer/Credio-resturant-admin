@@ -5,11 +5,10 @@
     gap: 23px;
 }
 .business-left{
-    width: 60%;
+    width: 50%;
 }
 .business-right{
-    width: 40%;
-    
+   width: 50%;
 }
 .business-logo-form, .business-banner{
     width: 100%;
@@ -17,23 +16,30 @@
     padding: 1.22rem;
     border-radius: 10px;
 }
-.business-right{
+/* .business-right{
     background-color: white;
     padding: 1.5rem 1rem;
     border-radius: 10px;
-}
+} */
 .business-input{
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     width: 100%;
 }
+.business-input label{
+    font-family: "Inter";
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0D062D;
+}
 .business-input input{
+    margin-top: 13px;
     width: 100%;
     background-color: transparent;
-    padding: 0.42875rem 0.8575rem;
-    border-radius: 6.86px;
-    border: 0.857px solid var(--black-1, #CFD3D4);
-    color: var(--black-2, #ABAFB1);
+    padding: 1.3rem 1.25rem;
+    border-radius: 6px;
+    border: 1px solid #787486;
+    color: #787486;
     font-family: "Inter";
     font-size: 0.8575rem;
     font-style: normal;
@@ -73,7 +79,9 @@
     padding: 0px;  
 }
 .business-logo{
-    margin-top: 37px;
+    background-color: white;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
 }
 .business-logo-head{
     color: var(--black-60, #45464E);
@@ -108,6 +116,10 @@
     margin-top: 22px;
 }
 .banner-upper{
+    margin-top: 22px;
+    background-color: white;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
     padding: 3.91rem 1.28rem;
     display: flex;
     align-items: center;
@@ -134,7 +146,7 @@
     background-color: transparent;
     color: rgba(4, 4, 4, 0.81);
     font-family: 'Poppins';
-    font-size: 44.027px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: 110%; /* 48.43px */

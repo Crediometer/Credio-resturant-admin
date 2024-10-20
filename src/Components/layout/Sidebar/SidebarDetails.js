@@ -38,7 +38,7 @@ export const mainsidebar = [
     {
         title:"End of Day Report",
         icon:<BsBoxSeam/>,
-        // link:"/dashboard/"
+        link:"/dashboard/transaction"
     },
     {
         title:"Analytics",

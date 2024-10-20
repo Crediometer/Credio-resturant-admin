@@ -28,7 +28,7 @@ const Settings = () => {
             </div>
             <div className="settings-body">
             { (show === 1) && <Account/>}
-            {/* { (show === 2) && <Business/>}  */}
+            { (show === 2) && <Business/>} 
             { (show === 3) && <Receipt/>} 
             </div>
         </div>

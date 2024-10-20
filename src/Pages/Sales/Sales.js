@@ -1,100 +1,29 @@
 import './Sales.css'
 import food from '../../Assets/food.jpeg'
 import { BsArrowDownShort, BsArrowUpShort } from 'react-icons/bs';
+import { useEffect, useState } from 'react';
+import Overview from './Overview';
 const Sales = () => {
+    const [show, setShow] = useState(1);
+    const handleOverview = ()=>{
+        setShow(1)
+    }
+    const handleCumulative = ()=>{
+        setShow(2)
+    }
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[])
     return ( 
         <div className="sales">
-            <p className='sales-head'>Sales</p>
-            <div className="sales-outer">
-                <p className="sales-outer-head">Fast selling product</p>
-                <div className="dash-sales-body">
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue green'><span><BsArrowUpShort/></span>15%</p>
-                    </div>
-                </div>
+            <div className="sales-nav">
+                <nav>
+                    <li onClick={handleOverview} className = {show === 1 ? `sale-nav-active`: ''}>Overview</li>
+                    <li onClick={handleCumulative} className={show === 2 ? `sale-nav-active`: ''} >Cumulative</li>
+                </nav>
             </div>
-            <div className="sales-outer">
-                <p className="sales-outer-head">Product on less demand</p>
-                <div className="dash-sales-body">
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                    <div className="sales-food">
-                        <img src={food}></img>
-                        <p className='sales-food-name'>Salmon Salad</p>
-                        <p className='sales-food-revenue red'><span><BsArrowDownShort/></span>15%</p>
-                    </div>
-                </div>
-                
+            <div className="sales-body">
+                {(show === 1) && <Overview/>}
             </div>
         </div>
 

@@ -26,26 +26,27 @@ import './EmployeeTable.css'
 import { FiEdit } from 'react-icons/fi';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
 
-function createData( name, department, id, status) {
+function createData( name, clockin, clockout, timeworked, extratime) {
   return {
     name,
-    department,
-    id,
-    status,
+    clockin, 
+    clockout, 
+    timeworked, 
+    extratime
   };
 }
 
 const rows = [
-  createData('Nicholas Patrick', 'Kitchen', "#01", 0),
-  createData('Ben Austin', 'Server', "#02", 1),
-  createData('Adewale Taiwo', 'Server', "#03", 1),
-  createData('Peter Pan', 'Bartender', "#04", 0),
-  createData('Tamo Sosa', 'Server', "#05", 2),
-  createData('Namo Vexihilia', 'Kitchen', "#06", 0),
-  createData('Braiawood Rex', 'Bartender', "#07", 1),
-  createData('Adetola English', 'Kitchen', "#08", 2),
-  createData('Why Brown', 'Kitchen', "#09", 1),
-  createData('Timothy Luca', 'Kitchen', "#10", 0),
+  createData('Nicholas Patrick', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Ben Austin', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Adewale Taiwo', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Peter Pan', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Tamo Sosa', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Namo Vexihilia', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Braiawood Rex', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Adetola English', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Why Brown', '7:50AM', "5:50PM", "7h 50m", "50m"),
+  createData('Timothy Luca', '7:50AM', "5:50PM", "7h 50m", "50m"),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -88,28 +89,28 @@ const headCells = [
     label: 'Name',
   },
   {
-    id: 'department',
+    id: 'ClockIn',
     numeric: true,
     disablePadding: false,
-    label: 'Category',
+    label: 'Clock In',
   },
   {
-    id: 'id',
+    id: 'ClockOut',
     numeric: true,
     disablePadding: false,
-    label: 'Unit Price',
+    label: 'Clock Out',
   },
   {
-    id: 'status',
+    id: 'timework',
     numeric: true,
     disablePadding: false,
-    label: 'Status',
+    label: 'Time Worked',
   },
   {
-    id: 'action',
+    id: 'extratime',
     numeric: true,
     disablePadding: false,
-    label: 'Action',
+    label: 'Extra Time',
   },
 ];
 
@@ -126,8 +127,9 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={'left'}
+            align={'center'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
+            sx={{color:"#797D8C", fontFamily:"Inter", fontSize:"1.25rem", fontWeight: "600"}}
             sortDirection={orderBy === headCell.id ? order : false}
           >
               {headCell.label}
@@ -311,44 +313,32 @@ export default function ClockinoutTable() {
                     key={row.name}
                     selected={isItemSelected}
                     className='table-row'
-                    sx={{ cursor: 'pointer', paddingLeft: 4, paddingRight: 2 }}
+                    sx={{ cursor: 'pointer', paddingTop: "40px", paddingBottom: "40px" }}
                   >
                     <TableCell
                       component="th"
                       id={labelId}
                       scope="row"
                       align='center'
-                      
                     >
                       <div className='table-product'>
-                        <img src="https://source.unsplash.com/random/50x50/?person" className='table-image'></img><p>{row.name}</p>
+                        <img src="https://source.unsplash.com/random/50x50/?person" className='table-image'></img>
+                        <p style={{color:"#797D8C", fontFamily:"Inter", fontSize:"1.25rem"}}>
+                            {row.name}
+                        </p>
                       </div>
-                      
                     </TableCell>
-                    <TableCell align="left">{row.department}</TableCell>
-                    <TableCell align="left">{row.id}</TableCell>
-                    <TableCell align="left">{(row.status == 0)? (
-                      <div className='status-active'>
-                        <p>Active</p>
-                      </div>
-                    ):(row.status == 1)?(
-                      <div className='status-pending'>
-                        <p>Pending</p>
-                      </div>
-                    ):(
-                      <div className='status-inactive'>
-                        <p>Inactive</p>
-                      </div>
-                    )}</TableCell>
-                    <TableCell align="left">
-                      <div className="actions">
-                        <div className="action-edit">
-                          <FiEdit />
-                        </div>
-                        <div className="action-delete">
-                        <MdOutlineDeleteOutline />
-                        </div>
-                      </div>
+                    <TableCell align="center" sx={{color:"#797D8C", fontFamily:"Inter", fontSize:"1.25rem"}}>
+                        {row.clockin}
+                    </TableCell>
+                    <TableCell align="center" sx={{color:"#797D8C", fontFamily:"Inter", fontSize:"1.25rem"}}>
+                        {row.clockout}
+                    </TableCell>
+                    <TableCell align="center" sx={{color:"#797D8C", fontFamily:"Inter", fontSize:"1.25rem"}}>
+                        {row.timeworked}
+                    </TableCell>
+                    <TableCell align="center" sx={{color:"#797D8C", fontFamily:"Inter", fontSize:"1.25rem"}}>
+                        {row.extratime}
                     </TableCell>
                   </TableRow>
                 );

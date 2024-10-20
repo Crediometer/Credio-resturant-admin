@@ -43,7 +43,7 @@ export default function Router() {
               { path: 'orders', element: <Order/> },
               { path: 'settings', element: <Settings/> },
               { path: 'notification', element: <Notification/> },
-              // { path: 'sales', element: <Sales/> },
+              { path: 'transaction', element: <Sales/> },
             //   { path: 'employee', element: <Notfound/> },
             //   { path: 'document', element: <Notfound/> },
             //   { path: 'report', element: <Notfound/> },
