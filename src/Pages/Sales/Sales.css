@@ -20,19 +20,22 @@
 .sales-body{
     margin-bottom: 14px ;
 }
-.overview-top{
+.overview-top,.overview-bottom{
     width:100%;
     display: flex;
     gap: 5px;
 }
-.overview-graph, .overview-traffic{
+.overview-bottom{
+    margin-top: 29px;
+}
+.overview-graph, .overview-traffic, .overview-transaction, .overview-customer{
     width: 70%;
     padding: 1.25rem 1.5rem;
     background-color: white;
     border-radius: 10px;
     border: 1px solid #E4E4E7;
 }
-.overview-traffic{
+.overview-traffic, .overview-customer{
     width: 30%;
 }
 .overview-graph-top{
@@ -95,7 +98,217 @@
 .traffic-bar{
     margin-top: 10px;
 }
-
+.overview-transaction-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.overview-transaction-body{
+    margin-top: 30px;
+}
+.transaction-link{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #4F46E5;
+}
+.transaction-link p{
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: "Plus Jakarta Sans";
+}
+.transaction-link svg{
+    font-size: 0.75rem;
+}
+.transaction-completed, .transaction-pending, .transaction-failed{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5625rem;
+    background-color: #DCFCE7;
+    border-radius: 40px;
+}
+.transaction-pending{
+    background-color: #FEF9C3;
+}
+.transaction-failed{
+    background-color: #FEE2E2;
+}
+.transaction-completed div, .transaction-pending div, .transaction-failed div{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22C55E;
+}
+.transaction-pending div{
+    background-color: #FACC15;
+}
+.transaction-failed div{
+    background-color: #EF4444;
+}
+.transaction-completed p , .transaction-pending p, .transaction-failed p{
+    width: max-content;
+    font-family: "Plus Jakarta Sans";
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: #14532D;
+}
+.transaction-pending p{
+    color: #713F12;
+}
+.transaction-failed p{
+    color: #7F1D1D;
+}
+.card-details{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: #18181B;
+}
+.card-type{
+    margin-top: 3px;
+    font-family: "Plus Jakarta Sans";
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: #71717A;
+}
+.overview-customer-body{
+    margin-top: 20px;
+}
+.customer{
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.customer-left{
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+.customer-left img{
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+.customer-details h6{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: #18181B;
+}
+.customer-details p{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: #71717A;
+}
+.customer-right h6{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 500;
+    font-size: 0.8125rem;
+    color: #18181B;
+}
+.customer-right p{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: #71717A;
+}
+.overview-customer-bottom{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.overview-customer-bottom p, .overview-customer-bottom svg{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 700;
+    font-size: 0.7125rem;
+    color: #151518;
+}
+.transaction-head{
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #383E49;
+}
+.transaction-body{
+    margin-top: 30px;
+    width: 100%;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #E4E4E7;
+    border-radius: 5px;
+}
+.transaction-table-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.4rem;
+}
+.transaction-top-period{
+    display: flex;
+}
+.period{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid #D0D5DD;
+    background-color: white;
+}
+.period p{
+    font-family: "Plus Jakarta Sans";
+    font-weight: 500;
+    font-size: 1rem;
+    color: #19191C;
+}
+.selected-period{
+    background-color: #000000;
+    border: 1px solid #EBEBEB;
+}
+.selected-period p{
+    color: white;
+}
+.transaction-top-filter{
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+.filter-sort{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #89898A;
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 1rem;
+}
+.filter-search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6875rem 1.5rem;
+    border: 1px solid #D3D3D3;
+    border-radius: 4px;
+}
+.filter-search svg{
+    color: #19191C;
+    font-size: 1rem;
+}
+.filter-search input{
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    font-family: "Plus Jakarta Sans";
+    color: #828487;
+}
+.transaction-top-print{
+    color: #000000;
+    font-size: 2rem;
+}
 /* .sales-head{
     color: var(--grey-grey-800, #383E49);
     font-family: "Inter";
