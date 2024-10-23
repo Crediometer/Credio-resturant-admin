@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 const Navbar = ({isOpen}) => {
     const [show, setshow] = useState(false);
-    const [location, setLocation] = useState({title:'Futa south gate', des: "No 23 off owode road futa southgate Akure, Ondo state."})
+    const [location, setLocation] = useState({title:'Futa South Gate', des: "No 23 off owode road futa southgate Akure, Ondo state."})
     const dropdownRef = useRef(null);
     const handleshow = () =>{
         setshow(!show)
