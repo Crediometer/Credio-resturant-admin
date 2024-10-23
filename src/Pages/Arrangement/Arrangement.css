@@ -1,0 +1,145 @@
+.arrangement-body{
+    margin-top: 20px;
+    width: 100%;
+    background-color: white;
+    padding: 2.3rem 1.68rem;
+    border-radius: 16.58px;
+}
+.arrangement-top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrangement-top-left nav{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 44px;
+}
+.arrangement-top-left nav li{
+    padding-bottom: 1rem;
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #383E49;
+}
+.arrange-active{
+    border-bottom: 2px solid #2F6EC9;
+}
+
+.arrangement-top-right button{
+    background-color: #2F6EC9;
+    border: none;
+    border-radius: 10px;
+    padding: 1.18rem 1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-family: "Inter";
+    color: white;
+}
+.arrangement-body-top{
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}.arrangement-body-bottom{
+    margin-top: 21px;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+.main-hall-arrange{
+    width: 60%;
+    background-color: #D3D3D370;
+    padding: 1.3125rem 1.43rem;
+}
+.main-hall-page{
+    padding: 2rem 6rem;
+    margin-top: 21px;
+    width: 100%;
+}
+.main-hall-page .sits-row{
+    margin-top: 37px;
+}
+.bar-area-arrange{
+    width: 40%;
+    background-color: #D3D3D370;
+    padding: 1.3125rem 1.43rem;
+}
+.bar-area-page{
+    padding: 2rem 6rem;
+    margin-top: 21px;
+    width: 100%;
+}
+.bar-area-page .sits-row{
+    margin-top: 37px;
+    justify-content: center;
+    gap: 110px;
+}
+.roof-top-arrange{
+    width: 80%;
+    background-color: #D3D3D370;
+    padding: 1.3125rem 1.43rem;
+}
+.roof-top-page{
+    padding: 2rem 6rem;
+    margin-top: 21px;
+    width: 100%;
+}
+.roof-top-page .sits-row{
+    margin-top: 37px;
+    justify-content: center;
+    gap: 110px;
+}
+.garden-arrange{
+    width: 20%;
+    background-color: #D3D3D370;
+    padding: 1.3125rem 1.43rem;
+}
+.garden-page{
+    padding: 2rem 6rem;
+    margin-top: 21px;
+    width: 100%;
+}
+.garden-page .sits-row{
+    margin-top: 37px;
+    justify-content: center;
+    gap: 110px;
+}
+.title-arrange{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.sits-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+}
+.roof-sits-row{
+    justify-content: center;
+}
+.arrange-tag{
+    padding: 0.5rem 0.875rem;
+    border: none;
+}
+.arrange-tag p{
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+}
+.main-hall{
+    background-color: #058B42B2;
+}
+.bar-area{
+    background-color: #CD9B35;
+}
+.roof-top{
+    background-color: #B1122680;
+}
+.garden{
+    background-color: #4880FF;
+}

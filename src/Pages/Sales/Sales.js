@@ -3,6 +3,7 @@ import food from '../../Assets/food.jpeg'
 import { BsArrowDownShort, BsArrowUpShort } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import Overview from './Overview';
+import Cumulative from './Cumulative';
 const Sales = () => {
     const [show, setShow] = useState(1);
     const handleOverview = ()=>{
@@ -24,6 +25,7 @@ const Sales = () => {
             </div>
             <div className="sales-body">
                 {(show === 1) && <Overview/>}
+                {(show === 2) && <Cumulative/>}
             </div>
         </div>
 

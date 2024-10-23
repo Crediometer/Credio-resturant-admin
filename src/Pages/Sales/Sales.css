@@ -1,3 +1,9 @@
+.sales{
+    position: relative;
+}
+.sales-body{
+    margin-top: 14px;
+}
 .sales-nav{
     width: 100%;
 }
@@ -306,8 +312,104 @@
     color: #828487;
 }
 .transaction-top-print{
+    display: flex;
+    align-items: center;
+    gap: 27px;
     color: #000000;
     font-size: 2rem;
+}
+.cumulative-top{
+    width: 70%;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    padding: 0rem 1.4rem;
+}
+.cumulative-body{
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+.cumulative-section{
+    width: 25%;
+}
+.cumulative-type{
+    width: max-content;
+    padding: 0.375rem 1.45rem;
+}
+.cumulative-type p{
+    font-size: 0.4375rem;
+    font-weight: 700;
+    font-family: "Plus Jakarta Sans";
+    color: #FFFFFF;
+}
+.type-sales{
+    background-color: #EB5757;
+}
+.type-tips{
+    background-color: #2F6EC9;
+}
+.type-labour{
+    background-color: #27AE60;
+}
+.type-other{
+    background-color: #4F4F4F;
+}
+.cumulative-section-inner{
+    height: 68vh;
+    overflow: scroll;
+    margin-top: 7px;
+}
+.cumulative-section-inner::-webkit-scrollbar{
+    display: none;
+}
+.ticket-card{
+    width: 100%;
+    padding: 0.5rem 0.6875rem 1rem 0.6875rem;
+    background-color: #F9F8F8;
+    border-radius: 1.79px;
+    margin-bottom: 6.2px;
+}
+.ticket-card:hover{
+    background-color: white;
+}
+.ticket-card-inner{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.ticket-card-inner p{
+    font-size: 0.8125rem;
+    font-weight: 500;
+    font-family: "Plus Jakarta Sans";
+}
+.ticket-card h5{
+    color: #71717A;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    font-family: "Plus Jakarta Sans";
+}
+.in-cash{
+    background-color: #2F6EC91A;
+}
+.in-cash div{
+    background-color: #2F6EC91A;
+}
+.in-cash p{
+    color: #14532D;
+}
+.cumulative-total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cumulative-total p{
+    margin-top: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: "Plus Jakarta Sans";
+    color: #18181B;
 }
 /* .sales-head{
     color: var(--grey-grey-800, #383E49);

@@ -15,6 +15,7 @@ import Sales from './Pages/Sales/Sales';
 import Employees from './Pages/Clockinout/Employee';
 import Clockinout from './Pages/Clockinout/Clockinout';
 import Transaction from './Pages/Sales/Transaction';
+import Arrangement from './Pages/Arrangement/Arrangement';
 export default function Router() {
     const routes = useRoutes([
         // {
@@ -46,6 +47,7 @@ export default function Router() {
               { path: 'notification', element: <Notification/> },
               { path: 'reports', element: <Sales/> },
               { path: 'transaction', element: <Transaction/> },
+              { path: 'arrangement', element: <Arrangement/> },
             //   { path: 'employee', element: <Notfound/> },
             //   { path: 'document', element: <Notfound/> },
             //   { path: 'report', element: <Notfound/> },

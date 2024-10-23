@@ -23,7 +23,7 @@ export const mainsidebar = [
     {
         title:"Seat Arrangement",
         icon:<IoLocationOutline/>,
-        // link:"/dashboard/location"
+        link:"/dashboard/arrangement"
     },
     {
         title:"Sales processing ",
