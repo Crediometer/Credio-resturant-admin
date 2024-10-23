@@ -5,6 +5,7 @@ import MainHall from "./MainHall";
 import BarArea from "./BarArea";
 import Garden from "./Garden";
 import RoofTop from "./RoofTop";
+import { Link } from "react-router-dom";
 const Arrangement = () => {
     const [show, setShow] = useState(1);
     const [show2, setShow2] = useState(1)
@@ -53,7 +54,7 @@ const Arrangement = () => {
                         </nav>
                     </div>
                     <div className="arrangement-top-right">
-                        <button>Add new Seat Arrangement +</button>
+                        <Link to="/dashboard/add-sit"><button>Add new Seat Arrangement +</button></Link>
                     </div>
                 </div>
                 {show2 == 1 && <All/>}

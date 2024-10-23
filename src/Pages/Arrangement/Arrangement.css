@@ -143,3 +143,163 @@
 .garden{
     background-color: #4880FF;
 }
+.add-sit-inner{
+    background-color: white;
+    padding: 2.5rem 1.6rem;
+    border-radius: 16.58px;
+}
+.add-sit-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.add-sit-top p{
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #383E49;
+}
+.add-sit-button{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.cancel-sit, .save-sit{
+    padding: 0.6875rem 3rem;
+    border-radius: 10px;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #737373;
+}
+.cancel-sit{
+    background-color: white;
+    border: 1px solid #C4C4C4;
+}
+.save-sit{
+    background-color: #2F6EC9;
+    color: white;
+    border: none;
+}
+.add-sit-body{
+    margin-top: 35px;
+    display: flex;
+}
+.add-sit-left{
+    width: 55%;
+    background-color: #D3D3D370;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.table-container{
+    padding: 2.625rem 3.375rem;
+    border: 1px solid #000000;
+}
+.add-sit-right{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    padding: 6rem 3.5rem;
+}
+.add-sit-right form{
+    width: 100%;
+}
+.add-sit-right form div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.add-sit-right form div label{
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #48505E;
+}
+.add-sit-right form div input{
+    margin-top: 10px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #D0D5DD;
+    padding: 0.7rem;
+    text-align: center;
+}
+.add-sit-right form div input::placeholder{
+    padding: 0.7rem;
+    text-align: center;
+}
+.move-sit div{
+    margin-top: 10px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #D0D5DD;
+    padding: 0.7rem;
+    display: flex ;
+    flex-direction: row !important;
+    gap: 8px;
+}
+.move-sit div button{
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 2px;
+}
+.move-yes{
+    background-color: transparent;
+    border: 1px solid#999999;
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: "Inter";
+    color: #667085;
+}
+.move-no{
+    background-color: #F2F2F2;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: "Inter";
+    color: #667085;
+}
+.seat-counter {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between !important;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    padding: 5px;
+  }
+.counter-btn {
+    background-color: #f1f1f1;
+    border: none;
+    width: 44px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: "Inter";
+    font-weight: 400;
+    color: #667085;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+  .seats-display {
+    font-family: "Inter";
+    font-weight: 400;
+    color: #667085;
+    font-size: 14px;
+  }
+  
+  .counter-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .counter-btn:active {
+    background-color: #d0d0d0;
+  }
