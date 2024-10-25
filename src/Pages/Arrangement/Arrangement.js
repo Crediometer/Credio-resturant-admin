@@ -6,6 +6,7 @@ import BarArea from "./BarArea";
 import Garden from "./Garden";
 import RoofTop from "./RoofTop";
 import { Link } from "react-router-dom";
+import AssignSit from "./Assign/AssignSit";
 const Arrangement = () => {
     const [show, setShow] = useState(1);
     const [show2, setShow2] = useState(1)
@@ -42,27 +43,32 @@ const Arrangement = () => {
                     <li onClick={handleCumulative} className={show === 2 ? `sale-nav-active`: ''} >Seat Arrangement</li>
                 </nav>
             </div>
-            <div className="arrangement-body">
-                <div className="arrangement-top">
-                    <div className="arrangement-top-left">
-                        <nav>
-                            <li onClick={handleall} className={show2 == 1 && "arrange-active"}>All</li>
-                            <li onClick={handlemain} className={show2 == 2 && "arrange-active"}>Main Hall</li>
-                            <li onClick={handlebar} className={show2 == 3 && "arrange-active"}>Bar Area</li>
-                            <li onClick={handlegarden} className={show2 == 4 && "arrange-active"}>Garden</li>
-                            <li onClick={handleroof} className={show2 == 5 && "arrange-active"}>Rooftop</li>
-                        </nav>
+            {show == 1 && (
+                <AssignSit/>
+            )}
+            {show == 2 &&
+                <div className="arrangement-body">
+                    <div className="arrangement-top">
+                        <div className="arrangement-top-left">
+                            <nav>
+                                <li onClick={handleall} className={show2 == 1 && "arrange-active"}>All</li>
+                                <li onClick={handlemain} className={show2 == 2 && "arrange-active"}>Main Hall</li>
+                                <li onClick={handlebar} className={show2 == 3 && "arrange-active"}>Bar Area</li>
+                                <li onClick={handlegarden} className={show2 == 4 && "arrange-active"}>Garden</li>
+                                <li onClick={handleroof} className={show2 == 5 && "arrange-active"}>Rooftop</li>
+                            </nav>
+                        </div>
+                        <div className="arrangement-top-right">
+                            <Link to="/dashboard/add-sit"><button>Add new Seat Arrangement +</button></Link>
+                        </div>
                     </div>
-                    <div className="arrangement-top-right">
-                        <Link to="/dashboard/add-sit"><button>Add new Seat Arrangement +</button></Link>
-                    </div>
+                    {show2 == 1 && <All/>}
+                    {show2 == 2 && <MainHall/>}
+                    {show2 == 3 && <BarArea/>}
+                    {show2 == 4 && <Garden/>}
+                    {show2 == 5 && <RoofTop/>}
                 </div>
-                {show2 == 1 && <All/>}
-                {show2 == 2 && <MainHall/>}
-                {show2 == 3 && <BarArea/>}
-                {show2 == 4 && <Garden/>}
-                {show2 == 5 && <RoofTop/>}
-            </div>
+            }
         </div>
     );
 }
