@@ -1,5 +1,5 @@
 .modal-background{
-    z-index: 10;
+    z-index: 60;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -15,6 +15,7 @@
 }
 .modal{
     width: 40%;
+    z-index: 60;
     background-color: white;
     padding: 1.69rem 1.81rem;
     border-radius: 8px;
@@ -86,4 +87,127 @@
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 500;
+}
+.task-modal-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+.task-modal-head h2{
+    font-family: "Inter";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+}
+.task-modal-head p{
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #787486;
+}
+.task-modal-body{
+    width: 100%;
+}
+.task-modal-body form{
+    width: 100%;
+}
+.task-field{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.task-field label, .date-form label{
+    font-family: "Inter";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #0D062D;
+}
+.task-field input, .task-field select, .date-form input{
+    margin-top: 13px;
+    width: 100%;
+    border: 1px solid #787486;
+    border-radius: 6px;
+    padding: 1.25rem;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #787486;
+}
+.date-time{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+    gap: 30px;
+}
+.date-form{
+    width: 50%;
+}
+.date-form-2{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.date-form-2 input{
+    width: 42%;
+}
+.color{
+    width: 36.6px;
+    height: 36.6px;
+    border: 0.9px solid #AFAFAF;
+    border-radius: 3.66px;
+}
+.timeline-color{
+    margin-top: 13px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+.color-1{
+    background-color: #D1E3F5;
+}
+.color-2{
+    background-color: #D3F5D3;
+}
+.color-3{
+    background-color: #F6DDDD;
+}
+.color-4{
+    background-color: #FF8D8D;
+}
+.color-5{
+    background-color: #DFDAF8;
+}
+.color-6{
+    background-color: #70C4CF;
+}
+.color-7{
+    background-color: #00000040;
+}
+.buttons{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+.buttons button{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    
+}
+.button-save{
+    color: #FFF;
+    background-color: #4483F7;
+    border: none;
+}
+.button-cancle{
+    background-color: transparent;
+    color: #0D062D;
+    border: 0.5px solid #C4C4C4;
 }

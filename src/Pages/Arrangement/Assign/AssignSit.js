@@ -15,9 +15,14 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { useState } from "react";
+import TaskModal from "../../../Components/Modal/taskModal";
 const AssignSit = () => {
+    const[show, setShow] = useState(false)
     const [selected, setSelected] = useState(new Date());
     const [events, setEvents, addEvent] = useArrayState();
+    const handleShow = () =>{
+        setShow(!show)
+    }
     return ( 
         <div className="assign-sit">
             <div className="assign-sit-left">
@@ -29,7 +34,10 @@ const AssignSit = () => {
                         ]}
                     >
                         <DemoItem label="Static variant">
-                        <StaticDatePicker defaultValue={dayjs('2022-04-17')} />
+                        <StaticDatePicker 
+                            defaultValue={dayjs('2022-04-17')} 
+                            onChange={(newDate) => setSelected(newDate)}
+                        />
                         </DemoItem>
                     </DemoContainer>
                     </LocalizationProvider>
@@ -79,6 +87,7 @@ const AssignSit = () => {
                 </div>
             </div>
             <div className="assign-sit-right">
+                <button className="sit-button" onClick={handleShow}>Add new task</button>
                 <Scheduler
                     events={events}
                     selected={selected}
@@ -87,6 +96,7 @@ const AssignSit = () => {
                     onRequestEdit={(evt) => alert("Edit element requested")}
                 />
             </div>
+           {show && <TaskModal handleShow={handleShow}/>}
         </div>
     );
 }

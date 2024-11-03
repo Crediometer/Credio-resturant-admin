@@ -29,7 +29,22 @@
     color: #1B1A17;
 }
 .assign-sit-right{
+    position: relative;
     width: 70%;
+}
+.sit-button{
+    z-index: 60;
+    position: absolute;
+    top: 10rem;
+    right: 0rem;
+    padding: 0.5625rem;
+    background-color: #0177FD;
+    border: none;
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 1rem;
+    color: #FFFFFF;
+    border-radius: 4px;
 }
 .assign-data{
     display: flex;
