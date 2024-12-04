@@ -36,16 +36,16 @@ function createData( name, department, id, status) {
 }
 
 const rows = [
-  createData('Nicholas Patrick', 'Kitchen', "#01", 0),
-  createData('Ben Austin', 'Server', "#02", 1),
-  createData('Adewale Taiwo', 'Server', "#03", 1),
-  createData('Peter Pan', 'Bartender', "#04", 0),
-  createData('Tamo Sosa', 'Server', "#05", 2),
-  createData('Namo Vexihilia', 'Kitchen', "#06", 0),
-  createData('Braiawood Rex', 'Bartender', "#07", 1),
-  createData('Adetola English', 'Kitchen', "#08", 2),
-  createData('Why Brown', 'Kitchen', "#09", 1),
-  createData('Timothy Luca', 'Kitchen', "#10", 0),
+  createData('Nicholas Patrick', 'Kitchen', "901609", 0),
+  createData('Ben Austin', 'Server', "689778", 1),
+  createData('Adewale Taiwo', 'Server', "090987", 1),
+  createData('Peter Pan', 'Bartender', "909689", 0),
+  createData('Tamo Sosa', 'Server', "094756", 2),
+  createData('Namo Vexihilia', 'Kitchen', "908690", 0),
+  createData('Braiawood Rex', 'Bartender', "009689", 1),
+  createData('Adetola English', 'Kitchen', "#998685", 2),
+  createData('Why Brown', 'Kitchen', "590697", 1),
+  createData('Timothy Luca', 'Kitchen', "790610", 0),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -97,7 +97,7 @@ const headCells = [
     id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Unit Price',
+    label: 'Pin',
   },
   {
     id: 'status',

@@ -1,7 +1,13 @@
+import { useState } from "react"
 import table1 from "../../Assets/table1.png"
 import table2 from "../../Assets/table2.png"
 import table3 from "../../Assets/table3.png"
+import QrModal from "../../Components/Modal/Qrmodal"
 const All = () => {
+    const [show, setShow] = useState(false)
+    const handletoggle = () =>{
+        setShow(!show)
+    }
     return ( 
         <div className="arrangement-body-inner">
         <div className="arrangement-body-top">
@@ -13,7 +19,7 @@ const All = () => {
                 </div>
                 <div className="sits bar-sits">
                     <div className="sits-row">
-                        <div className="sit-image">
+                        <div className="sit-image" onClick={handletoggle}>
                             <img src={table1}></img>
                         </div>
                         <div className="sit-image">
@@ -98,6 +104,7 @@ const All = () => {
                 </div>
             </div>
         </div>
+        {show && (<QrModal toggle={handletoggle}/>)}
     </div>
     );
 }

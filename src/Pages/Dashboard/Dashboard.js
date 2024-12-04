@@ -9,6 +9,7 @@ import food from '../../Assets/food.jpeg'
 import Graph from '../../Components/Graph/Graph';
 import { useEffect, useRef, useState } from 'react';
 import CustomFilter from '../../Components/Filter/CustomFilter';
+import { generateOrders } from '../../Components/fakerdata';
 const Dashboard = () => {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -17,6 +18,12 @@ const Dashboard = () => {
     const [graph,setGraph] = useState('line');
     const [period,setPeriod] = useState('Monthly');
     const dropdownRef = useRef(null);
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+      // Generate 5 mock orders on component mount
+      setOrders(generateOrders(4));
+    }, []);
     const handleToggle = () =>{
         setShow(!show)
     }
@@ -86,7 +93,7 @@ const Dashboard = () => {
                                 <div className="filter-outer">
                                     <div className="filter" onClick={handleToggle2}>
                                         <BsCalendar4/>
-                                        <p className='period'>{value}</p>    
+                                        <p>{value}</p>    
                                     </div>
                                         {show2 && (
                                             <div className="custom" ref={dropdownRef}>
@@ -97,7 +104,7 @@ const Dashboard = () => {
                                 <div className="filter-outer">
                                     <div className="filter" onClick={handleToggle3}>
                                         <PiFunnel/>
-                                        <p className='period'>{period}</p>
+                                        <p>{period}</p>
                                     </div>
                                     {show3 && (
                                         <div className="filter-dropdown" ref={dropdownRef}>
@@ -117,82 +124,27 @@ const Dashboard = () => {
                             <p>Recent Orders</p>
                         </div>
                         <div className="dash-order-body">
-                            <div className="recent-order">
-                                <div className="recent-left">
-                                    <div className="recent-image">
-                                        <img src={food}></img>
-                                    </div>
-                                    <div className="recent-details">
-                                        <p className="recent-food-name">Salmon Salad</p>
-                                        <p className="recent-food-detail">Baked Salmon Fish</p>
-                                    </div>
+                        {orders.map((order) => (
+                            <div key={order.id} className="recent-order">
+                            <div className="recent-left">
+                                <div className="recent-image">
+                                <img src={order.image} alt={order.foodName} />
                                 </div>
-                                <div className="recent-right">
-                                    <div className="recent-status">
-                                        <p className="recent-date">12 Aug 2023</p>
-                                        <div className="recent-status-inner outgoing">
-                                            <p>Ongoing</p>
-                                        </div>
-                                    </div>
+                                <div className="recent-details">
+                                <p className="recent-food-name">{order.foodName}</p>
+                                <p className="recent-food-detail">{order.foodDetail}</p>
                                 </div>
                             </div>
-                            <div className="recent-order">
-                                <div className="recent-left">
-                                    <div className="recent-image">
-                                        <img src={food}></img>
-                                    </div>
-                                    <div className="recent-details">
-                                        <p className="recent-food-name">Salmon Salad</p>
-                                        <p className="recent-food-detail">Baked Salmon Fish</p>
-                                    </div>
+                            <div className="recent-right">
+                                <div className="recent-status">
+                                <p className="recent-date">{order.date}</p>
+                                <div className='recent-status-inner outgoing'>
+                                    <p>{order.status}</p>
                                 </div>
-                                <div className="recent-right">
-                                    <div className="recent-status">
-                                        <p className="recent-date">12 Aug 2023</p>
-                                        <div className="recent-status-inner outgoing">
-                                            <p>Ongoing</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            <div className="recent-order">
-                                <div className="recent-left">
-                                    <div className="recent-image">
-                                        <img src={food}></img>
-                                    </div>
-                                    <div className="recent-details">
-                                        <p className="recent-food-name">Salmon Salad</p>
-                                        <p className="recent-food-detail">Baked Salmon Fish</p>
-                                    </div>
-                                </div>
-                                <div className="recent-right">
-                                    <div className="recent-status">
-                                        <p className="recent-date">12 Aug 2023</p>
-                                        <div className="recent-status-inner outgoing">
-                                            <p>Ongoing</p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <div className="recent-order">
-                                <div className="recent-left">
-                                    <div className="recent-image">
-                                        <img src={food}></img>
-                                    </div>
-                                    <div className="recent-details">
-                                        <p className="recent-food-name">Salmon Salad</p>
-                                        <p className="recent-food-detail">Baked Salmon Fish</p>
-                                    </div>
-                                </div>
-                                <div className="recent-right">
-                                    <div className="recent-status">
-                                        <p className="recent-date">12 Aug 2023</p>
-                                        <div className="recent-status-inner outgoing">
-                                            <p>Ongoing</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        ))}
                         </div>
                         <div className="button-con">
                             <Link to='/dashboard/orders'><button className='see-more'>See more</button></Link> 

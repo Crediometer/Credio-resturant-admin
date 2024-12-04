@@ -88,3 +88,27 @@
 .customer-color{
     color: #0177FD !important;
 }
+.scheduler-event {
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.scheduler-event.server {
+    background-color: #FFCDD2;
+}
+
+.scheduler-event.front-desk {
+    background-color: #F8BBD0;
+}
+
+.scheduler-event.kitchen {
+    background-color: #FFF59D;
+}
+
+.scheduler-event.customers {
+    background-color: #E1BEE7;
+}

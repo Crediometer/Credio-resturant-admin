@@ -133,7 +133,7 @@ const Employees = () => {
                                 <div className="table-filter-outer">
                                     <div className="filter" onClick={handleToggle}>
                                         <FiCalendar />
-                                        <p className='period'>{value}</p>
+                                        <p>{value}</p>
                                     </div>
                                     {show && (
                                         <div className="filter-dropdown"  ref={dropdownRef}>
@@ -147,7 +147,7 @@ const Employees = () => {
                                 <div className="table-filter-outer">
                                     <div className="filter" onClick={handleToggle2}>
                                         <IoFunnelOutline/>
-                                        <p className='period'>{value2}</p>
+                                        <p>{value2}</p>
                                     </div>
                                     {show2 && (
                                         <div className="filter-dropdown"  ref={dropdownRef}>

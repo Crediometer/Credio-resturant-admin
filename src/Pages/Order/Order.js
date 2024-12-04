@@ -54,7 +54,7 @@ const Order = () => {
                         </div>
                         <div className="table-filter">
                             <IoFunnelOutline/>
-                            <p className='period' onClick={handleToggle}>{value}</p>
+                            <p onClick={handleToggle}>{value}</p>
                             {show1 && (
                                 <div className="custom custom-2"  ref={dropdownRef}>
                                     <CustomFilter toggle={handleToggle} setvalue={setvalue}/>
@@ -63,7 +63,7 @@ const Order = () => {
                         </div>
                         <div className="table-filter">
                             <BsCalendar2Week/>
-                            <p className='period' onClick={handleToggle2}>Filter</p>
+                            <p onClick={handleToggle2}>Filter</p>
                             {show2 && (
                                 <div className="custom custom-4"  ref={dropdownRef}>
                                     <OrderFilter toggle={handleToggle2}/>

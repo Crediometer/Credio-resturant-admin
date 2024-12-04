@@ -57,7 +57,7 @@ const Categories = () => {
                         <div className="table-filter-outer">
                             <div className="table-filter" onClick={handleToggle}>
                                 <IoFunnelOutline/>
-                                <p className='period'>{value}</p>
+                                <p>{value}</p>
                             </div>
                             {show && (
                                 <div className="custom custom-2"  ref={dropdownRef}>

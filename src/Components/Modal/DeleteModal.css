@@ -3,6 +3,15 @@
     align-items: center;
     justify-content: space-between;
 }
+.qr-image{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qr-image img{
+    width: 50%;
+}
 .delete-head p{
     color: #000;
     text-align: center;

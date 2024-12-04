@@ -1,7 +1,70 @@
 import './login.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import logo from '../../Assets/logo.png'
-const Login = () => {
+import { Switch } from 'antd';
+import { useState } from 'react';
+import { connect } from 'react-redux';
+import LottieAnimation from '../../lotties';
+import loader from "../../Assets/animations/loading.json"
+import { LoginAuthAction } from '../../Redux/Auth/Login/LoginAction';
+import { loginotpData } from '../../Redux/Auth/Signup/OtpAction';
+const Login = ({loading,otpData, data, error,login,otpLoading, otpdata, otperror}) => {
+    const history = useNavigate();
+    const [step, setStep] = useState(1);
+    const [otp, setOtp] = useState("")
+    const[isOpen ,setIsOpen] = useState(false);
+    const [email, setEmail] = useState("")
+    const [type, setType] = useState('password');
+    const [password, setPassword] = useState("");
+    const [showerror, setshowerror] = useState(false)
+    const [loginState, setLoginState] = useState({});
+    const toggle = (checked) => {setIsOpen (checked);}
+
+    const handleNumber = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+        setLoginState({ ...loginState, ...{email} });
+    };
+    const handlePassword = (e) => {
+        const value = e.target.value;
+        // var encrypt = new JSEncrypt();
+        // encrypt.setPublicKey(`${consts.pub_key}`);
+        // var encrypted = encrypt.encrypt(value);
+        setPassword(value);
+        setLoginState({ ...loginState, ...{password:value} });
+    };
+    const handleOtp = (e) =>{
+        const value = e.target.value
+        setOtp(value)
+    }
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        setshowerror(false)
+        try{
+            await login(loginState, ()=>{ 
+                setStep(step + 1)
+            }, ()=>{ 
+                setshowerror(true) 
+            });
+        }catch(error){
+        }
+    };
+    const handleVerifyOtp = (e) =>{
+        e.preventDefault();
+        setshowerror(false)
+        otpData(
+            {
+                email,
+                requestId:data.data.requestId,
+                otp    
+            }, ()=>{ 
+                history("/dashboard")
+                setshowerror(false)
+            },  ()=>{ 
+                setshowerror(true)
+            }
+        )
+    }
     return ( 
         <div className="login-page">
             <div className="login-left">
@@ -28,59 +91,108 @@ const Login = () => {
                         <p className="login-subtext">Welcome back! Please enter your details.</p>
                     </div>
                     <div className="login-form">
-                        <form>
-                            <div className="phone">
-                                <label>Phone number</label><br></br>
-                                <input
-                                type="tel"
-                                name='phone'
-                                placeholder='Enter phone number'
-                                required
-                                ></input>
-                            </div>
-                            <div className="password">
-                                <label>Password</label><br></br>
-                                <input
-                                type='password'
-                                name='password'
-                                placeholder='*************'
-                                required
-                                ></input>
-                            </div>
-                            <Link to="/dashboard">
-                                <div className="submit">
-                                    <input 
-                                    type="submit"
-                                    name="submit"
-                                    value="Login"
+                        
+                       {step === 1 && 
+                            <form onSubmit={handleLogin}>
+                                <div className="phone">
+                                    <label>Email</label><br></br>
+                                    <input
+                                    type="email"
+                                    name='phone'
+                                    placeholder='Enter Email'
+                                    onChange={handleNumber}
+                                    onBlur={handleNumber}
+                                    required
                                     ></input>
                                 </div>
-                            </Link>
-                            <button className='google-login'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <g clip-path="url(#clip0_6014_37826)">
-                                        <path d="M23.7682 12.5298C23.7682 11.7141 23.7021 10.8939 23.561 10.0914H12.2422V14.7124H18.7239C18.455 16.2028 17.5907 17.5212 16.3252 18.3589V21.3573H20.1922C22.463 19.2673 23.7682 16.1807 23.7682 12.5298Z" fill="#4285F4"/>
-                                        <path d="M12.2391 24.2542C15.4756 24.2542 18.205 23.1915 20.1936 21.3573L16.3266 18.3589C15.2507 19.0909 13.8618 19.5053 12.2435 19.5053C9.11291 19.5053 6.45849 17.3933 5.50607 14.5536H1.51562V17.6446C3.55274 21.6968 7.70192 24.2542 12.2391 24.2542Z" fill="#34A853"/>
-                                        <path d="M5.50473 14.5536C5.00206 13.0633 5.00206 11.4495 5.50473 9.95911V6.86816H1.51869C-0.183313 10.2589 -0.183313 14.2538 1.51869 17.6446L5.50473 14.5536Z" fill="#FBBC04"/>
-                                        <path d="M12.2391 5.00302C13.9499 4.97656 15.6034 5.62032 16.8425 6.80202L20.2685 3.37597C18.0991 1.33886 15.2198 0.218891 12.2391 0.254166C7.70192 0.254166 3.55274 2.81158 1.51562 6.86817L5.50166 9.95911C6.44967 7.11509 9.1085 5.00302 12.2391 5.00302Z" fill="#EA4335"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_6014_37826">
-                                        <rect width="24" height="24" fill="white" transform="translate(0 0.253357)"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                Sign in with Google
-                            </button>
-                            <div className="account">
-                                <p className="signin">Don’t have an account yet ? <Link to='/signin'><span>Sign up </span></Link></p>
-                            </div>
-                        </form>
+                                <div className="password">
+                                    <label>Password</label><br></br>
+                                    <input
+                                    type='password'
+                                    name='password'
+                                    placeholder='*************'
+                                    required
+                                    onChange={handlePassword}
+                                    onBlur={handlePassword}
+                                    ></input>
+                                </div>
+                                {/* {isOpen && <div className="phone">
+                                    <label>OTP</label><br></br>
+                                    <input
+                                    type="tel"
+                                    name='phone'
+                                    placeholder='Enter your OTP'
+                                    required
+                                    ></input>
+                                </div>} */}
+                                <p className="signin" style={{marginTop: "5px", marginBottom: "10px"}}>Always keep me logged in <Switch checked={isOpen} onChange={toggle}/></p>
+                                <div className="submit">
+                                    <button disabled={loading}>
+                                        {loading ? (
+                                            <LottieAnimation data={loader}/>
+                                        ):"Login"}
+                                    </button>
+                                </div>
+                                <div className="account">
+                                    <p className="signin">Don’t have an account yet ? <Link to='/signin'><span>Sign up </span></Link></p>
+                                </div>
+                            </form>
+                        }
+                        {step === 2 && 
+                            <form onSubmit={handleVerifyOtp}>
+                                <div className="phone">
+                                    <label>OTP</label><br></br>
+                                    <input
+                                    type="tel"
+                                    name='otp'
+                                    placeholder='Enter your OTP'
+                                    onChange={handleOtp}
+                                    value={otp}
+                                    required
+                                    ></input>
+                                </div>
+                                <p className="signin" style={{marginTop: "5px", marginBottom: "10px"}}>Always keep me logged in <Switch checked={isOpen} onChange={toggle}/></p>
+                                <div className="submit">
+                                    <button disabled={otpLoading}>
+                                        {otpLoading ? (
+                                            <LottieAnimation data={loader}/>
+                                        ):"Login"}
+                                    </button>
+                                </div>
+                                <div className="account">
+                                    <p className="signin">Don’t have an account yet ? <Link to='/signin'><span>Sign up </span></Link></p>
+                                </div>
+                            </form>
+                        }
                     </div>
                 </div>
             </div>
         </div>
      );
 }
- 
-export default Login;
+const mapStateToProps = state => {
+    console.log(state)
+    return{
+        error:state?.login?.error,
+        loading: state?.login?.dataAdded,
+        data:state?.login?.token,
+        otpLoading: state.otp.loading,
+        otperror: state.otp.error,
+        otpdata: state.otp.data,
+        // getprofile: state?.getprofile?.data
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return{
+        login: (loginState, history, setErrorHandler) => {
+            dispatch(LoginAuthAction(loginState, history, setErrorHandler));
+        },
+        
+        otpData: (postdata, history, error) => {
+            dispatch(loginotpData(postdata, history, error));
+        },
+        // fetchgetprofile: () => dispatch(fetchgetprofile()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

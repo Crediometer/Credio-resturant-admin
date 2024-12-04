@@ -13,7 +13,7 @@ const Sidebar = ({isOpen, toggle, show}) => {
     const location = useLocation();
     // const isLinkActive = (val) => {
     //     return location.pathname(val.link);
-    // };
+    // };   
     return ( 
         <div className="sidebar" style={{width: isOpen ? "280px" : "80px"}} >
             <div className="company-logo">

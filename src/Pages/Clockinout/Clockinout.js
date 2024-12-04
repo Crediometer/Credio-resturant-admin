@@ -46,7 +46,7 @@ const Clockinout = () => {
                         <div className="filter-outer">
                             <div className="filter" onClick={handleToggle2}>
                                 <BsCalendar4/>
-                                <p className='period'>{value}</p>    
+                                <p>{value}</p>    
                             </div>
                                 {show2 && (
                                     <div className="custom" ref={dropdownRef}>
@@ -57,7 +57,7 @@ const Clockinout = () => {
                         <div className="table-filter-outer">
                             <div className="filter" onClick={handleToggle}>
                                 <IoFunnelOutline/>
-                                <p className='period'>{value2}</p>
+                                <p >{value2}</p>
                             </div>
                             {show && (
                                 <div className="filter-dropdown"  ref={dropdownRef}>

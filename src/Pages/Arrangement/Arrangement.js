@@ -7,8 +7,10 @@ import Garden from "./Garden";
 import RoofTop from "./RoofTop";
 import { Link } from "react-router-dom";
 import AssignSit from "./Assign/AssignSit";
+import SitModal from "../../Components/Modal/Sitmodal";
 const Arrangement = () => {
     const [show, setShow] = useState(1);
+    const [sitShow, setSitShow] = useState(1);
     const [show2, setShow2] = useState(1)
     const handleOverview = ()=>{
         setShow(1)
@@ -31,7 +33,9 @@ const Arrangement = () => {
     const handleroof = ()=>{
         setShow2(5)
     }
- 
+    const handleToggle = () =>{
+        setSitShow(!sitShow)
+    }
     useEffect(()=>{
         window.scrollTo(0, 0);
     },[])
@@ -43,11 +47,14 @@ const Arrangement = () => {
                     <li onClick={handleCumulative} className={show === 2 ? `sale-nav-active`: ''} >Seat Arrangement</li>
                 </nav>
             </div>
-            {show == 1 && (
+            {show === 1 && (
                 <AssignSit/>
             )}
-            {show == 2 &&
+            {show === 2 &&
                 <div className="arrangement-body">
+                    <div className="arrangement-top-right">
+                        <button onClick={handleToggle}>Add Area +</button>
+                    </div>
                     <div className="arrangement-top">
                         <div className="arrangement-top-left">
                             <nav>
@@ -69,6 +76,7 @@ const Arrangement = () => {
                     {show2 == 5 && <RoofTop/>}
                 </div>
             }
+            {sitShow && (<SitModal toggle={handleToggle}/>)}
         </div>
     );
 }

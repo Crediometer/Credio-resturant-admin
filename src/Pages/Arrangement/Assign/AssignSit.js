@@ -23,7 +23,16 @@ const AssignSit = () => {
     const handleShow = () =>{
         setShow(!show)
     }
+
+    const handleAddEvent = (newEvent) => {
+        addEvent({
+          ...newEvent,
+          className: `scheduler-event ${newEvent.type}`,  // Ensure class is set correctly
+        });
+      };
+
     return ( 
+
         <div className="assign-sit">
             <div className="assign-sit-left">
                 <div className="assign-calendar">
@@ -89,14 +98,13 @@ const AssignSit = () => {
             <div className="assign-sit-right">
                 <button className="sit-button" onClick={handleShow}>Add new task</button>
                 <Scheduler
-                    events={events}
-                    selected={selected}
-                    setSelected={setSelected}
-                    onRequestAdd={(evt) => addEvent(evt)}
-                    onRequestEdit={(evt) => alert("Edit element requested")}
+                     events={events}
+                     selected={selected}
+                     setSelected={setSelected}
+                     onRequestAdd={(evt) => addEvent(evt)}
                 />
             </div>
-           {show && <TaskModal handleShow={handleShow}/>}
+           {show && <TaskModal handleShow={handleShow} addEvent={handleAddEvent}/>}
         </div>
     );
 }
