@@ -1,7 +1,7 @@
 // import '../Login/Login.css';
 import {Link} from 'react-router-dom';
 import logo from '../../Assets/logo.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { FaAddressBook } from 'react-icons/fa';
 import { addFormData, registerBusinessData, registerData } from '../../Redux/Auth/Signup/RegisterAction';
@@ -162,7 +162,7 @@ const Signin = ({
     const handleBusinessData = (e) =>{
         e.preventDefault();
         setshowerror(false)
-        personalData(
+        businessData(
             {
                 restaurantName: resturantName,
                 businessHours: hours,
@@ -183,6 +183,11 @@ const Signin = ({
             history("/")
         }
     }
+    useEffect(()=>{
+        if(otpdata?.data?.registrationCompleted == false){
+            setStep(3)
+        }
+    },[otpdata])
     return ( 
         <div className="login-page">
             <div className="login-left">
@@ -416,7 +421,7 @@ const Signin = ({
                             </form>
                         </div>
                     }
-                     {step === 3 && 
+                     {(step === 3) && 
                         <div className="login-form">
                             <form onSubmit={handleBusinessData}>
                                 <div className="director-form-2">

@@ -110,7 +110,7 @@ export const registerBusinessData = (registerState, history, setErrorHandler) =>
       let datas = JSON.parse(localStorage.getItem("auth"))
       const headers = {
           "Content-Type": "application/json",
-          authorization: `Bearer ${datas?.token?.data?.token?.token}`,
+          authorization: `Bearer ${datas.data.token}`,
       };
       const res = await axios.post(
         `${baseUrl}/save-business-info`,

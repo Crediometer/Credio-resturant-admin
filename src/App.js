@@ -29,11 +29,11 @@ function App() {
     socketInstance.on('admin-update', (data) => {
       console.log('Received admin-update:', data);  // Set received message to state
     });
-    // return () => {
-    //   if (socketInstance) {
-    //     socketInstance.disconnect();
-    //   }
-    // };
+    return () => {
+      if (socketInstance) {
+        socketInstance.disconnect();
+      }
+    };
   }, []);
   return (
     <div className="App">
