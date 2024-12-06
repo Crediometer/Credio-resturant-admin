@@ -1,0 +1,9 @@
+{
+    "extends": ["react-app", "react-app/jest"],
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+    },
+    "overrides": []
+  }
