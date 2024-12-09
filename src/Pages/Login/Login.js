@@ -58,20 +58,21 @@ const Login = ({loading,otpData, data, error,login,otpLoading, otpdata, otperror
                 requestId:data.data.requestId,
                 otp    
             }, ()=>{ 
-                if(otpdata?.data?.registrationCompleted == true){
-                    history("/dashboard")
-                    console.log(otpdata?.data?.registrationCompleted)
-                }else{
-                    history("/signin")
-                    console.log(otpdata?.data?.registrationCompleted)
-                }
+                history("/dashboard")
+                // if(otpdata?.data?.registrationCompleted == true){
+                //     history("/dashboard")
+                //     console.log(otpdata?.data?.registrationCompleted)
+                // }else{
+                //     history("/signin")
+                //     console.log(otpdata?.data?.registrationCompleted)
+                // }
                 setshowerror(false)
             },  ()=>{ 
                 setshowerror(true)
             }
         )
     }
-    return ( 
+    return (
         <div className="login-page">
             <div className="login-left">
                 <div className="group-lower">

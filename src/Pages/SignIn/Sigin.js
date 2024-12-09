@@ -434,7 +434,7 @@ const Signin = ({
                                         required
                                         onChange={handleResName}
                                         value={resturantName}
-                                        ></input>
+                                         ></input>
                                     </div>
                                     <div className="phone">
                                         <label>Phone Number*</label><br></br>

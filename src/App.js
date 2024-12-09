@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const socketInstance = io('https://dinepoint-server.onrender.com/ws/v1/admin', {
       auth:{
-        token: datas.data.token
+        token: datas?.data?.token
       }
     });
     setSocket(socketInstance);
