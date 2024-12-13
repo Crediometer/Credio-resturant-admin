@@ -5,36 +5,57 @@ import store from './Redux/Store';
 import Router from './routes';
 import io from 'socket.io-client';
 import { useEffect, useState } from 'react';
+import { createSocketConnection } from './Socket/Connection';
+import { cleanupListeners, setupSocketListeners } from './Socket/Listener';
+import { emitAdminEvent } from './Socket/Emitter';
 function App() {
   const [socket, setSocket] = useState(null);
   let datas = JSON.parse(localStorage.getItem("auth"))
   useEffect(() => {
-    const socketInstance = io('https://dinepoint-server.onrender.com/ws/v1/admin', {
-      auth:{
-        token: datas?.data?.token
-      }
-    });
+    const socketInstance = createSocketConnection(datas?.data?.token);
     setSocket(socketInstance);
-  
-    // listen for events emitted by the server
-  
-    socketInstance.on('connect', () => {
-      console.log('Connected to server');
-    });
+
+    // Setup listeners
+    setupSocketListeners(socketInstance);
+
+    // Emit an event
     const messageToSend = 'Hello from Admin!';
-    socketInstance.emit('admin-event', messageToSend);
-    socketInstance.on('message', (data) => {
-      console.log(`Received message: ${data}`);
-    });
-    socketInstance.on('admin-update', (data) => {
-      console.log('Received admin-update:', data);  // Set received message to state
-    });
+    emitAdminEvent(socketInstance, messageToSend);
+
     return () => {
+      cleanupListeners(socketInstance);
       if (socketInstance) {
         socketInstance.disconnect();
       }
     };
   }, []);
+  // useEffect(() => {
+  //   const socketInstance = io('https://dinepoint-server.onrender.com/ws/v1/admin', {
+  //     auth:{
+  //       token: datas?.data?.token
+  //     }
+  //   });
+  //   setSocket(socketInstance);
+  
+  //   // listen for events emitted by the server
+  
+  //   socketInstance.on('connect', () => {
+  //     console.log('Connected to server');
+  //   });
+  //   const messageToSend = 'Hello from Admin!';
+  //   socketInstance.emit('admin-event', messageToSend);
+  //   socketInstance.on('message', (data) => {
+  //     console.log(`Received message: ${data}`);
+  //   });
+  //   socketInstance.on('admin-update', (data) => {
+  //     console.log('Received admin-update:', data);  // Set received message to state
+  //   });
+  //   return () => {
+  //     if (socketInstance) {
+  //       socketInstance.disconnect();
+  //     }
+  //   };
+  // }, []);
   return (
     <div className="App">
       <Provider store={store}>
